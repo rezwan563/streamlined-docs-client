@@ -1,8 +1,7 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Home = () => {
+const HomeTwo = () => {
   return (
     <div className="bg-gradient-to-b from-green-100 to-white">
       <header className="bg-white shadow-md">
@@ -71,11 +70,11 @@ const Home = () => {
 
       <footer className="bg-green-900 text-white py-8">
         <div className="container mx-auto text-center">
-          <p>&copy; 2023 Passport Application. All rights reserved.</p>
+          <p>&copy; 2023 Your Passport Application. All rights reserved.</p>
         </div>
       </footer>
     </div>
   );
 }
 
-export default Home;
+export default HomeTwo;
