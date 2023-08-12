@@ -2,7 +2,7 @@
 const Login = () => {
     return (
         <div>
-            login
+            Please Login Now
         </div>
     );
 };
