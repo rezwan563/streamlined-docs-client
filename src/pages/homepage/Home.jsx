@@ -31,10 +31,17 @@ const Home = () => {
               <div className="text-green-600 text-3xl mb-2">Renew</div>
               <div className="text-gray-700">Existing Passport</div>
             </div>
+
             <div className="text-center">
               <div className="text-green-600 text-3xl mb-2">Status</div>
               <div className="text-gray-700">Application Status</div>
             </div>
+
+            <div className="text-center">
+              <div className="text-green-600 text-3xl mb-2">Corrections</div>
+              <div className="text-gray-700"></div>
+            </div>
+
           </div>
         </div>
       </section>
