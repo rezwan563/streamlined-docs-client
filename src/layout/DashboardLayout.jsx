@@ -6,6 +6,7 @@ const DashboardLayout = () => {
       <div className="w-full bg-white py-2">
         <div className="flex justify-between px-8 pt-5">
           <p className="text-3xl font-bold ">Streamlined Docs</p>
+          <p className="text-3xl font-bold">Dashboard</p>
           <input
             type="search"
             name="search"
@@ -29,17 +30,28 @@ const DashboardLayout = () => {
           />
         </div>
       </div>
-      <div className="grid grid-cols-4 ">
-        <div className="bg-green-700 col-span-1 h-screen shadow-lg">
-          <div className="flex flex-col items-center justify-center h-screen text-white">
-                <Link to='/dashboard/application' className="block mb-4">Apply</Link>
-                <Link to='/dashboard/status' className="block mb-4">Status</Link>
+      <div className="grid grid-cols-5 ">
+        <div className="bg-white col-span-1 h-screen shadow-lg rounded-md">
+            <p className="bg-green-500 w-1/2 my-5 mx-auto p-3 rounded-md text-white text-center font-bold shadow-lg">Dashboard</p>
+          <div className="flex flex-col  justify-start text-black w-1/2 mx-auto pt-10">
+                <Link to='/dashboard/new_application' className="block mb-4">New Application</Link>
+                <Link to='/dashboard/all_cdocuments' className="block mb-4">All Documents</Link>
+                <Link to='/dashboard/pending_documents' className="block mb-4">Pending Documents</Link>
+                <Link to='/dashboard/upload' className="block mb-4">Documents Upload</Link>
+               
+                <Link to='/dashboard/progress' className="block mb-4">Correction Progress</Link>
+                <Link to='/dashboard/settings' className="block mb-4">Settings</Link>
+                <div className="mb-4">
+                    Sign out
+                </div>
           </div>
         </div>
-        <div className="bg-slate-200 col-span-3 p-4">
+        <div className="bg-gray-50 col-span-4 p-4">
           <div className="my-24 w-4/5 mx-auto bg-yellow-400">
             <div className="flex justify-start items-start">
-                hello
+                <div className="w-52 bg-blue-500">
+                    hello
+                </div>
             </div>
           </div>
         </div>
