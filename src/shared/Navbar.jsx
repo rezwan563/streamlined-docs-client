@@ -13,7 +13,7 @@ const Navbar = () => {
           <nav className={`space-x-4 md:block ${isClicked ? '': 'hidden'}`}>
             <div className="">
             <Link
-              to="#"
+              to="/"
               className="text-gray-700 font-semibold hover:text-green-500"
             >
               Home
@@ -37,13 +37,13 @@ const Navbar = () => {
               Status
             </Link>
             <Link
-              to="#"
-              className="text-green-500 font-semibold hover:underline"
+              to="/login"
+              className="text-gray-500 font-semibold hover:underline"
             >
               Login
             </Link>
             <Link
-              to="#"
+              to="/register"
               className="bg-green-500 text-white font-semibold px-4 py-2 rounded-full hover:bg-green-600 transition duration-300"
             >
               Sign Up
