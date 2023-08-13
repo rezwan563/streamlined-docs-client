@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 
 const Login = () => {
     return (
-        <div className='flex justify-center items-center min-h-screen py-12'>
-            <div className='flex flex-col max-w-md p-6 rounded-md sm:p-10 bg-gray-100 text-gray-900'>
+        <div className='flex justify-center items-center min-h-screen bg-green-100 sm:py-12'>
+            <div className='flex flex-col max-w-md p-6 rounded-md sm:p-5 w-full bg-gray-100 text-gray-900'>
                 <div className='mb-8 text-center'>
                     <h1 className='my-3 text-4xl font-bold'>Log In</h1>
                     <p className='text-sm text-gray-400'>
@@ -51,7 +51,7 @@ const Login = () => {
                     <div>
                         <button
                             type='submit'
-                            className='bg-green-500 w-full rounded-md py-3 text-white'
+                            className='bg-green-500 hover:bg-green-700 transition-all w-full rounded-md py-3 text-white'
                         >
                             Log In
                         </button>
@@ -81,7 +81,7 @@ const Login = () => {
                 <p className='px-6 text-sm text-center text-gray-400'>
                     Do not have an account yet?{' '}
                     <Link
-                        to='/signUp'
+                        to='/register'
                         className='hover:underline hover:text-green-500 text-gray-600'
                     >
                         Sign up
