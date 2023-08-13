@@ -51,7 +51,7 @@ const Register = () => {
                                 type='email'
                                 name='email'
                                 required
-                                placeholder='Enter Your Email Here'
+                                placeholder='type email address'
                                 className='w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-green-500 bg-gray-200 text-gray-900'
                                 data-temp-mail-org='0'
                             />
@@ -64,7 +64,7 @@ const Register = () => {
                                 type='number'
                                 name='phone'
                                 required
-                                placeholder='phone number'
+                                placeholder='type phone number'
                                 className='w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-green-500 bg-gray-200 text-gray-900'
                                 data-temp-mail-org='0'
                             />
