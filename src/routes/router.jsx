@@ -11,6 +11,7 @@ import PendingDocument from "../pages/dashboard/pendingdoc/PendingDocument";
 import UploadDocument from "../pages/dashboard/uploaddocument/UploadDocument";
 import DocumentProgress from "../pages/dashboard/progress/DocumentProgress";
 import Settings from "../pages/dashboard/settings/Settings";
+import PassportApplicationForm from "../Sections/PassportApplicationForm";
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
         path: "/register",
         element: <Register />,
       },
+      {
+        path: "/apply",
+        element: <PassportApplicationForm></PassportApplicationForm>
+      }
     ],
   },
   {
@@ -67,6 +72,7 @@ const router = createBrowserRouter([
         path:"/dashboard/settings",
         element:<Settings/>,
       },
+      
 
     ],
   },
