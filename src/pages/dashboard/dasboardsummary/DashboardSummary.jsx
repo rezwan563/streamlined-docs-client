@@ -1,7 +1,7 @@
 
 const DashboardSummary = () => {
     return (
-        <div className=" w-3/4  mx-auto bg-white p-4 rounded-md">
+        <div className="w-3/4  mx-auto bg-white p-4 rounded-md">
         {/* ---- content goes here */}
         <p className="text-2xl font-bold cursor-default mb-4">Summary</p>
         <div className="flex flex-wrap justify-between">
