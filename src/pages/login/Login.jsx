@@ -1,7 +1,53 @@
+import { useContext, useState } from 'react';
 import { FcGoogle } from 'react-icons/fc'
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../providers/AuthProvider';
+import Swal from 'sweetalert2'
 
 const Login = () => {
+    const [error, setError] = useState("");
+    const { signIn, signInWithGoogle } = useContext(AuthContext);
+    const navigate = useNavigate()
+    const location = useLocation()
+    const from = location.state?.from?.pathname || '/';
+
+
+    const handleSubmit = e => {
+        e.preventDefault();
+        const form = e.target;
+        const email = form.email.value;
+        const password = form.password.value;
+
+        setError("")
+
+        signIn(email, password)
+            .then(result => {
+                console.log(result.user)
+                Swal.fire({
+                    title: 'Success!',
+                    text: 'You have successfully Login',
+                    icon: 'success',
+                    confirmButtonText: 'Ok'
+                })
+                navigate("/")
+            })
+            .catch(error => {
+                setError(error.message)
+            })
+        form.reset()
+    }
+
+    const handleGoogleSignIn = () => {
+        signInWithGoogle()
+            .then(result => {
+                console.log(result.user)
+                navigate(from, { replace: true })
+            })
+            .catch(error => {
+                setError(error.message)
+            })
+    }
+
     return (
         <div className='flex justify-center items-center min-h-screen bg-green-100 sm:py-12'>
             <div className='flex flex-col max-w-md p-6 rounded-md sm:p-5 w-full bg-gray-100 text-gray-900'>
@@ -12,6 +58,7 @@ const Login = () => {
                     </p>
                 </div>
                 <form
+                    onSubmit={handleSubmit}
                     noValidate=''
                     action=''
                     className='space-y-6 ng-untouched ng-pristine ng-valid'
@@ -47,7 +94,7 @@ const Login = () => {
                             />
                         </div>
                     </div>
-
+                    <p className='text-center text-red-500 font-medium'>{error}</p>
                     <div>
                         <button
                             type='submit'
@@ -72,6 +119,7 @@ const Login = () => {
                     <div className='flex-1 h-px sm:w-16 dark:bg-gray-700'></div>
                 </div>
                 <div
+                    onClick={handleGoogleSignIn}
                     className='flex justify-center items-center space-x-2 border m-3 p-2 border-gray-300 border-rounded cursor-pointer'
                 >
                     <FcGoogle size={32} />
@@ -79,7 +127,7 @@ const Login = () => {
                     <p>Continue with Google</p>
                 </div>
                 <p className='px-6 text-sm text-center text-gray-400'>
-                    Do not have an account yet?{' '}
+                    Do not have an account?
                     <Link
                         to='/register'
                         className='hover:underline hover:text-green-500 text-gray-600'
