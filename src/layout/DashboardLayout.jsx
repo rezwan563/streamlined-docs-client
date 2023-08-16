@@ -51,8 +51,8 @@ const DashboardLayout = () => {
             onChange={handleLanguageChange}
             className="block w-fit px-4 py-1 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-300 focus:border-transparent"
           >
-            <option value="Bangla">{getText("Bangla")}Bangla</option>
-            <option value="English">{getText("English")}English</option>
+            <option value="Bangla">{getText("Bangla")} Bangla </option>
+            <option value="English">{getText("English")} English </option>
           </select>
           <img
             src="https://i.ibb.co/64jgrXk/istockphoto-1335941248-612x612.jpg"
