@@ -31,12 +31,15 @@ const DashboardLayout = () => {
       </div>
       <div className="grid grid-cols-5 ">
         <div className="bg-white col-span-1 h-screen shadow-lg rounded-md">
-          <Link to='/dashboard' className="block bg-green-500 w-1/2 my-5 mx-auto p-3 rounded-md text-white text-center font-bold shadow-lg hover:bg-green-400 cursor-pointer ">
+          <Link
+            to="/dashboard"
+            className="block bg-green-500 w-1/2 my-5 mx-auto p-3 rounded-md text-white text-center font-bold shadow-lg hover:bg-green-400 cursor-pointer "
+          >
             Dashboard
           </Link>
           <div className="flex flex-col  justify-start text-black w-1/2 mx-auto pt-10">
-            <Link to="/dashboard/new_application" className="block mb-4">
-              New Application
+            <Link to="/dashboard/my-details" className="block mb-4">
+              My Details
             </Link>
             <Link to="/dashboard/all_documents" className="block mb-4">
               All Documents
@@ -59,7 +62,7 @@ const DashboardLayout = () => {
         </div>
         <div className="bg-gray-100 col-span-4 py-24 px-12 ">
           {/* Content goes here */}
-          <Outlet/>
+          <Outlet />
         </div>
       </div>
     </div>
