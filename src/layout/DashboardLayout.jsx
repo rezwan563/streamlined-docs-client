@@ -67,11 +67,11 @@ const DashboardLayout = () => {
             to="/dashboard"
             className="block bg-green-500 w-1/2 my-5 mx-auto p-3 rounded-md text-white text-center font-bold shadow-lg hover:bg-green-400 cursor-pointer "
           >
-            {getText("dashboard")}
+            Dashboard
           </Link>
           <div className="flex flex-col  justify-start text-black w-1/2 mx-auto pt-10">
-            <Link to="/dashboard/new_application" className="block mb-4">
-              {getText("newApplication")}
+            <Link to="/dashboard/my-details" className="block mb-4">
+              My Details
             </Link>
             <Link to="/dashboard/all_documents" className="block mb-4">
               {getText("allDocuments")}
