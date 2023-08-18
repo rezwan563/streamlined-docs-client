@@ -12,7 +12,7 @@ import UploadDocument from "../pages/dashboard/uploaddocument/UploadDocument";
 import DocumentProgress from "../pages/dashboard/progress/DocumentProgress";
 import Settings from "../pages/dashboard/settings/Settings";
 import PassportApplicationForm from "../Sections/PassportApplicationForm";
-import EditProfile from "../pages/dashboard/mydetails/EditProfile";
+import EditProfile from "../pages/dashboard/mydetails/Editprofile"
 
 const router = createBrowserRouter([
   {

@@ -1,6 +1,21 @@
-import { Link, Outlet } from "react-router-dom";
+import { useContext } from "react";
+import { Link, Outlet, useNavigate } from "react-router-dom";
+import { AuthContext } from "../providers/AuthProvider";
 
 const DashboardLayout = () => {
+  const { user, logOut } = useContext(AuthContext)
+  const navigate = useNavigate()
+  console.log(user);
+  const from = '/'
+
+  const signOut = () =>{
+    logOut()
+    .then(() => (
+      navigate(from)
+    ))
+    .catch(err => console.log(err))
+    
+  }
   return (
     <div>
       <div className="w-full bg-white py-2">
@@ -23,7 +38,7 @@ const DashboardLayout = () => {
             </option>
           </select>
           <img
-            src="https://i.ibb.co/64jgrXk/istockphoto-1335941248-612x612.jpg"
+            src={user?.photoURL}
             alt=""
             className="w-12 h-12 rounded-full"
           />
@@ -57,7 +72,7 @@ const DashboardLayout = () => {
             <Link to="/dashboard/settings" className="block mb-4">
               Settings
             </Link>
-            <div className="mb-4 cursor-pointer ">Sign out</div>
+            <div className="mb-4 cursor-pointer " onClick={signOut}>Sign out</div>
           </div>
         </div>
         <div className="bg-gray-100 col-span-4 py-24 px-12 ">

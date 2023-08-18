@@ -44,8 +44,7 @@ const Settings = () => {
   // };
 
   return (
-    <div className="w-full md:w-3/4  mx-auto bg-white p-4 rounded-md">
-      <div className="w-full p-2 md:w-2/3 md:mx-auto">
+      <div className="bg-white p-6 rounded-md shadow-md w-full md:w-2/3 md:mx-auto lg:w-1/2 xl:w-1/3">
         <h2 className="text-2xl font-semibold mb-4">Account Settings</h2>
         <form>
           <div className="mb-4">
@@ -181,7 +180,6 @@ const Settings = () => {
           </button>
         </form>
       </div>
-    </div>
   );
 };
 
