@@ -1,9 +1,29 @@
-import { useState } from "react";
-import profileData from "./profileData.json";
+import { useState, useEffect } from "react";
 
 function EditProfile() {
-  const [formData, setFormData] = useState(profileData);
+  const [formData, setFormData] = useState({ email: "test@gmail.com" });
   const [editMode, setEditMode] = useState({});
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // Fetch initial profile data from the API endpoint
+    fetch("http://localhost:5000/users/test@gmail.com")
+      .then((response) => response.json())
+      .then((profileData) => {
+        setFormData(profileData);
+        setLoading(false);
+        setEditMode(
+          Object.keys(profileData).reduce(
+            (acc, key) => ({ ...acc, [key]: false }),
+            {}
+          )
+        );
+      })
+      .catch((error) => {
+        console.error("Error fetching profile data:", error);
+        setLoading(false);
+      });
+  }, []);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -21,158 +41,105 @@ function EditProfile() {
   };
 
   const handleSaveClick = () => {
-    //ToDo
-  };
+    if (Object.values(editMode).some((val) => val)) {
+      const method = formData.id ? "POST" : "PUT";
+      const endpoint =
+        method === "PUT"
+          ? `http://localhost:5000/userprofiles/${formData.email}`
+          : "http://localhost:5000/userprofiles";
 
-  const handleFileUpload = (event, fieldName) => {
-    const file = event.target.files[0];
-    setFormData((prevData) => ({
-      ...prevData,
-      [fieldName]: file,
-    }));
+      fetch(endpoint, {
+        method,
+        body: JSON.stringify(formData),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Error saving changes");
+          }
+          return response.json();
+        })
+        .then((result) => {
+          // Handle the success response
+          console.log("Changes saved:", result);
+        })
+        .catch((error) => {
+          console.error("Error saving changes:", error);
+          // Display an error message to the user
+        });
+    }
   };
 
   const profileEntries = [
     { name: "Full Name", key: "fullName" },
     { name: "National ID Number", key: "nationalIdNumber" },
-    { name: "Date of Birth", key: "dateOfBirth" },
+    { name: "Date of Birth", key: "dob" },
     { name: "Gender", key: "gender" },
     { name: "Address", key: "address" },
     { name: "Issue Date", key: "issueDate" },
     { name: "Expiry Date", key: "expiryDate" },
-    { name: "Issuing Authority", key: "issuingAuthority" },
+    { name: "Issuing Authority", key: "auth" },
     { name: "Citizenship", key: "citizenship" },
     { name: "Height", key: "height" },
     { name: "Eye Color", key: "eyeColor" },
     { name: "Blood Type", key: "bloodType" },
+    { name: "Photo URL", key: "photoUrl" },
+    // Add other profile entries
   ];
 
   return (
     <div className="container mx-auto px-4 py-8">
       <h2 className="text-2xl font-semibold mb-4">Edit Profile</h2>
-      <form className=" grid grid-cols-2 gap-6 gap-x-20">
-        {profileEntries.map((entry) => (
-          <div className="mb-4" key={entry.key}>
-            <label htmlFor={entry.key} className="block font-semibold mb-1">
-              {entry.name}
-            </label>
-            {editMode[entry.key] ? (
-              entry.key === "address" ? (
-                //separate fields
-                <>
+      {loading ? (
+        <div>Loading...</div>
+      ) : (
+        <form className="grid grid-cols-2 gap-6 gap-x-20">
+          {profileEntries.map((entry) => (
+            <div className="mb-4" key={entry.key}>
+              <label htmlFor={entry.key} className="block font-semibold mb-1">
+                {entry.name}
+              </label>
+              {editMode[entry.key] ? (
+                entry.key === "address" || entry.key === "photoUrl" ? (
                   <input
-                    type="text"
-                    id={`${entry.key}-street`}
-                    name={`${entry.key}.street`}
-                    value={formData[entry.key]?.street}
-                    onChange={handleInputChange}
-                    className="border border-gray-300 rounded-lg px-3 py-2 w-full mb-2"
-                    placeholder="Street"
-                  />
-                  <input
-                    type="text"
-                    id={`${entry.key}-city`}
-                    name={`${entry.key}.city`}
-                    value={formData[entry.key]?.city}
-                    onChange={handleInputChange}
-                    className="border border-gray-300 rounded-lg px-3 py-2 w-full mb-2"
-                    placeholder="City"
-                  />
-                  <input
-                    type="text"
-                    id={`${entry.key}-state`}
-                    name={`${entry.key}.state`}
-                    value={formData[entry.key]?.state}
-                    onChange={handleInputChange}
-                    className="border border-gray-300 rounded-lg px-3 py-2 w-full mb-2"
-                    placeholder="State"
-                  />
-                  <input
-                    type="text"
-                    id={`${entry.key}-postalCode`}
-                    name={`${entry.key}.postalCode`}
-                    value={formData[entry.key]?.postalCode}
+                    type={entry.key === "photoUrl" ? "url" : "text"}
+                    id={entry.key}
+                    name={entry.key}
+                    value={formData[entry.key]}
                     onChange={handleInputChange}
                     className="border border-gray-300 rounded-lg px-3 py-2 w-full"
-                    placeholder="Postal Code"
+                    placeholder={entry.name}
                   />
-                </>
+                ) : (
+                  <input
+                    type="text"
+                    id={entry.key}
+                    name={entry.key}
+                    value={formData[entry.key]}
+                    onChange={handleInputChange}
+                    className="border border-gray-300 rounded-lg px-3 py-2 w-full"
+                  />
+                )
               ) : (
-                //for text input
-                <input
-                  type="text"
-                  id={entry.key}
-                  name={entry.key}
-                  value={formData[entry.key]}
-                  onChange={handleInputChange}
-                  className="border border-gray-300 rounded-lg px-3 py-2 w-full"
-                />
-              )
-            ) : (
-              <div className="flex items-center">
-                <div className="border border-gray-300 rounded-lg px-3 py-2 w-full">
-                  {entry.key === "address" ? (
-                    //address fields
-                    <>
-                      <div>
-                        {formData[entry.key]?.street},{" "}
-                        {formData[entry.key]?.city},{" "}
-                        {formData[entry.key]?.state},{" "}
-                        {formData[entry.key]?.postalCode}
-                      </div>
-                    </>
-                  ) : (
-                    //edit separate text
-                    formData[entry.key]
-                  )}
+                <div className="flex items-center">
+                  <div className="border border-gray-300 rounded-lg px-3 py-2 w-full">
+                    {formData[entry.key]}
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => handleEditClick(entry.key)}
+                    className="ml-2 text-blue-500"
+                  >
+                    Edit
+                  </button>
                 </div>
-                <button
-                  type="button"
-                  onClick={() => handleEditClick(entry.key)}
-                  className="ml-2 text-blue-500"
-                >
-                  Edit
-                </button>
-              </div>
-            )}
-          </div>
-        ))}
-
-        {/* File Upload */}
-        <div className="mb-4">
-          <label htmlFor="file1" className="block font-semibold mb-1">
-            File 1
-          </label>
-          {editMode ? (
-            <input
-              type="file"
-              id="file1"
-              name="file1"
-              onChange={(event) => handleFileUpload(event, "file1")}
-              className="border border-gray-300 rounded-lg px-3 py-2 w-full"
-            />
-          ) : (
-            <div>{formData.file1 && formData.file1.name}</div>
-          )}
-        </div>
-        <div className="mb-4">
-          <label htmlFor="file1" className="block font-semibold mb-1">
-            File 2
-          </label>
-          {editMode ? (
-            <input
-              type="file"
-              id="file1"
-              name="file1"
-              onChange={(event) => handleFileUpload(event, "file1")}
-              className="border border-gray-300 rounded-lg px-3 py-2 w-full"
-            />
-          ) : (
-            <div>{formData.file1 && formData.file1.name}</div>
-          )}
-        </div>
-        {/* Add More files */}
-      </form>
+              )}
+            </div>
+          ))}
+        </form>
+      )}
       <div className="flex justify-center mt-10">
         <button
           type="button"

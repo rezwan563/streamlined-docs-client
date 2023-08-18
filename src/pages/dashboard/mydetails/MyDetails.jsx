@@ -1,31 +1,40 @@
 import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import profileData from "./profileData.json";
 import { AuthContext } from "../../../providers/AuthProvider";
 
 function ProfileSection() {
   const [data, setData] = useState({});
   const { user } = useContext(AuthContext)
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    setData(profileData);
+    fetch("http://localhost:5000/users/test@gmail.com")
+      .then((response) => response.json())
+      .then((profileData) => {
+        setData(profileData);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error("Error fetching profile data:", error);
+        setLoading(false);
+      });
   }, []);
 
-  const addressString =
-    `${data.address?.street}, ${data.address?.city}, ${data.address?.state}, ${data.address?.postalCode}` ||
-    "";
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
   const profileEntries = [
     { name: "Full Name", value: data.fullName },
     { name: "National ID Number", value: data.nationalIdNumber },
-    { name: "Date of Birth", value: data.dateOfBirth },
+    { name: "Date of Birth", value: data.dob },
     { name: "Gender", value: data.gender },
-    { name: "Address", value: addressString },
+    { name: "Address", value: data.address },
     { name: "Issue Date", value: data.issueDate },
     { name: "Expiry Date", value: data.expiryDate },
-    { name: "Issuing Authority", value: data.issuingAuthority },
+    { name: "Issuing Authority", value: data.auth },
     { name: "Citizenship", value: data.citizenship },
-    { name: "Height", value: data.height },
+    { name: "Height", value: `${data.height} cm` },
     { name: "Eye Color", value: data.eyeColor },
     { name: "Blood Type", value: data.bloodType },
   ];
