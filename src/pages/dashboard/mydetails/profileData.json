@@ -3,12 +3,7 @@
   "nationalIdNumber": "1234567890123",
   "dateOfBirth": "1990-01-15",
   "gender": "Male",
-  "address": {
-    "street": "123 Main Street",
-    "city": "Cityville",
-    "state": "Stateville",
-    "postalCode": "12345"
-  },
+  "address": "123 Main Street, Cityville, Stateville, 12345",
   "photoUrl": "https://i.ibb.co/G5SdTsN/reshot-illustration-student-taki.png",
   "issueDate": "2010-05-20",
   "expiryDate": "2025-05-20",
