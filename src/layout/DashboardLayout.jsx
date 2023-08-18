@@ -1,37 +1,19 @@
-import { useState } from "react";
-import { Link, Outlet } from "react-router-dom";
+
+import { useContext } from "react";
+import { Link, Outlet, useNavigate } from "react-router-dom";
+import { AuthContext } from "../providers/AuthProvider";
 
 const DashboardLayout = () => {
-  const [selectedLanguage, setSelectedLanguage] = useState("English");
+  const { user, logOut } = useContext(AuthContext);
+  const navigate = useNavigate();
+  console.log(user);
+  const from = "/";
 
-  const languageTexts = {
-    English: {
-      dashboard: "Dashboard",
-      newApplication: "New Application",
-      allDocuments: "All Documents",
-      pendingDocuments: "Pending Documents",
-      upload: "Documents Upload",
-      progress: "Correction Progress",
-      settings: "Settings",
-      signOut: "Sign out",
-    },
-    Bangla: {
-      dashboard: "ড্যাশবোর্ড",
-      newApplication: "নতুন আবেদন",
-      allDocuments: "সমস্ত ডকুমেন্ট",
-      pendingDocuments: "মুলতুবি ডকুমেন্ট",
-      upload: "ডকুমেন্ট আপলোড",
-      progress: "সংশোধন অগ্রগতি",
-      settings: "সেটিংস",
-      signOut: "সাইন আউট",
-    },
+  const signOut = () => {
+    logOut()
+      .then(() => navigate(from))
+      .catch((err) => console.log(err));
   };
-
-  const handleLanguageChange = (event) => {
-    setSelectedLanguage(event.target.value);
-  };
-
-  const getText = (key) => languageTexts[selectedLanguage][key];
 
   return (
     <div>
@@ -54,41 +36,46 @@ const DashboardLayout = () => {
             <option value="Bangla">{getText("Bangla")} Bangla </option>
             <option value="English">{getText("English")} English </option>
           </select>
-          <img
-            src="https://i.ibb.co/64jgrXk/istockphoto-1335941248-612x612.jpg"
-            alt=""
-            className="w-12 h-12 rounded-full"
-          />
+          <img src={user?.photoURL} alt="" className="w-12 h-12 rounded-full" />
         </div>
       </div>
       <div className="grid grid-cols-5 ">
-        <div className="bg-white col-span-1 h-screen shadow-lg rounded-md">
+
+        <div className="bg-white col-span-1 min-h-screen shadow-lg rounded-md">
+
           <Link
             to="/dashboard"
             className="block bg-green-500 w-1/2 my-5 mx-auto p-3 rounded-md text-white text-center font-bold shadow-lg hover:bg-green-400 cursor-pointer "
           >
-            {getText("dashboard")}
+
+            Dashboard
           </Link>
           <div className="flex flex-col  justify-start text-black w-1/2 mx-auto pt-10">
-            <Link to="/dashboard/new_application" className="block mb-4">
-              {getText("newApplication")}
+            <Link to="/dashboard/my-details" className="block mb-4">
+              My Details
             </Link>
-            <Link to="/dashboard/all_documents" className="block mb-4">
-              {getText("allDocuments")}
+            <Link to="/dashboard/edit-profile" className="block mb-4">
+              Edit Profile
             </Link>
-            <Link to="/dashboard/pending_documents" className="block mb-4">
-              {getText("pendingDocuments")}
-            </Link>
-            <Link to="/dashboard/upload" className="block mb-4">
-              {getText("upload")}
-            </Link>
+            {/* This will be admin link. Only admin can go to this route */}
+            {/* <Link to="/dashboard/pending_documents" className="block mb-4">
+              Pending Documents
+            </Link> */}
+            {/* <Link to="/dashboard/upload" className="block mb-4">
+              Documents Upload
+            </Link> */}
+
             <Link to="/dashboard/progress" className="block mb-4">
               {getText("progress")}
             </Link>
             <Link to="/dashboard/settings" className="block mb-4">
               {getText("settings")}
             </Link>
-            <div className="mb-4 cursor-pointer ">{getText("signOut")}</div>
+
+            <div className="mb-4 cursor-pointer " onClick={signOut}>
+              Sign out
+            </div>
+
           </div>
         </div>
         <div className="bg-gray-100 col-span-4 py-24 px-12 ">
