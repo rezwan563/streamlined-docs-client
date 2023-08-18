@@ -1,6 +1,6 @@
 import { useContext, useState } from 'react';
 import { FcGoogle } from 'react-icons/fc'
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
 import Swal from 'sweetalert2'
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
@@ -10,8 +10,7 @@ const Login = () => {
     const [error, setError] = useState("");
     const { signIn, signInWithGoogle } = useContext(AuthContext);
     const navigate = useNavigate()
-    const location = useLocation()
-    const from = location.state?.from?.pathname || '/';
+    const from =  '/dashboard';
 
 
     const handleSubmit = e => {
