@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 const Settings = () => {
   const [formData, setFormData] = useState({
@@ -32,15 +32,15 @@ const Settings = () => {
     }));
   };
 
-  const handleSubmit = (e, field) => {
-    e.preventDefault();
-    setEditableFields((prevFields) => ({
-      ...prevFields,
-      [field]: false,
-    }));
-    // You can add your logic here to submit the updated field
-    console.log("Updated field:", field);
-  };
+  // const handleSubmit = (e, field) => {
+  //   e.preventDefault();
+  //   setEditableFields((prevFields) => ({
+  //     ...prevFields,
+  //     [field]: false,
+  //   }));
+  //   // You can add your logic here to submit the updated field
+  //   console.log("Updated field:", field);
+  // };
 
   return (
       <div className="bg-white p-6 rounded-md shadow-md w-full md:w-2/3 md:mx-auto lg:w-1/2 xl:w-1/3">
