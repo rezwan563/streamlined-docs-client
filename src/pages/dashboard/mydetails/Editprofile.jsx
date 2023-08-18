@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 function EditProfile() {
-  const [formData, setFormData] = useState({});
+  const [formData, setFormData] = useState({ email: "test@gmail.com" });
   const [editMode, setEditMode] = useState({});
   const [loading, setLoading] = useState(true);
 
@@ -41,22 +41,35 @@ function EditProfile() {
   };
 
   const handleSaveClick = () => {
-    // Make the POST request to the desired endpoint
-    fetch("http://localhost:5000/users", {
-      method: "POST",
-      body: JSON.stringify(formData),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then((response) => response.json())
-      .then((result) => {
-        // Handle the response if needed
-        console.log("Changes saved:", result);
+    if (Object.values(editMode).some((val) => val)) {
+      const method = formData.id ? "POST" : "PUT";
+      const endpoint =
+        method === "PUT"
+          ? `http://localhost:5000/userprofiles/${formData.email}`
+          : "http://localhost:5000/userprofiles";
+
+      fetch(endpoint, {
+        method,
+        body: JSON.stringify(formData),
+        headers: {
+          "Content-Type": "application/json",
+        },
       })
-      .catch((error) => {
-        console.error("Error saving changes:", error);
-      });
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Error saving changes");
+          }
+          return response.json();
+        })
+        .then((result) => {
+          // Handle the success response
+          console.log("Changes saved:", result);
+        })
+        .catch((error) => {
+          console.error("Error saving changes:", error);
+          // Display an error message to the user
+        });
+    }
   };
 
   const profileEntries = [

@@ -49,6 +49,7 @@ const router = createBrowserRouter([
         path: "/dashboard/my-details",
         element: <MyDetails />,
       },
+
       {
         path: "/dashboard/edit-profile",
         element: <EditProfile />,
