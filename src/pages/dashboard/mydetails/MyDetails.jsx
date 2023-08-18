@@ -1,10 +1,8 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { AuthContext } from "../../../providers/AuthProvider";
 
 function ProfileSection() {
   const [data, setData] = useState({});
-  const { user } = useContext(AuthContext)
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -45,7 +43,7 @@ function ProfileSection() {
         <section className="mb-8">
           <div className="flex justify-center items-center mb-6">
             <img
-              src={user?.photoURL}
+              src={data.photoUrl}
               alt="Profile"
               className="w-52 h-52 rounded-full border-2 border-gray-300"
             />
