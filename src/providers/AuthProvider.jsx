@@ -11,7 +11,9 @@ import {
   signOut,
   updateProfile,
 } from 'firebase/auth'
-import { app } from '../firebase/firebase.config'
+import { app } from '../firebase/firebase.config';
+// import Cookies from 'js-cookies';
+// import axios from 'axios';
 
 export const AuthContext = createContext("")
 const auth = getAuth(app)
@@ -54,15 +56,28 @@ const AuthProvider = ({ children }) => {
   }
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, currentUser => {
-      setUser(currentUser)
-    //   console.log('current user', currentUser)
-      setLoading(false)
-    })
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+      // get and set token
+      // if (currentUser) {
+      //   axios
+      //     .post(`${import.meta.env.VITE_SERVER_API}/jwt`, {
+      //       email: currentUser.email,
+      //     })
+      //     .then((data) => {
+      //       // Use js-cookie to set the token as a cookie
+      //       Cookies.set("access-token", data.data.token);
+      //       setLoading(false);
+      //     });
+      // } else {
+      //   // Remove the token cookie
+      //   Cookies.remove("access-token");
+      // }
+    });
     return () => {
-      return unsubscribe()
-    }
-  }, [])
+      return unsubscribe;
+    };
+  }, []);
 
   const authInfo = {
     user,
