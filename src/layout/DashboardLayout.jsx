@@ -45,7 +45,7 @@ const DashboardLayout = () => {
         </div>
       </div>
       <div className="grid grid-cols-5 ">
-        <div className="bg-white col-span-1 h-screen shadow-lg rounded-md">
+        <div className="bg-white col-span-1 min-h-screen shadow-lg rounded-md">
           <Link
             to="/dashboard"
             className="block bg-green-500 w-1/2 my-5 mx-auto p-3 rounded-md text-white text-center font-bold shadow-lg hover:bg-green-400 cursor-pointer "
@@ -59,9 +59,10 @@ const DashboardLayout = () => {
             <Link to="/dashboard/all_documents" className="block mb-4">
               All Documents
             </Link>
-            <Link to="/dashboard/pending_documents" className="block mb-4">
+            {/* This will be admin link. Only admin can go to this route */}
+            {/* <Link to="/dashboard/pending_documents" className="block mb-4">
               Pending Documents
-            </Link>
+            </Link> */}
             <Link to="/dashboard/upload" className="block mb-4">
               Documents Upload
             </Link>

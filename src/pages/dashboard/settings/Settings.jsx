@@ -32,6 +32,7 @@ const Settings = () => {
     }));
   };
 
+  // TODO:  This is handle submit logic. It will be uncommented once authentication
   // const handleSubmit = (e, field) => {
   //   e.preventDefault();
   //   setEditableFields((prevFields) => ({
@@ -173,7 +174,7 @@ const Settings = () => {
           </div>
           <button
             type="submit"
-            className="bg-green-500 text-white font-semibold px-6 py-2 rounded-full hover:bg-green-600 transition duration-300 w-full"
+            className="bg-green-500 text-white font-semibold px-6 py-2 rounded-full hover:bg-green-600 transition duration-300"
           >
             Save Changes
           </button>
