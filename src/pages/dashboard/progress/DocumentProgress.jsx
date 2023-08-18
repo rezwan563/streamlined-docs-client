@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./DocumentProgress.css";
 import { TiTick } from "react-icons/ti";
 const DocumentProgress = () => {
-    const steps = ["Customer Info", "Shipping Info", "Payment", "Succesfull"];
+    const steps = ["Applied", "In Progress", "Reviewing", "Completed"];
   const [currentStep, setCurrentStep] = useState(1);
   const [complete, setComplete] = useState(false);
     return (
