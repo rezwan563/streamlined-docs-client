@@ -1,15 +1,15 @@
 import { useContext, useState } from 'react';
 import { FcGoogle } from 'react-icons/fc'
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link,  useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
 import Swal from 'sweetalert2'
+import axios from 'axios';
 
 const Login = () => {
     const [error, setError] = useState("");
     const { signIn, signInWithGoogle } = useContext(AuthContext);
-    const navigate = useNavigate()
-    const location = useLocation()
-    const from = location.state?.from?.pathname || '/';
+    const navigate = useNavigate();
+    const from =  '/dashboard' ;
 
 
     const handleSubmit = e => {
@@ -39,10 +39,25 @@ const Login = () => {
 
     const handleGoogleSignIn = () => {
         signInWithGoogle()
-            .then(result => {
-                console.log(result.user)
-                navigate(from, { replace: true })
+        .then((r) => {
+            const loggedUser = r.user;
+            console.log(loggedUser);
+            const savedUser = { name: loggedUser.displayName, email: loggedUser.email };
+            
+            // Use axios to make the POST request to the local server
+            axios.post('http://localhost:5000/users', savedUser, {
+                headers: {
+                    'Content-Type': 'application/json'
+                }
             })
+            .then(() => {
+                
+                navigate(from);
+            })
+            .catch(error => {
+                console.error(error);
+            });
+        })
             .catch(error => {
                 setError(error.message)
             })
