@@ -43,8 +43,7 @@ const Settings = () => {
   // };
 
   return (
-    <div className="bg-gray-100 min-h-screen flex justify-center items-center">
-      <div className="bg-white p-6 rounded-md shadow-md w-full md:w-2/3 lg:w-1/2 xl:w-1/3">
+      <div className="bg-white p-6 rounded-md shadow-md w-full md:w-2/3 md:mx-auto lg:w-1/2 xl:w-1/3">
         <h2 className="text-2xl font-semibold mb-4">Account Settings</h2>
         <form>
           <div className="mb-4">
@@ -180,7 +179,6 @@ const Settings = () => {
           </button>
         </form>
       </div>
-    </div>
   );
 };
 
