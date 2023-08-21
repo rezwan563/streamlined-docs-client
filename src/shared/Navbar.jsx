@@ -14,7 +14,7 @@ const Navbar = () => {
     <nav>
       <header className="bg-white shadow-md">
         <div className="container mx-auto py-4 px-8 flex justify-between items-center">
-          <img src="passport-logo.png" alt="Passport Logo" className="w-20" />
+        <img src="passport-logo.png" alt="Passport Logo" className="w-20" />
          
           <div className="md:hidden">
             {isMenuOpen ? (
