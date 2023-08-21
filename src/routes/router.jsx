@@ -4,7 +4,7 @@ import Home from "../pages/homepage/Home";
 import Register from "../pages/register/Register";
 import Login from "../pages/login/Login";
 import DashboardLayout from "../layout/DashboardLayout";
-import NewApplication from "../pages/dashboard/newapplicattion/NewApplication";
+import MyDetails from "../pages/dashboard/mydetails/MyDetails";
 import DashboardSummary from "../pages/dashboard/dasboardsummary/DashboardSummary";
 import AllDocuments from "../pages/dashboard/alldocuments/AllDocuments";
 import PendingDocument from "../pages/dashboard/pendingdoc/PendingDocument";
@@ -12,6 +12,7 @@ import UploadDocument from "../pages/dashboard/uploaddocument/UploadDocument";
 import DocumentProgress from "../pages/dashboard/progress/DocumentProgress";
 import Settings from "../pages/dashboard/settings/Settings";
 import PassportApplicationForm from "../Sections/PassportApplicationForm";
+import EditProfile from "../pages/dashboard/mydetails/Editprofile"
 
 const router = createBrowserRouter([
   {
@@ -32,8 +33,8 @@ const router = createBrowserRouter([
       },
       {
         path: "/apply",
-        element: <PassportApplicationForm></PassportApplicationForm>
-      }
+        element: <PassportApplicationForm></PassportApplicationForm>,
+      },
     ],
   },
   {
@@ -45,35 +46,38 @@ const router = createBrowserRouter([
         element: <DashboardSummary />,
       },
       {
-        path: "/dashboard/new_application",
-        element:<NewApplication/>
+        path: "/dashboard/my-details",
+        element: <MyDetails />,
+      },
+
+      {
+        path: "/dashboard/edit-profile",
+        element: <EditProfile />,
       },
       {
         path: "/dashboard/all_documents",
-        element:<AllDocuments/>
+        element: <AllDocuments />,
       },
       {
         path: "/dashboard/pending_documents",
-        element:<PendingDocument/>
+        element: <PendingDocument />,
       },
       {
         path: "/dashboard/upload",
-        element:<UploadDocument/>
+        element: <UploadDocument />,
       },
       {
         path: "/dashboard/pending_documents",
-        element:<PendingDocument/>
+        element: <PendingDocument />,
       },
       {
-        path:"/dashboard/progress",
-        element:<DocumentProgress/>,
+        path: "/dashboard/progress",
+        element: <DocumentProgress />,
       },
       {
-        path:"/dashboard/settings",
-        element:<Settings/>,
+        path: "/dashboard/settings",
+        element: <Settings />,
       },
-      
-
     ],
   },
 ]);

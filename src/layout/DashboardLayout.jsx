@@ -1,6 +1,21 @@
-import { Link, Outlet } from "react-router-dom";
+import { useContext } from "react";
+import { Link, Outlet, useNavigate } from "react-router-dom";
+import { AuthContext } from "../providers/AuthProvider";
 
 const DashboardLayout = () => {
+  const { user, logOut } = useContext(AuthContext)
+  const navigate = useNavigate()
+  console.log(user);
+  const from = '/'
+
+  const signOut = () =>{
+    logOut()
+    .then(() => (
+      navigate(from)
+    ))
+    .catch(err => console.log(err))
+    
+  }
   return (
     <div>
       <div className="w-full bg-white py-2">
@@ -23,27 +38,31 @@ const DashboardLayout = () => {
             </option>
           </select>
           <img
-            src="https://i.ibb.co/64jgrXk/istockphoto-1335941248-612x612.jpg"
+            src={user?.photoURL}
             alt=""
             className="w-12 h-12 rounded-full"
           />
         </div>
       </div>
       <div className="grid grid-cols-5 ">
-        <div className="bg-white col-span-1 h-screen shadow-lg rounded-md">
-          <Link to='/dashboard' className="block bg-green-500 w-1/2 my-5 mx-auto p-3 rounded-md text-white text-center font-bold shadow-lg hover:bg-green-400 cursor-pointer ">
+        <div className="bg-white col-span-1 min-h-screen shadow-lg rounded-md">
+          <Link
+            to="/dashboard"
+            className="block bg-green-500 w-1/2 my-5 mx-auto p-3 rounded-md text-white text-center font-bold shadow-lg hover:bg-green-400 cursor-pointer "
+          >
             Dashboard
           </Link>
           <div className="flex flex-col  justify-start text-black w-1/2 mx-auto pt-10">
-            <Link to="/dashboard/new_application" className="block mb-4">
-              New Application
+            <Link to="/dashboard/my-details" className="block mb-4">
+              My Details
             </Link>
             <Link to="/dashboard/all_documents" className="block mb-4">
               All Documents
             </Link>
-            <Link to="/dashboard/pending_documents" className="block mb-4">
+            {/* This will be admin link. Only admin can go to this route */}
+            {/* <Link to="/dashboard/pending_documents" className="block mb-4">
               Pending Documents
-            </Link>
+            </Link> */}
             <Link to="/dashboard/upload" className="block mb-4">
               Documents Upload
             </Link>
@@ -54,12 +73,12 @@ const DashboardLayout = () => {
             <Link to="/dashboard/settings" className="block mb-4">
               Settings
             </Link>
-            <div className="mb-4 cursor-pointer ">Sign out</div>
+            <div className="mb-4 cursor-pointer " onClick={signOut}>Sign out</div>
           </div>
         </div>
         <div className="bg-gray-100 col-span-4 py-24 px-12 ">
           {/* Content goes here */}
-          <Outlet/>
+          <Outlet />
         </div>
       </div>
     </div>
