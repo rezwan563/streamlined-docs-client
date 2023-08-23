@@ -13,6 +13,7 @@ import DocumentProgress from "../pages/dashboard/progress/DocumentProgress";
 import Settings from "../pages/dashboard/settings/Settings";
 import PassportApplicationForm from "../Sections/PassportApplicationForm";
 import EditProfile from "../pages/dashboard/mydetails/Editprofile"
+import Chatbox from "../pages/dashboard/chat/Chatbox";
 
 const router = createBrowserRouter([
   {
@@ -57,6 +58,10 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/all_documents",
         element: <AllDocuments />,
+      },
+      {
+        path:'/dashboard/chat',
+        element:<Chatbox/>
       },
       {
         path: "/dashboard/pending_documents",
