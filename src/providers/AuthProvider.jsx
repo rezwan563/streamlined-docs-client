@@ -10,12 +10,11 @@ import {
   signInWithPopup,
   signOut,
   updateProfile,
-
-} from 'firebase/auth'
-import { app } from '../firebase/firebase.config';
+} from "firebase/auth";
+import { app } from "../firebase/firebase.config";
+import axios from "axios";
 // import Cookies from 'js-cookies';
 // import axios from 'axios';
-
 
 export const AuthContext = createContext("");
 const auth = getAuth(app);
@@ -61,20 +60,16 @@ const AuthProvider = ({ children }) => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
       // get and set token
-      // if (currentUser) {
-      //   axios
-      //     .post(`${import.meta.env.VITE_SERVER_API}/jwt`, {
-      //       email: currentUser.email,
-      //     })
-      //     .then((data) => {
-      //       // Use js-cookie to set the token as a cookie
-      //       Cookies.set("access-token", data.data.token);
-      //       setLoading(false);
-      //     });
-      // } else {
-      //   // Remove the token cookie
-      //   Cookies.remove("access-token");
-      // }
+      if (currentUser) {
+        axios
+          .post("http://localhost:5000/jwt", { email: currentUser.email })
+          .then((data) => {
+            localStorage.setItem("access-token", data.data.token);
+            setLoading(false);
+          });
+      } else {
+        localStorage.removeItem("access-token");
+      }
     });
     return () => {
       return unsubscribe;

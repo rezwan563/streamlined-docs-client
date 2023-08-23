@@ -1,12 +1,10 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import { GiHamburgerMenu } from "react-icons/gi"; 
+import { GiHamburgerMenu } from "react-icons/gi";
 import { FaArrowAltCircleUp } from "react-icons/fa";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -17,7 +15,7 @@ const Navbar = () => {
       <header className="bg-white shadow-md">
         <div className="container mx-auto py-4 px-8 flex justify-between items-center">
           <img src="passport-logo.png" alt="Passport Logo" className="w-20" />
-         
+
           <div className="md:hidden">
             {isMenuOpen ? (
               <FaArrowAltCircleUp
@@ -32,7 +30,11 @@ const Navbar = () => {
             )}
           </div>
 
-          <nav className={`md:block ${isMenuOpen ? "block" : "hidden"} md:flex mt-4 md:mt-0`}>
+          <nav
+            className={`md:block ${
+              isMenuOpen ? "block" : "hidden"
+            } md:flex mt-4 md:mt-0`}
+          >
             <div className="md:flex md:space-x-4">
               <Link
                 to="/"
@@ -40,7 +42,7 @@ const Navbar = () => {
               >
                 Home
               </Link>
-  <div id="google_translate_element"></div>
+              <div id="google_translate_element"></div>
 
               <Link
                 to="apply"
