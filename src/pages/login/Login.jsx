@@ -125,7 +125,7 @@ const Login = () => {
           onClick={handleGoogleSignIn}
           className="flex justify-center items-center space-x-2 border m-3 p-2 border-gray-300 border-rounded cursor-pointer"
         >
-          <div className="flex space-x-4 items-center">
+          <div className="flex items-center space-x-3">
             <FcGoogle size={32} />
 
             <p>Continue with Google</p>
