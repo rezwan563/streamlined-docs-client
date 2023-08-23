@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { GiHamburgerMenu } from "react-icons/gi"; 
 import { FaArrowAltCircleUp } from "react-icons/fa";
+
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -14,7 +15,10 @@ const Navbar = () => {
     <nav>
       <header className="bg-white shadow-md">
         <div className="container mx-auto py-4 px-8 flex justify-between items-center">
-        <img src="passport-logo.png" alt="Passport Logo" className="w-20" />
+        <div className="flex items-center">
+        {/* <img className="w-32" src="./streamlineddocs-logo.svg" alt="" /> */}
+        <h4 className="font-semibold text-2xl">Streamlined</h4>
+        </div>
          
           <div className="md:hidden">
             {isMenuOpen ? (
@@ -57,13 +61,7 @@ const Navbar = () => {
                 Status
               </Link>
               <Link
-                to="/login"
-                className="block mt-4 md:inline-block md:mt-0 text-gray-500 font-semibold hover:underline"
-              >
-                Login
-              </Link>
-              <Link
-                to="/register"
+                to="/auth"
                 className="block mt-4 md:inline-block md:mt-0 bg-green-500 text-white font-semibold px-4 py-2 rounded-full hover:bg-green-600 transition duration-300"
               >
                 Sign Up
