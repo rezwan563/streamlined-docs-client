@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 const Home = () => {
   return (
     <div className="bg-gradient-to-b from-green-100 to-white">
-
       <section className="py-12 md:py-20 text-center bg-gradient-to-b from-green-300 to-green-200 animate-fade-in-up">
         <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-green-900 mb-4">
           Apply for Your Passport

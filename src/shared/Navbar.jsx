@@ -7,6 +7,8 @@ import { FaArrowAltCircleUp } from "react-icons/fa";
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+
+
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
@@ -42,6 +44,8 @@ const Navbar = () => {
               >
                 Home
               </Link>
+  <div id="google_translate_element"></div>
+
               <Link
                 to="apply"
                 className="block mt-4 md:inline-block md:mt-0 text-gray-700 font-semibold hover:text-green-500"
