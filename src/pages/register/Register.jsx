@@ -1,9 +1,10 @@
 import { useContext, useState } from 'react';
 import { FcGoogle } from 'react-icons/fc'
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
 import Swal from 'sweetalert2'
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import 'react-tabs/style/react-tabs.css';
 
 const Register = () => {
     const [show, setShow] = useState(true);
@@ -52,7 +53,6 @@ const Register = () => {
                 setError(error.message)
             })
 
-
         form.reset()
 
     }
@@ -70,7 +70,7 @@ const Register = () => {
     }
 
     return (
-        <div className='flex justify-center items-center min-h-screen sm:py-12 bg-green-100'>
+        <div className='flex justify-center items-center min-h-screen sm:py-12 bg-white'>
             <div className='flex flex-col max-w-lg p-6 rounded-md sm:p-5 w-full bg-gray-100 text-gray-900'>
                 <div className='mb-8 text-center'>
                     <h1 className='my-3 text-4xl font-bold'>Sign Up</h1>
@@ -198,15 +198,6 @@ const Register = () => {
 
                     <p>Continue with Google</p>
                 </div>
-                <p className='px-6 text-sm text-center text-gray-400'>
-                    Have an account?
-                    <Link
-                        to='/login'
-                        className='hover:underline hover:text-green-500 text-gray-600'
-                    >
-                        Login here
-                    </Link>
-                </p>
             </div>
         </div>
     );

@@ -1,8 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../layout/MainLayout";
 import Home from "../pages/homepage/Home";
-import Register from "../pages/register/Register";
-import Login from "../pages/login/Login";
 import DashboardLayout from "../layout/DashboardLayout";
 import MyDetails from "../pages/dashboard/mydetails/MyDetails";
 import DashboardSummary from "../pages/dashboard/dasboardsummary/DashboardSummary";
@@ -13,6 +11,7 @@ import DocumentProgress from "../pages/dashboard/progress/DocumentProgress";
 import Settings from "../pages/dashboard/settings/Settings";
 import PassportApplicationForm from "../Sections/PassportApplicationForm";
 import EditProfile from "../pages/dashboard/mydetails/Editprofile"
+import Auth from "../pages/Auth/Auth";
 
 const router = createBrowserRouter([
   {
@@ -23,14 +22,10 @@ const router = createBrowserRouter([
         path: "/",
         element: <Home />,
       },
-      {
-        path: "/login",
-        element: <Login />,
-      },
-      {
-        path: "/register",
-        element: <Register />,
-      },
+       {
+        path: "/auth",
+        element: <Auth />
+       },
       {
         path: "/apply",
         element: <PassportApplicationForm></PassportApplicationForm>,
