@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import {  Outlet, useNavigate } from "react-router-dom";
+import {  Outlet } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
 import Sidebar from "../shared/Sidebar";
 
@@ -41,16 +41,29 @@ const DashboardLayout = () => {
           <Sidebar/>
         </div>
       </div>
-      {/* for medium and large device sidebar and outlet  */}
-      <div className="grid grid-cols-5">
-          <div className="hidden md:block min-h-screen col-span-1">
+      {/* for medium device sidebar  sidebar and outlet  */}
+      <div className="grid grid-cols-6">
+          <div className="hidden md:block lg:hidden min-h-screen col-span-2">
             <Sidebar/>
           </div>
-          <div className="hidden md:block bg-gray-100 col-span-4">
+          <div className="hidden md:block lg:hidden bg-gray-100 col-span-4">
             <div className="py-24 px-12">
             <Outlet/>
             </div>
           </div>
+      </div>
+      {/* for large device desktop */}
+      <div className="max-w-[1920px] mx-auto">
+      <div className="grid grid-cols-10">
+          <div className="hidden  lg:block  min-h-screen col-span-2">
+            <Sidebar/>
+          </div>
+          <div className="hidden lg:block bg-gray-100 col-span-8">
+            <div className="py-24 px-12">
+            <Outlet/>
+            </div>
+          </div>
+      </div>
       </div>
     
     </div>

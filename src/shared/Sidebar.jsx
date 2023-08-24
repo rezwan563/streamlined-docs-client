@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import  { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../providers/AuthProvider';
 
@@ -19,12 +19,12 @@ const Sidebar = () => {
         >
           <Link
             to="/dashboard"
-            className="flex bg-green-500 w-1/2 my-5 mx-auto p-3 rounded-md text-white text-center font-bold shadow-lg hover:bg-green-400 cursor-pointer "
+            className="flex bg-green-500 w-1/2 mx-auto lg:w-1/2 md:mx-auto my-5  p-3 rounded-md text-white text-center font-bold shadow-lg hover:bg-green-400 cursor-pointer "
           >
             Dashboard
           </Link>
           
-          <div className="grid grid-cols-3  md:flex md:flex-col  md:justify-start text-black md:w-1/2 mx-auto pt-10">
+          <div className="grid grid-cols-3  md:flex md:flex-col  md:justify-start text-black lg:w-1/2 lg:mx-auto pt-10">
             <Link to="/dashboard/my-details" className="block mb-4">
               My Details
             </Link>
