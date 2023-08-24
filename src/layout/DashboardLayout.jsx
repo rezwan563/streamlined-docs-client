@@ -1,3 +1,4 @@
+
 import { useContext } from "react";
 import {  Outlet } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
@@ -73,10 +74,3 @@ const DashboardLayout = () => {
 export default DashboardLayout;
 
 
- {/* <div className="min-h-screen ">
-          <Sidebar />
-        </div> */}
-        {/* <div className="bg-gray-100 md:col-span-4 py-24 px-12 ">
-
-          <Outlet />
-        </div> */}

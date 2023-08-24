@@ -1,10 +1,14 @@
 import { useContext, useState } from 'react';
 import { FcGoogle } from 'react-icons/fc'
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
 import Swal from 'sweetalert2'
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import 'react-tabs/style/react-tabs.css';
 
 const Register = () => {
+    const [show, setShow] = useState(true);
+    const [showConfirm, setShowConfirm] = useState(true);
     const [error, setError] = useState("");
     const { createUser, updateUserProfile, signInWithGoogle } = useContext(AuthContext);
     const navigate = useNavigate()
@@ -22,7 +26,7 @@ const Register = () => {
         const password = form.password.value;
         const confirmPassword = form.confirm_password.value;
 
-        if(password !== confirmPassword){
+        if (password !== confirmPassword) {
             return setError("Password is not match with confirm password")
         }
 
@@ -49,7 +53,6 @@ const Register = () => {
                 setError(error.message)
             })
 
-
         form.reset()
 
     }
@@ -67,7 +70,7 @@ const Register = () => {
     }
 
     return (
-        <div className='flex justify-center items-center min-h-screen sm:py-12 bg-green-100'>
+        <div className='flex justify-center items-center min-h-screen sm:py-12 bg-white'>
             <div className='flex flex-col max-w-lg p-6 rounded-md sm:p-5 w-full bg-gray-100 text-gray-900'>
                 <div className='mb-8 text-center'>
                     <h1 className='my-3 text-4xl font-bold'>Sign Up</h1>
@@ -134,33 +137,39 @@ const Register = () => {
                                 data-temp-mail-org='0'
                             />
                         </div>
-                        <div>
+                        <div className='relative'>
                             <div className='flex justify-between'>
                                 <label htmlFor='password' className='text-sm mb-2'>
                                     Password
                                 </label>
                             </div>
                             <input
-                                type='password'
+                                type={show ? "password" : "text"}
                                 name='password'
                                 required
                                 placeholder='*******'
                                 className='w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-green-500 bg-gray-200 text-gray-900'
                             />
+                            <span onClick={() => setShow(!show)} className="cursor-pointer absolute right-0 top-1/2 mt-2 me-4">
+                                {show ? <FaEyeSlash /> : <FaEye />}
+                            </span>
                         </div>
-                        <div>
+                        <div className='relative'>
                             <div className='flex justify-between'>
                                 <label htmlFor='password' className='text-sm mb-2'>
                                     Confirm Password
                                 </label>
                             </div>
                             <input
-                                type='password'
+                                type={showConfirm ? "password" : "text"}
                                 name='confirm_password'
                                 required
                                 placeholder='*******'
                                 className='w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-green-500 bg-gray-200 text-gray-900'
                             />
+                            <span onClick={() => setShowConfirm(!showConfirm)} className="cursor-pointer absolute right-0 top-1/2 mt-2 me-4">
+                                {showConfirm ? <FaEyeSlash /> : <FaEye />}
+                            </span>
                         </div>
                     </div>
                     <p className='text-center text-red-500 font-medium'>{error}</p>
@@ -189,15 +198,6 @@ const Register = () => {
 
                     <p>Continue with Google</p>
                 </div>
-                <p className='px-6 text-sm text-center text-gray-400'>
-                    Have an account?
-                    <Link
-                        to='/login'
-                        className='hover:underline hover:text-green-500 text-gray-600'
-                    >
-                        Login here
-                    </Link>
-                </p>
             </div>
         </div>
     );
