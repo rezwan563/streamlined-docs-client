@@ -8,13 +8,13 @@ const DashboardLayout = () => {
   console.log(user);
   const from = '/'
 
-  const signOut = () =>{
+  const signOut = () => {
     logOut()
-    .then(() => (
-      navigate(from)
-    ))
-    .catch(err => console.log(err))
-    
+      .then(() => (
+        navigate(from)
+      ))
+      .catch(err => console.log(err))
+
   }
   return (
     <div>
