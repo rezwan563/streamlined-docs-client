@@ -24,7 +24,7 @@ function EditProfile() {
 
   useEffect(() => {
     if (user?.email) {
-      fetch(`http://localhost:5000/edits/${user.email}`)
+      fetch(`https://streamlined-docs-server.vercel.app/edits/${user.email}`)
         .then((response) => response.json())
         .then((profileData) => {
           setFormData(profileData || {});
@@ -53,8 +53,8 @@ function EditProfile() {
 
     const method = formData.id ? "PUT" : "POST";
     const endpoint = formData.id
-      ? `http://localhost:5000/edits/${user.email}`
-      : "http://localhost:5000/edits";
+      ? `https://streamlined-docs-server.vercel.app/edits/${user.email}`
+      : "https://streamlined-docs-server.vercel.app/edits";
 
     fetch(endpoint, {
       method: method,
