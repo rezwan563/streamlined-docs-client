@@ -14,13 +14,22 @@
     "firebase": "^10.1.0",
     "icons": "^1.0.0",
     "js-cookies": "^1.0.4",
+<<<<<<< HEAD
     "jsonwebtoken": "^9.0.1",
+=======
+    "lottie-react": "^2.4.0",
+>>>>>>> d0e4cd5784e2c565005cd8082c49d29232b70411
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.10.1",
     "react-router-dom": "^6.15.0",
     "react-spinners": "^0.13.8",
+<<<<<<< HEAD
     "sweetalert2": "^11.7.27"
+=======
+    "react-tabs": "^6.0.2",
+    "sweetalert2": "^11.7.23"
+>>>>>>> d0e4cd5784e2c565005cd8082c49d29232b70411
   },
   "devDependencies": {
     "@types/react": "^18.2.15",

@@ -2,6 +2,10 @@ import { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
 
+import { AuthContext } from "../../../providers/AuthProvider";
+import Loader from "../../../shared/Loader";
+
+
 function ProfileSection() {
   const { user } = useContext(AuthContext);
   const [data, setData] = useState({});
@@ -34,7 +38,7 @@ function ProfileSection() {
   }
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <Loader />;
   }
 
   if (error || Object.keys(data).length === 0) {
