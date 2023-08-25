@@ -1,29 +1,41 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { AuthContext } from "../../../providers/AuthProvider";
+import Swal from "sweetalert2";
 
 function EditProfile() {
-  const [formData, setFormData] = useState({ email: "test@gmail.com" });
-  const [editMode, setEditMode] = useState({});
+  const [formData, setFormData] = useState({
+    fullName: "",
+    nationalIdNumber: "",
+    dob: "",
+    gender: "",
+    address: "",
+    issueDate: "",
+    expiryDate: "",
+    auth: "",
+    citizenship: "",
+    height: "",
+    eyeColor: "",
+    bloodType: "",
+    photoUrl: "",
+  });
+
   const [loading, setLoading] = useState(true);
+  const { user } = useContext(AuthContext);
 
   useEffect(() => {
-    // Fetch initial profile data from the API endpoint
-    fetch("http://localhost:5000/users/test@gmail.com")
-      .then((response) => response.json())
-      .then((profileData) => {
-        setFormData(profileData);
-        setLoading(false);
-        setEditMode(
-          Object.keys(profileData).reduce(
-            (acc, key) => ({ ...acc, [key]: false }),
-            {}
-          )
-        );
-      })
-      .catch((error) => {
-        console.error("Error fetching profile data:", error);
-        setLoading(false);
-      });
-  }, []);
+    if (user?.email) {
+      fetch(`https://streamlined-docs-server.vercel.app/edits/${user.email}`)
+        .then((response) => response.json())
+        .then((profileData) => {
+          setFormData(profileData || {});
+          setLoading(false);
+        })
+        .catch((error) => {
+          console.error("Error fetching profile data:", error);
+          setLoading(false);
+        });
+    }
+  }, [user?.email]);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -33,43 +45,47 @@ function EditProfile() {
     }));
   };
 
-  const handleEditClick = (fieldName) => {
-    setEditMode((prevMode) => ({
-      ...prevMode,
-      [fieldName]: true,
-    }));
-  };
-
   const handleSaveClick = () => {
-    if (Object.values(editMode).some((val) => val)) {
-      const method = formData.id ? "POST" : "PUT";
-      const endpoint =
-        method === "PUT"
-          ? `http://localhost:5000/userprofiles/${formData.email}`
-          : "http://localhost:5000/userprofiles";
+    const formDataWithEmail = {
+      ...formData,
+      email: user.email,
+    };
 
-      fetch(endpoint, {
-        method,
-        body: JSON.stringify(formData),
-        headers: {
-          "Content-Type": "application/json",
-        },
+    const method = formData.id ? "PUT" : "POST";
+    const endpoint = formData.id
+      ? `https://streamlined-docs-server.vercel.app/edits/${user.email}`
+      : "https://streamlined-docs-server.vercel.app/edits";
+
+    fetch(endpoint, {
+      method: method,
+      body: JSON.stringify(formDataWithEmail),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => {
+        if (response.ok) {
+          Swal.fire({
+            icon: "success",
+            title: `${method === "PUT" ? "Update" : "Update"} successful.`,
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        } else {
+          throw new Error("Profile update failed.");
+        }
       })
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error("Error saving changes");
-          }
-          return response.json();
-        })
-        .then((result) => {
-          // Handle the success response
-          console.log("Changes saved:", result);
-        })
-        .catch((error) => {
-          console.error("Error saving changes:", error);
-          // Display an error message to the user
+      .catch((error) => {
+        console.error(
+          `Error ${method === "PUT" ? "updating" : "creating"} profile:`,
+          error
+        );
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: `Error ${method === "PUT" ? "updating" : "creating"} profile`,
         });
-    }
+      });
   };
 
   const profileEntries = [
@@ -86,7 +102,6 @@ function EditProfile() {
     { name: "Eye Color", key: "eyeColor" },
     { name: "Blood Type", key: "bloodType" },
     { name: "Photo URL", key: "photoUrl" },
-    // Add other profile entries
   ];
 
   return (
@@ -101,40 +116,40 @@ function EditProfile() {
               <label htmlFor={entry.key} className="block font-semibold mb-1">
                 {entry.name}
               </label>
-              {editMode[entry.key] ? (
-                entry.key === "address" || entry.key === "photoUrl" ? (
-                  <input
-                    type={entry.key === "photoUrl" ? "url" : "text"}
-                    id={entry.key}
-                    name={entry.key}
-                    value={formData[entry.key]}
-                    onChange={handleInputChange}
-                    className="border border-gray-300 rounded-lg px-3 py-2 w-full"
-                    placeholder={entry.name}
-                  />
-                ) : (
-                  <input
-                    type="text"
-                    id={entry.key}
-                    name={entry.key}
-                    value={formData[entry.key]}
-                    onChange={handleInputChange}
-                    className="border border-gray-300 rounded-lg px-3 py-2 w-full"
-                  />
-                )
+              {entry.key === "gender" ? (
+                <select
+                  id={entry.key}
+                  name={entry.key}
+                  value={formData[entry.key]}
+                  onChange={handleInputChange}
+                  className="border border-gray-300 rounded-lg px-3 py-2 w-full"
+                >
+                  <option value="">Select Gender</option>
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                  <option value="other">Other</option>
+                </select>
+              ) : entry.key === "dob" ||
+                entry.key === "issueDate" ||
+                entry.key === "expiryDate" ? (
+                <input
+                  type="date"
+                  id={entry.key}
+                  name={entry.key}
+                  value={formData[entry.key]}
+                  onChange={handleInputChange}
+                  className="border border-gray-300 rounded-lg px-3 py-2 w-full"
+                />
               ) : (
-                <div className="flex items-center">
-                  <div className="border border-gray-300 rounded-lg px-3 py-2 w-full">
-                    {formData[entry.key]}
-                  </div>
-                  <button
-                    type="button"
-                    onClick={() => handleEditClick(entry.key)}
-                    className="ml-2 text-blue-500"
-                  >
-                    Edit
-                  </button>
-                </div>
+                <input
+                  type={entry.key === "photoUrl" ? "url" : "text"}
+                  id={entry.key}
+                  name={entry.key}
+                  value={formData[entry.key]}
+                  onChange={handleInputChange}
+                  className="border border-gray-300 rounded-lg px-3 py-2 w-full"
+                  placeholder={entry.name}
+                />
               )}
             </div>
           ))}
@@ -144,9 +159,7 @@ function EditProfile() {
         <button
           type="button"
           onClick={handleSaveClick}
-          className={`${
-            Object.values(editMode).some((val) => val) ? "block" : "hidden"
-          } bg-blue-500 text-white px-4 py-2 rounded`}
+          className="bg-blue-500 text-white px-4 py-2 rounded"
         >
           Save Changes
         </button>

@@ -40,15 +40,31 @@ const Login = () => {
 
     const handleGoogleSignIn = () => {
         signInWithGoogle()
-            .then(result => {
-                console.log(result.user)
-                navigate(from, { replace: true })
+          .then((result) => {
+            const loggedInUser = result.user;
+            const savedUser = {
+              email: loggedInUser.email,
+            };
+            console.log(savedUser);
+    
+            fetch("https://streamlined-docs-server.vercel.app/users", {
+              method: "POST",
+              headers: {
+                "content-type": "application/json",
+              },
+              body: JSON.stringify(savedUser),
             })
-            .catch(error => {
-                setError(error.message)
-            })
-    }
-
+              .then((res) => res.json())
+              .then(() => {
+                navigate(from, { replace: true });
+              });
+          })
+          .catch((error) => {
+            setError(error.message);
+          });
+      };
+    
+    
     return (
         <div className='flex justify-center items-center min-h-screen bg-white sm:py-12'>
             <div className='flex flex-col max-w-lg px-6 rounded-md sm:px-5 w-full bg-gray-100 text-gray-900'>
