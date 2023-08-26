@@ -1,31 +1,68 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../providers/AuthProvider";
 
 import { AuthContext } from "../../../providers/AuthProvider";
 import Loader from "../../../shared/Loader";
 
 
 function ProfileSection() {
+  const { user } = useContext(AuthContext);
   const [data, setData] = useState({});
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch("http://localhost:5000/users/test@gmail.com")
-      .then((response) => response.json())
-      .then((profileData) => {
-        setData(profileData);
-        setLoading(false);
-      })
-      .catch((error) => {
-        console.error("Error fetching profile data:", error);
-        setLoading(false);
-      });
-  }, []);
+    if (user?.email) {
+      fetch(`https://streamlined-docs-server.vercel.app/details/${user.email}`)
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Network response was not ok");
+          }
+          return response.json();
+        })
+        .then((profileData) => {
+          setData(profileData || {});
+          setLoading(false);
+        })
+        .catch((error) => {
+          console.error("Error fetching profile data:", error);
+          setError(error);
+          setLoading(false);
+        });
+    }
+  }, [user?.email]);
+
+  if (!user?.email) {
+    return <div>You must be logged in to view this page.</div>;
+  }
 
   if (loading) {
     return <Loader />;
   }
 
+  if (error || Object.keys(data).length === 0) {
+    return (
+      <section>
+        <div className="flex justify-center items-center h-100 mt-28">
+          <p className="text-center text-gray-500">
+            Oops! Something went wrong or there is no profile data available.
+          </p>
+        </div>
+        <div className="flex justify-center my-10">
+          <Link
+            to="/dashboard/edit-profile"
+            className="bg-blue-500 text-white px-4 py-2 rounded"
+          >
+            Apply for Profile Details
+          </Link>
+        </div>
+        <p className="text-center text-gray-500">
+          Or click edit profile on the left dashboard.
+        </p>
+      </section>
+    );
+  }
   const profileEntries = [
     { name: "Full Name", value: data.fullName },
     { name: "National ID Number", value: data.nationalIdNumber },
@@ -70,7 +107,7 @@ function ProfileSection() {
             to="/dashboard/edit-profile"
             className="bg-blue-500 text-white px-4 py-2 rounded"
           >
-            Apply for changes
+            Apply for Edit
           </Link>
         </div>
       </div>
