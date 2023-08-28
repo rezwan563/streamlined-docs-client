@@ -1,6 +1,6 @@
 import  { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { AuthContext } from '../providers/AuthProvider';
+import { AuthContext } from '../../providers/AuthProvider';
 
 const Sidebar = () => {
     const {  logOut } = useContext(AuthContext);

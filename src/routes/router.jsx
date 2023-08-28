@@ -13,8 +13,13 @@ import PassportApplicationForm from "../Sections/PassportApplicationForm";
 import EditProfile from "../pages/dashboard/mydetails/Editprofile"
 import Chatbox from "../pages/dashboard/chat/Chatbox";
 import Auth from "../pages/Auth/Auth";
+import Header from "../shared/header/Header";
 
 const router = createBrowserRouter([
+  {
+    path:'/header',
+    element: <Header/>
+  },
   {
     path: "/",
     element: <MainLayout />,
@@ -31,6 +36,8 @@ const router = createBrowserRouter([
         path: "/apply",
         element: <PassportApplicationForm></PassportApplicationForm>,
       },
+      
+      
     ],
   },
   {

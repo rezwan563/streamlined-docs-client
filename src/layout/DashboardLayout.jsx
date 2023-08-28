@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { Outlet } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
-import Sidebar from "../shared/Sidebar";
+import Sidebar from "../shared/sidebar/Sidebar";
 
 const DashboardLayout = () => {
   const { user } = useContext(AuthContext);
