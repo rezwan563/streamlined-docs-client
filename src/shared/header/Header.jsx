@@ -1,6 +1,7 @@
 import { useState } from "react";
 import ActiveLink from "../activelink/ActiveLink";
 import { HiMenuAlt3 } from "react-icons/hi";
+import Home from "../../pages/homepage/Home";
 const Header = () => {
   const navLinks = (
     <>
@@ -11,37 +12,55 @@ const Header = () => {
   );
   const [isClicked, setIsClicked] = useState(false);
 
- 
   return (
-    <nav className="max-w-[1980px]  lg:mx-auto">
-      {/* desktop */}
-      <div className="flex justify-around">
-        <div className="hidden lg:flex lg:gap-16">
-          <div>
-            <p>STREAMLINED DOCS</p>
+    <>
+      <nav className="max-w-[1980px] bg-white lg:opacity-90 lg:mx-auto z-10 sticky top-0 ">
+        {/* desktop */}
+        <div className="flex justify-around py-5 lg:py-10 ">
+          <div className="hidden lg:flex lg:gap-16">
+            <div>
+              <p>STREAMLINED DOCS</p>
+            </div>
+            <div className="flex lg:gap-16">{navLinks}</div>
           </div>
-          <div className="flex lg:gap-16">{navLinks}</div>
+          <div className="hidden lg:block">
+            <button>LOGIN</button>
+          </div>
         </div>
-        <div className="hidden lg:block">
-          <button>LOGIN</button>
+        {/* mobile device */}
+        <div className="px-10 md:px-16 lg:hidden">
+          <div className="flex justify-between">
+            <p>STREAMLINED DOCS</p>
+            <div className="hidden lg:block">{navLinks}</div>
+            <div>
+              <HiMenuAlt3
+                onClick={() => setIsClicked(!isClicked)}
+                className="text-4xl"
+              />
+            </div>
+          </div>
         </div>
-      </div>
-      {/* mobile device */}
-      <div className="px-10 md:px-16 lg:hidden">
-        <div className="flex justify-between">
-          <p>STREAMLINED DOCS</p>
-          <div className="hidden lg:block">{navLinks}</div>
-        <div><HiMenuAlt3 onClick={() => setIsClicked(!isClicked)} className="text-4xl"/></div>
+        {/* transform with transition create sliding effect  */}
+        <div
+          className={`lg:hidden z-50 fixed w-full  flex justify-center  items-center transform underline transition-all ease-linear  duration-300 bg-white   ${
+            isClicked ? "h-screen md:h-96 opacity-100" : "opacity-0 h-0"
+          }`}
+        >
+          <div className="space-y-3">{navLinks}</div>
         </div>
-      </div>
-      {/* transform with transition create sliding effect  */}
-      <div className={`lg:hidden z-50 flex justify-center  items-center transform underline transition-all ease-linear  duration-300 bg-black text-white  ${isClicked ? 'h-96 opacity-100' : 'opacity-0 h-0'}`}>
-           <div className="space-y-3">
-           {navLinks}
-           </div>
-        </div>
-        <p>hello</p>
-    </nav>
+      </nav>
+      <p>hello</p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias eaque
+        quae distinctio praesentium, id et voluptatem officiis, voluptates
+        tempora placeat ipsam fugiat perspiciatis ratione, corporis nesciunt
+        dolore excepturi? Sed ad eos velit, magni earum dolore alias, laudantium
+        blanditiis corrupti ea nihil ut cumque optio laborum excepturi odit eius
+        explicabo ipsam.
+      </p>
+
+      <Home />
+    </>
   );
 };
 
