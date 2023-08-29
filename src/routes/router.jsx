@@ -9,7 +9,7 @@ import PendingDocument from "../pages/dashboard/pendingdoc/PendingDocument";
 import UploadDocument from "../pages/dashboard/uploaddocument/UploadDocument";
 import DocumentProgress from "../pages/dashboard/progress/DocumentProgress";
 import Settings from "../pages/dashboard/settings/Settings";
-import PassportApplicationForm from "../Sections/PassportApplicationForm";
+import PassportApplicationForm from "../sections/PassportApplicationForm";
 import EditProfile from "../pages/dashboard/mydetails/Editprofile"
 import Chatbox from "../pages/dashboard/chat/Chatbox";
 import Auth from "../pages/Auth/Auth";

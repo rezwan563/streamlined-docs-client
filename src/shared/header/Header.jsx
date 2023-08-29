@@ -1,7 +1,6 @@
 import { useState } from "react";
 import ActiveLink from "../activelink/ActiveLink";
 import { HiMenuAlt3 } from "react-icons/hi";
-import Home from "../../pages/homepage/Home";
 const Header = () => {
   const navLinks = (
     <>
@@ -40,7 +39,7 @@ const Header = () => {
             </div>
           </div>
         </div>
-        {/* transform with transition create sliding effect  */}
+        {/* transform with transition create sliding header for mobile and tablet  */}
         <div
           className={`lg:hidden z-50 fixed w-full  flex justify-center  items-center transform underline transition-all ease-linear  duration-300 bg-white   ${
             isClicked ? "h-screen md:h-96 opacity-100" : "opacity-0 h-0"
@@ -49,17 +48,7 @@ const Header = () => {
           <div className="space-y-3">{navLinks}</div>
         </div>
       </nav>
-      <p>hello</p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias eaque
-        quae distinctio praesentium, id et voluptatem officiis, voluptates
-        tempora placeat ipsam fugiat perspiciatis ratione, corporis nesciunt
-        dolore excepturi? Sed ad eos velit, magni earum dolore alias, laudantium
-        blanditiis corrupti ea nihil ut cumque optio laborum excepturi odit eius
-        explicabo ipsam.
-      </p>
-
-      <Home />
+      
     </>
   );
 };
