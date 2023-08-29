@@ -2,61 +2,47 @@ import { useContext } from "react";
 import { Outlet } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
 import Sidebar from "../shared/sidebar/Sidebar";
+import { IoMdNotificationsOutline } from "react-icons/io";
+import { FiSettings } from "react-icons/fi";
+import { FiMessageSquare } from "react-icons/fi";
+import { BsQuestionCircle } from "react-icons/bs";
+import { RiMenuFoldFill } from "react-icons/ri";
+import { RiMenuUnfoldFill } from "react-icons/ri";
 
 const DashboardLayout = () => {
-  const { user } = useContext(AuthContext);
   // console.log(user);
 
   return (
-    <div>
-      <div className="w-full bg-white py-2">
-        <div className="flex justify-between md:px-8 pt-5">
-          {/* <p className="text-3xl font-bold ">Streamlined Docs</p> */}
-          <p className="text-3xl font-bold">Dashboard</p>
-          {/* <input
-            type="search"
-            name="search"
-            id=""
-            placeholder="search"
-            className="hidden md:block px-2 rounded-md border focus:outline-none focus:ring-2 focus:ring-green-300 focus:border-transparent"
-          /> */}
-          <img src={user?.photoURL} alt="" className="w-12 h-12 rounded-full" />
+    <nav className="lg:px-16 lg:py-8">
+      <div className="flex justify-between">
+        <div className="flex lg:gap-16">
+          <p>Streamlined Docs</p>
+          <p>Dashboard</p>
         </div>
-      </div>
-      {/* for small device grid row and outlet at top */}
-      <div className="grid grid-rows-3">
-        <div className="md:hidden row-span-2 bg-gray-100 px-24 py-12">
-          <Outlet />
-        </div>
-        <div className="md:hidden ">
-          <Sidebar />
-        </div>
-      </div>
-      {/* for medium device sidebar  sidebar and outlet  */}
-      <div className="grid grid-cols-6">
-        <div className="hidden md:block lg:hidden min-h-screen col-span-2">
-          <Sidebar />
-        </div>
-        <div className="hidden md:block lg:hidden bg-gray-100 col-span-4">
-          <div className="py-24 px-12">
-            <Outlet />
+        <div className="hidden  lg:flex lg:gap-4 text-4xl">
+        <div className="relative">
+            <IoMdNotificationsOutline  className="cursor-pointer"/>
+            <span className=" absolute top-0 right-0 translate-x-1/2  -translate-y-1/2 flex justify-center items-center bg-red-500 text-white w-8 h-8 rounded-full object-center">1</span>
+            
+          </div>
+          <div>
+            <BsQuestionCircle className="cursor-pointer"/>
+            
+          </div>
+          <div className="relative">
+            <FiMessageSquare  className="cursor-pointer"/>
+            <span className=" absolute top-0 right-0 translate-x-1/2  -translate-y-1/2 flex justify-center items-center bg-red-500 text-white w-8 h-8 rounded-full object-center">1</span>
+            
+          </div>
+          <div className="lg:hidden">
+            <RiMenuFoldFill />
+          </div>
+          <div className="lg:hidden">
+            <RiMenuUnfoldFill />
           </div>
         </div>
       </div>
-      {/* for large device desktop */}
-      <div className="max-w-[1920px] mx-auto">
-        <div className="grid grid-cols-10">
-          <div className="hidden  lg:block  min-h-screen col-span-2">
-            <Sidebar />
-          </div>
-          <div className="hidden lg:block bg-gray-100 col-span-8">
-            <div className="py-24 px-12">
-              <Outlet />
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    </nav>
   );
 };
 
