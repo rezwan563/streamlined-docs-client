@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 
 const Sidebar = () => {
-  const { user, logOut } = useContext(AuthContext);
+  const {  logOut } = useContext(AuthContext);
   const navigate = useNavigate();
   //   console.log(user);
   const from = "/";
@@ -14,9 +14,19 @@ const Sidebar = () => {
       .catch((err) => console.log(err));
   };
   return (
-    <div className="px-4 md:px-8">
-      <div className="grid grid-cols-3  md:flex md:flex-col  md:justify-start text-black lg:w-1/2 lg:mx-auto pt-10">
-        <img src="" alt="" />
+    <div className="lg:bg-red-800 lg:min-h-screen">
+      <div className="grid   md:flex px-8  md:flex-col  md:justify-start text-black  pt-10">
+        <div className="hidden lg:flex md:flex-wrap lg:flex-wrap lg:items-center lg:gap-4 pb-5">
+          <img
+            src="https://i.ibb.co/R4wcyR4/360-F-214746128-31-Jkea-P6r-U0-Nzzzd-FC4kh-Gkmqc8noe6h.jpg"
+            className="w-36 h-36 rounded-full shadow-sm"
+            alt=""
+          />
+          <div>
+            <p>Jashim Uddin</p>
+            <p>jashim@gmail.com</p>
+          </div>
+        </div>
         <Link to="/dashboard/my-details" className="block mb-4">
           My Details
         </Link>

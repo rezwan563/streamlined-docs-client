@@ -1,15 +1,10 @@
-import { BsQuestionCircle } from 'react-icons/bs';
-import { FiMessageSquare } from 'react-icons/fi';
-import { IoMdNotificationsOutline } from 'react-icons/io';
+import { BsQuestionCircle } from "react-icons/bs";
+import { FiMessageSquare } from "react-icons/fi";
+import { IoMdNotificationsOutline } from "react-icons/io";
 
-const DesktopNavbar = () => {
+const MediumNavbar = () => {
     return (
-        <div className="lg:px-16 flex justify-between items-center">
-        <div className="hidden lg:flex lg:gap-16">
-          <p className="text-3xl font-semibold">Streamlined Docs</p>
-          <p className="text-4xl font-bold">Dashboard</p>
-        </div>
-        <div className="hidden  lg:flex lg:gap-8 text-4xl">
+        <div className="flex gap-5 md:gap-8">
           <div className="relative">
             <IoMdNotificationsOutline className="cursor-pointer" />
             <span className=" absolute top-0 right-0 translate-x-1/2  -translate-y-1/2 flex justify-center items-center bg-red-500 text-white w-8 h-8 rounded-full object-center">
@@ -26,8 +21,7 @@ const DesktopNavbar = () => {
             </span>
           </div>
         </div>
-      </div>
     );
 };
 
-export default DesktopNavbar;
+export default MediumNavbar;
