@@ -12,11 +12,18 @@ const Homepage = () => {
               Streamlined Docs: Your Gateway to Uninterrupted Services
             </p>
           </div>
+          <div>
+            <button className="bg-red-700 lg:px-12 lg:py-5 text-white lg:text-lg font-semibold lg:mr-12 hover:bg-red-600 hover:text-neutral-50">
+              Get Started
+            </button>
+            <button className="border-2 border-black lg:px-12 lg:py-5 font-semibold lg:text-lg hover:bg-slate-100">Learn More</button>
+          </div>
         </div>
         <div className="lg:w-[800px] hidden md:block ">
           <Lottie animationData={globe} />
         </div>
       </div>
+      <div className=""></div>
     </div>
   );
 };
