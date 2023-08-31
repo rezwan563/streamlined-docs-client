@@ -46,6 +46,9 @@ const DashboardLayout = () => {
             Dashboard
           </Link>
           <div className="flex flex-col  justify-start text-black w-1/2 mx-auto pt-10">
+            <Link to="/dashboard/adminhome" className="block mb-4">
+              Admin Home
+            </Link>
             <Link to="/dashboard/my-details" className="block mb-4">
               My Details
             </Link>
