@@ -6,7 +6,7 @@ const DocumentProgress = () => {
   const [currentStep, setCurrentStep] = useState(1);
   const [complete, setComplete] = useState(false);
     return (
-        <div>
+        <div className="bg-white p-2">
             <h1 className="text-center text-4xl font-bold mb-10">Please Complete Your Correction Progress</h1>
             <div className="flex justify-between">
         {steps?.map((step, i) => (

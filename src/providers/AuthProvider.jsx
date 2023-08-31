@@ -12,7 +12,7 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { app } from "../firebase/firebase.config";
-import axios from "axios";
+// import axios from "axios";
 // import Cookies from 'js-cookies';
 // import axios from 'axios';
 

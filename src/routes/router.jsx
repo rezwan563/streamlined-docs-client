@@ -13,9 +13,8 @@ import EditProfile from "../pages/dashboard/mydetails/Editprofile"
 import Chatbox from "../pages/dashboard/chat/Chatbox";
 import Auth from "../pages/Auth/Auth";
 import Header from "../shared/header/Header";
-import Admin from "../pages/dashboard/admin/Admin"
-import AdminReview from "../pages/dashboard/admin/AdminReview";
 import Homepage from "../pages/homepage/Homepage";
+import AdminHome from "../pages/dashboard/admin/adminHomePage/AdminHome";
 
 const router = createBrowserRouter([
   {
@@ -48,7 +47,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/dashboard/",
-        element: <DashboardSummary />,
+        element: <AdminHome />,
       },
       {
         path: "/dashboard/my-details",
@@ -67,14 +66,7 @@ const router = createBrowserRouter([
         path:'/dashboard/chat',
         element:<Chatbox/>
       },
-      {
-        path:"/dashboard/admin",
-        element:<Admin/>,
-      },
-      {
-        path:"/dashboard/admin_review",
-        element:<AdminReview/>
-      },
+     
       {
         path: "/dashboard/pending_documents",
         element: <PendingDocument />,
@@ -91,6 +83,10 @@ const router = createBrowserRouter([
         path: "/dashboard/settings",
         element: <Settings />,
       },
+      {
+        path: "/dashboard/adminhome",
+        element:<AdminHome></AdminHome>
+      }
     ],
   },
 ]);
