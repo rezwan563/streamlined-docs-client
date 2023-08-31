@@ -24,7 +24,7 @@ const AdminHomePieChart = () => {
     return (
         <div className='bg-white mt-10'>
             <h1 className='text-2xl font-bold mt-2 mb-2'>Admin Pie Chart</h1>
-            <ResponsiveContainer width={300} height={300}>
+            <ResponsiveContainer width="100%" height={300}>
                 <PieChart width={300} height={300}>
                     <Pie
                         data={data}
@@ -40,10 +40,6 @@ const AdminHomePieChart = () => {
                             <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                         ))}
                     </Pie>
-                    <Pie dataKey="Group A" fill="blue" />
-                    <Pie dataKey="Group B" fill="blue" />
-                    <Pie dataKey="Group C" fill="blue" />
-                    <Pie dataKey="Group D" fill="blue" />
 
                 </PieChart>
             </ResponsiveContainer>

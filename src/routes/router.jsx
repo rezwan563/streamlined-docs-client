@@ -12,7 +12,7 @@ import Settings from "../pages/dashboard/settings/Settings";
 import PassportApplicationForm from "../Sections/PassportApplicationForm";
 import EditProfile from "../pages/dashboard/mydetails/Editprofile"
 import Auth from "../pages/Auth/Auth";
-import AdminHome from "../pages/dashboard/dasboardsummary/AdminHome";
+import AdminHome from "../pages/dashboard/admin/adminHomePage/AdminHome";
 
 const router = createBrowserRouter([
   {

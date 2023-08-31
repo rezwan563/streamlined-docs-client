@@ -51,7 +51,7 @@ const AdminHomeChart = () => {
             <div className='mt-10 bg-white'>
                 <h1 className='text-2xl font-bold mt-2 mb-2'>Admin Bar Chart</h1>
 
-                <div> <ResponsiveContainer width={500} height={300}>
+                <div> <ResponsiveContainer width="100%" height={300}>
                     <BarChart
                         width={500}
                         height={300}

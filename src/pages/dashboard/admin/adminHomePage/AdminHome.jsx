@@ -1,8 +1,9 @@
-import demo1 from '../../../assets/demo1.jpg'
-import demo2 from '../../../assets/demo2.jpg'
-import demo3 from '../../../assets/demo3.jpg'
-import AdminHomeChart from './AdminHomeChart';
-import AdminHomePieChart from './AdminHomePieChart';
+import demo1 from '../../../../assets/demo1.jpg'
+import demo2 from '../../../../assets/demo2.jpg'
+import demo3 from '../../../../assets/demo3.jpg'
+import AdminHomeChart from './adminHomePage/adminHomeComponent/AdminHomeChart';
+import AdminHomePieChart from './adminHomePage/adminHomeComponent/AdminHomePieChart';
+
 
 const AdminHome = () => {
     return (
@@ -14,7 +15,7 @@ const AdminHome = () => {
                     <figure><img src={demo3} alt="Shoes" /></figure>
                     <div className="card-body">
                         <h2 className="card-title">Total Pending</h2>
-                        <p className='text-2xl font-bold'>2,021</p>
+                        <p className='text-2xl font-bold'> 2,021</p>
                         <div className="card-actions justify-end">
                             <button className="btn btn-primary">View</button>
                         </div>
@@ -24,7 +25,7 @@ const AdminHome = () => {
                     <figure><img src={demo1} alt="Shoes" /></figure>
                     <div className="card-body">
                         <h2 className="card-title">Total Aproved</h2>
-                        <p className='text-2xl font-bold'> 2,021</p>
+                        <p className='text-2xl font-bold'>2,021</p>
                         <div className="card-actions justify-end">
                             <button className="btn btn-primary">View</button>
                         </div>
