@@ -3,6 +3,7 @@ import ActiveLink from "../activelink/ActiveLink";
 import { HiMenuAlt3 } from "react-icons/hi";
 import { SiDocsdotrs } from "react-icons/si";
 import { AiOutlineCloseCircle } from "react-icons/ai"
+import { Link } from "react-router-dom";
 const Header = () => {
   const navLinks = (
     <>
@@ -13,8 +14,8 @@ const Header = () => {
   );
   const loginButton = (
     <>
-      <button className="bg-red-700 px-4 py-2 lg:rounded-md text-white font-semibold hover:bg-red-600 ">
-        LOGIN
+      <button  className="bg-red-700 px-4 py-2 lg:rounded-md text-white font-semibold hover:bg-red-600 ">
+        <Link to='/auth'>LOGIN</Link>
       </button>
     </>
   );
@@ -22,9 +23,9 @@ const Header = () => {
 
   return (
     <>
-      <nav className=" bg-white lg:opacity-90  z-10 sticky top-0 ">
+      <nav className=" bg-white opacity-100 lg:opacity-90  z-10 sticky top-0 ">
         {/* desktop */}
-        <div className="flex justify-between items-center  py-5 lg:py-10 ">
+        <div className="flex justify-between items-center cursor-pointer py-5 lg:py-10 ">
           <div className="hidden lg:flex lg:gap-16">
             <div className="flex items-center lg:gap-3">
               <SiDocsdotrs className="text-red-600 lg:text-3xl" />
@@ -35,12 +36,12 @@ const Header = () => {
           <div className="hidden lg:block">{loginButton}</div>
         </div>
         {/* mobile device */}
-        <div className="lg:hidden">
-          <div className="flex justify-between">
-            <div className="">
-              <p>STREAMLINED DOCS</p>
+        <div className="lg:hidden w-full">
+          <div className="flex justify-between px-4">
+            <div className="flex items-center gap-3">
+            <SiDocsdotrs className="text-red-600 lg:text-3xl" />
+              <p className="text-xl md:text-3xl font-bold">STREAMLINED DOCS</p>
             </div>
-            <div className="hidden lg:block">{navLinks}</div>
             <div>
               <HiMenuAlt3
                 onClick={() => setIsClicked(!isClicked)}

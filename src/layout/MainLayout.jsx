@@ -5,7 +5,7 @@ import Header from "../shared/header/Header";
 
 const MainLayout = () => {
   return (
-    <div className="max-w-7xl px-2 md:px-12 lg:mx-auto">
+    <div className="lg:max-w-7xl lg:mx-auto">
       <Header/>
       <Outlet />
     </div>
