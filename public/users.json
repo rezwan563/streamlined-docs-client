@@ -1,0 +1,63 @@
+[
+    {
+      "name": "John Doe",
+      "profilePicture": "url-to-profile-picture-1.jpg",
+      "appliedForPassport": true,
+      "appliedForCorrection": false
+    },
+    {
+      "name": "Jane Smith",
+      "profilePicture": "url-to-profile-picture-2.jpg",
+      "appliedForPassport": true,
+      "appliedForCorrection": true
+    },
+    {
+      "name": "Michael Johnson",
+      "profilePicture": "url-to-profile-picture-3.jpg",
+      "appliedForPassport": false,
+      "appliedForCorrection": true
+    },
+    {
+      "name": "Emily Williams",
+      "profilePicture": "url-to-profile-picture-4.jpg",
+      "appliedForPassport": true,
+      "appliedForCorrection": false
+    },
+    {
+      "name": "William Brown",
+      "profilePicture": "url-to-profile-picture-5.jpg",
+      "appliedForPassport": true,
+      "appliedForCorrection": true
+    },
+    {
+      "name": "Olivia Davis",
+      "profilePicture": "url-to-profile-picture-6.jpg",
+      "appliedForPassport": false,
+      "appliedForCorrection": true
+    },
+    {
+      "name": "James Wilson",
+      "profilePicture": "url-to-profile-picture-7.jpg",
+      "appliedForPassport": true,
+      "appliedForCorrection": false
+    },
+    {
+      "name": "Sophia Martinez",
+      "profilePicture": "url-to-profile-picture-8.jpg",
+      "appliedForPassport": false,
+      "appliedForCorrection": true
+    },
+    {
+      "name": "Liam Anderson",
+      "profilePicture": "url-to-profile-picture-9.jpg",
+      "appliedForPassport": true,
+      "appliedForCorrection": true
+    },
+    {
+      "name": "Isabella Taylor",
+      "profilePicture": "url-to-profile-picture-10.jpg",
+      "appliedForPassport": true,
+      "appliedForCorrection": false
+    }
+  ]
+  

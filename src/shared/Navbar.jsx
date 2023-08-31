@@ -7,8 +7,6 @@ import { FaArrowAltCircleUp } from "react-icons/fa";
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-
-
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
@@ -19,7 +17,7 @@ const Navbar = () => {
         <div className="container mx-auto py-4 px-8 flex justify-between items-center">
           <div className="flex items-center">
             {/* <img className="w-32" src="./streamlineddocs-logo.svg" alt="" /> */}
-            <h4 className="font-semibold text-2xl">Streamlined</h4>
+            <h4 className="font-semibold text-2xl animate-charcter">Streamlined</h4>
           </div>
 
           <div className="md:hidden">
@@ -36,7 +34,11 @@ const Navbar = () => {
             )}
           </div>
 
-          <nav className={`md:block ${isMenuOpen ? "block" : "hidden"} md:flex mt-4 md:mt-0`}>
+          <nav
+            className={`md:block ${
+              isMenuOpen ? "block" : "hidden"
+            } md:flex mt-4 md:mt-0`}
+          >
             <div className="md:flex md:space-x-4">
               <Link
                 to="/"

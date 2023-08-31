@@ -17,7 +17,7 @@ const Home = () => {
 
       <section className="py-10 md:py-16 bg-white">
         <div className="container mx-auto text-center">
-          <h2 className="text-xl md:text-2xl lg:text-3xl font-semibold text-green-900 mb-4">
+          <h2 className="text-xl md:text-2xl lg:text-3xl font-semibold text-green-900 mb-4 animate-charcter">
             Passport Services
           </h2>
           <p className="text-gray-700 text-sm md:text-base lg:text-lg">
@@ -46,7 +46,7 @@ const Home = () => {
 
       <section className="py-12 md:py-16 bg-green-100">
         <div className="container mx-auto text-center">
-          <h2 className="text-xl md:text-2xl lg:text-3xl font-semibold text-green-900 mb-4">
+          <h2 className="text-xl md:text-2xl lg:text-3xl font-semibold text-green-900 mb-4 animate-charcter">
             Easy Application Process
           </h2>
           <p className="text-gray-700 text-sm md:text-base lg:text-lg">
@@ -70,7 +70,7 @@ const Home = () => {
       </section>
 
       <section className="py-12 md:py-16 text-center bg-gradient-to-b from-green-200 to-green-100">
-        <h2 className="text-xl md:text-2xl lg:text-3xl font-semibold text-green-900 mb-4">
+        <h2 className="text-xl md:text-2xl lg:text-3xl font-semibold text-green-900 mb-4 animate-charcter">
           Ready to Apply?
         </h2>
         <p className="text-gray-700 text-sm md:text-base lg:text-lg">
