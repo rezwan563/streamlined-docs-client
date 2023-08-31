@@ -60,18 +60,18 @@ const AuthProvider = ({ children }) => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
       // get and set token
-      if (currentUser) {
-        axios
-          .post("https://streamlined-docs-server.vercel.app/jwt", {
-            email: currentUser.email,
-          })
-          .then((data) => {
-            localStorage.setItem("access-token", data.data.token);
-            setLoading(false);
-          });
-      } else {
-        localStorage.removeItem("access-token");
-      }
+      // if (currentUser) {
+      //   axios
+      //     .post(`${import.meta.env.VITE_SERVER_API}/jwt`, {
+      //       email: currentUser.email,
+      //     })
+      //     .then((data) => {
+      //       localStorage.setItem("access-token", data.data.token);
+      //       setLoading(false);
+      //     });
+      // } else {
+      //   localStorage.removeItem("access-token");
+      // }
     });
     return () => {
       return unsubscribe;

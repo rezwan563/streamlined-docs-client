@@ -1,6 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../layout/MainLayout";
-import Home from "../pages/homepage/Home";
 import DashboardLayout from "../layout/DashboardLayout";
 import MyDetails from "../pages/dashboard/mydetails/MyDetails";
 import DashboardSummary from "../pages/dashboard/dasboardsummary/DashboardSummary";
@@ -14,6 +13,9 @@ import EditProfile from "../pages/dashboard/mydetails/Editprofile"
 import Chatbox from "../pages/dashboard/chat/Chatbox";
 import Auth from "../pages/Auth/Auth";
 import Header from "../shared/header/Header";
+import Admin from "../pages/dashboard/admin/Admin"
+import AdminReview from "../pages/dashboard/admin/AdminReview";
+import Homepage from "../pages/homepage/Homepage";
 
 const router = createBrowserRouter([
   {
@@ -26,7 +28,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Home />,
+        element: <Homepage/>,
       },
        {
         path: "/auth",
@@ -64,6 +66,14 @@ const router = createBrowserRouter([
       {
         path:'/dashboard/chat',
         element:<Chatbox/>
+      },
+      {
+        path:"/dashboard/admin",
+        element:<Admin/>,
+      },
+      {
+        path:"/dashboard/admin_review",
+        element:<AdminReview/>
       },
       {
         path: "/dashboard/pending_documents",
