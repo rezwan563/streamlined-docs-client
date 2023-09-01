@@ -45,6 +45,7 @@ const Login = () => {
             const savedUser = {
               email: loggedInUser.email,
             };
+            navigate(from)
             console.log(savedUser);
     
             fetch(`${import.meta.env.VITE_SERVER_API}/users`, {

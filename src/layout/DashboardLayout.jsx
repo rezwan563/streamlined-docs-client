@@ -1,4 +1,4 @@
-import {  useState } from "react";
+import { useState } from "react";
 import { Outlet } from "react-router-dom";
 import Sidebar from "../shared/sidebar/Sidebar";
 import { RiMenuFoldFill } from "react-icons/ri";
@@ -18,7 +18,7 @@ const DashboardLayout = () => {
             <div className="col-span-1 ">
               <Sidebar />
             </div>
-            <div className="col-span-4 bg-slate-100 px-8 py-12">
+            <div className="col-span-4 bg-gray-200 px-8 py-12">
               <Outlet />
             </div>
           </div>
@@ -30,7 +30,7 @@ const DashboardLayout = () => {
           <div>
             <MediumNavbar />
           </div>
-          
+
           <div className="flex">
             <RiMenuFoldFill
               className={`${isMenuClicked ? "" : "hidden"}`}
@@ -43,15 +43,13 @@ const DashboardLayout = () => {
           </div>
           <div
             className={`lg:hidden z-50 fixed top-24 text-lg bg-white border-l-2 border-slate-200 rounded-s-md h-screen w-3/4  transition ease-linear delay-200 underline ${
-              isMenuClicked
-                ? "translate-x-24 md:translate-x-[500px]"
-                : "hidden"
+              isMenuClicked ? "translate-x-24 md:translate-x-[500px]" : "hidden"
             }`}
           >
             <Sidebar />
           </div>
         </div>
-            <Outlet/>
+        <Outlet />
       </div>
     </nav>
   );
