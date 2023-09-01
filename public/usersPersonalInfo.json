@@ -1,0 +1,41 @@
+[
+    {
+        "id":1,
+        "name_bangla":"আব্দুল হামিদ",
+        "name_english":"Abdul Hamid",
+        "father_name":"ছাদিকুর রাহমান",
+        "mother_name":"ছালেহা বেগম",
+        "gender":"Male",
+        "blood_group":"+B",
+        "birth_regist_no":"12099386541423",
+        "Date_of_Birth":"12-05-2002",
+        "birth_place":"Hajiganj,Chandpur",
+        "category":"Personal Info"
+
+    },
+    {
+        "id":2,
+        "education":"এস-এস-সি",
+        "occupation":"Bussiness",
+        "mobile_number":"0192873654",
+        "religion":"Muslim",
+        "driving_license_number":"03984654426",
+        "passport_number":"76846453",
+        "tin":"no",
+        "Identification_Mark":"4.62",
+        "category":"Identification info"
+    },
+    {
+        "id":3,
+        "division":"Chittagong",
+        "district":"Chandpur",
+        "upazila":"Hajiganj",
+        "police_station":"Hajiganj",
+        "post_code":"234",
+        "post_office":"কাশিম্পুর",
+        "house_holding":"৩৪৩১",
+        "voter_area":"Hajiganj",
+        "village_road":"Datra Shibpur",
+        "category":"Address Info"
+    }
+]
