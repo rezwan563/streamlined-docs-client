@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
 import Loader from "../../../shared/loader/Loader";
 
-
 function ProfileSection() {
   const { user } = useContext(AuthContext);
   const [data, setData] = useState({});
