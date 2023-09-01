@@ -6,72 +6,6 @@ const AllDocuments = () => {
         <div>
             <h4 className="text-2xl font-semibold border-green-300 pb-2 border-b-2">All Documents</h4>
 
-            {/* <div className="overflow-x-auto mt-5">
-                <table className="table">
-                  
-                    <thead>
-                        <tr>
-                            <div className="w-full">
-                                <th>User Profile</th>
-                                <th>Email</th>
-                                <th>View Details</th>
-                                <th>Action</th>
-                            </div>
-                        </tr>
-                    </thead>
-                    <tbody>
-
-                        <tr>
-                            <div className="w-full">
-                                <td>
-                                    <div className="flex items-center space-x-3">
-                                        <div className="avatar">
-                                            <div className="mask mask-squircle w-12 h-12">
-                                                <img src="/tailwind-css-component-profile-2@56w.png" alt="Avatar Tailwind CSS Component" />
-                                            </div>
-                                        </div>
-                                        <div><div className="font-bold">Hart Hagerty</div></div>
-                                    </div>
-                                </td>
-                                <td>Zemlak, Daniel and Leannon</td>
-                                <td>Purple</td>
-                                <th>
-                                    <button className="btn btn-ghost btn-xs">details</button>
-                                </th>
-                            </div>
-                        </tr>
-
-                        <tr>
-                            <div>
-                                <td>
-                                    <div className="flex items-center space-x-3">
-                                        <div className="avatar">
-                                            <div className="mask mask-squircle w-12 h-12">
-                                                <img src="/tailwind-css-component-profile-2@56w.png" alt="Avatar Tailwind CSS Component" />
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <div className="font-bold">Hart Hagerty</div>
-                                            <div className="text-sm opacity-50">United States</div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    Zemlak, Daniel and Leannon
-                                    <br />
-                                    <span className="badge badge-ghost badge-sm">Desktop Support Technician</span>
-                                </td>
-                                <td>Purple</td>
-                                <th>
-                                    <button className="btn btn-ghost btn-xs">details</button>
-                                </th>
-                            </div>
-                        </tr>
-
-                    </tbody>
-                </table>
-            </div> */}
-
             <div className="mt-5">
                 <div className="grid grid-cols-12 gap-5 bg-slate-200 py-4 px-3">
                     <div className="col-span-4 font-bold">User profile</div>
@@ -92,7 +26,95 @@ const AllDocuments = () => {
                         </div>
                     </div>
                     <div className="col-span-4 flex items-center">
-                        <p className="font-medium">robiulromjan.ius@gmail.com</p>
+                        <p className="font-medium">hart-hagerty.ius@gmail.com</p>
+                    </div>
+                    <div className="col-span-2 flex items-center">
+                        <button className="btn-sm btn-success rounded-sm">Details</button>
+                    </div>
+                    <div className="col-span-2 flex items-center">
+                        <button className="btn-sm btn-error rounded-sm">Delete</button>
+                    </div>
+                </div>
+
+                <div className="grid grid-cols-12 gap-5 bg-white p-3 mt-4 hover:shadow-lg cursor-pointer">
+                    <div className="col-span-4">
+                        <div className="flex items-center space-x-3">
+                            <div className="avatar">
+                                <div className=" w-12 h-12">
+                                    <img className="rounded-full" src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60" alt="user image" />
+                                </div>
+                            </div>
+                            <div><div className="font-bold">Tom Marry</div></div>
+                        </div>
+                    </div>
+                    <div className="col-span-4 flex items-center">
+                        <p className="font-medium">tom-merry.ius@gmail.com</p>
+                    </div>
+                    <div className="col-span-2 flex items-center">
+                        <button className="btn-sm btn-success rounded-sm">Details</button>
+                    </div>
+                    <div className="col-span-2 flex items-center">
+                        <button className="btn-sm btn-error rounded-sm">Delete</button>
+                    </div>
+                </div>
+
+                <div className="grid grid-cols-12 gap-5 bg-white p-3 mt-4 hover:shadow-lg cursor-pointer">
+                    <div className="col-span-4">
+                        <div className="flex items-center space-x-3">
+                            <div className="avatar">
+                                <div className=" w-12 h-12">
+                                    <img className="rounded-full" src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8dXNlcnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60" alt="user image" />
+                                </div>
+                            </div>
+                            <div><div className="font-bold">Spider Man</div></div>
+                        </div>
+                    </div>
+                    <div className="col-span-4 flex items-center">
+                        <p className="font-medium">spider-man.@gmail.com</p>
+                    </div>
+                    <div className="col-span-2 flex items-center">
+                        <button className="btn-sm btn-success rounded-sm">Details</button>
+                    </div>
+                    <div className="col-span-2 flex items-center">
+                        <button className="btn-sm btn-error rounded-sm">Delete</button>
+                    </div>
+                </div>
+
+                <div className="grid grid-cols-12 gap-5 bg-white p-3 mt-4 hover:shadow-lg cursor-pointer">
+                    <div className="col-span-4">
+                        <div className="flex items-center space-x-3">
+                            <div className="avatar">
+                                <div className=" w-12 h-12">
+                                    <img className="rounded-full" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8dXNlcnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60" alt="user image" />
+                                </div>
+                            </div>
+                            <div><div className="font-bold">Beauty Queen</div></div>
+                        </div>
+                    </div>
+                    <div className="col-span-4 flex items-center">
+                        <p className="font-medium">beauty-queen.@gmail.com</p>
+                    </div>
+                    <div className="col-span-2 flex items-center">
+                        <button className="btn-sm btn-success rounded-sm">Details</button>
+                    </div>
+                    <div className="col-span-2 flex items-center">
+                        <button className="btn-sm btn-error rounded-sm">Delete</button>
+                    </div>
+                </div>
+
+                <div className="grid grid-cols-12 gap-5 bg-white p-3 mt-4 hover:shadow-lg cursor-pointer">
+                    <div className="col-span-4">
+                        <div className="flex items-center space-x-3">
+                            <div className="avatar">
+                                <div className=" w-12 h-12">
+                                    <img className="rounded-full" src="https://images.unsplash.com/photo-1619895862022-09114b41f16f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fHVzZXJ8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=600&q=60" alt="user image" />
+                                </div>
+                            </div>
+                            <div><div className="font-bold">Hanrey Harve</div></div>
+                        </div>
+                    </div>
+                    <div className="col-span-4 flex items-center">
+                        <p className="font-medium">hanry-harve.@gmail.com</p>
                     </div>
                     <div className="col-span-2 flex items-center">
                         <button className="btn-sm btn-success rounded-sm">Details</button>
