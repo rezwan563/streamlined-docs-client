@@ -88,10 +88,7 @@ const router = createBrowserRouter([
         path: "/dashboard/adminhome",
         element:<AdminHome></AdminHome>
       },
-      {
-        path: "/dashboard/usershome",
-        element:<UsersHome></UsersHome>
-      }
+     
     ],
   },
 ]);
