@@ -15,6 +15,7 @@ import Auth from "../pages/Auth/Auth";
 import Header from "../shared/header/Header";
 import Homepage from "../pages/homepage/Homepage";
 import AdminHome from "../pages/dashboard/admin/adminHomePage/AdminHome";
+import UsersHome from "../pages/dashboard/admin/adminHomePage/adminHomePage/usersHome/UsersHome";
 
 const router = createBrowserRouter([
   {
@@ -86,7 +87,8 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/adminhome",
         element:<AdminHome></AdminHome>
-      }
+      },
+     
     ],
   },
 ]);
