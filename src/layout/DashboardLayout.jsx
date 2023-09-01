@@ -71,7 +71,7 @@ const DashboardLayout = () => {
             </div>
           </div>
         </div>
-        <div className="bg-gray-100 col-span-4 py-24 px-12 ">
+        <div className="bg-gray-100 col-span-4 py-6 px-6 ">
           {/* Content goes here */}
           <Outlet />
         </div>

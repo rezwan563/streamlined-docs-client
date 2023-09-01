@@ -3,15 +3,16 @@ import MainLayout from "../layout/MainLayout";
 import Home from "../pages/homepage/Home";
 import DashboardLayout from "../layout/DashboardLayout";
 import MyDetails from "../pages/dashboard/mydetails/MyDetails";
-import DashboardSummary from "../pages/dashboard/dasboardsummary/DashboardSummary";
+// import DashboardSummary from "../pages/dashboard/dasboardsummary/DashboardSummary";
 import AllDocuments from "../pages/dashboard/alldocuments/AllDocuments";
 import PendingDocument from "../pages/dashboard/pendingdoc/PendingDocument";
 import UploadDocument from "../pages/dashboard/uploaddocument/UploadDocument";
 import DocumentProgress from "../pages/dashboard/progress/DocumentProgress";
 import Settings from "../pages/dashboard/settings/Settings";
 import PassportApplicationForm from "../Sections/PassportApplicationForm";
-import EditProfile from "../pages/dashboard/mydetails/Editprofile"
+import EditProfile from "../pages/dashboard/mydetails/Editprofile";
 import Auth from "../pages/Auth/Auth";
+import DashboardHome from "../pages/dashboard/UserHome.jsx/UserHome";
 
 const router = createBrowserRouter([
   {
@@ -22,10 +23,10 @@ const router = createBrowserRouter([
         path: "/",
         element: <Home />,
       },
-       {
+      {
         path: "/auth",
-        element: <Auth />
-       },
+        element: <Auth />,
+      },
       {
         path: "/apply",
         element: <PassportApplicationForm></PassportApplicationForm>,
@@ -38,7 +39,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/dashboard/",
-        element: <DashboardSummary />,
+        element: <DashboardHome />,
       },
       {
         path: "/dashboard/my-details",
