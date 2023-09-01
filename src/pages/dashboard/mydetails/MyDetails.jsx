@@ -1,7 +1,7 @@
 import { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
-import Loader from "../../../shared/Loader";
+import Loader from "../../../shared/loader/Loader";
 
 
 function ProfileSection() {

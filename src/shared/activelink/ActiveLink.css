@@ -1,0 +1,9 @@
+.active {
+    font-weight: bold;
+    color: rgb(255, 30, 0); /* Change this to your desired color */
+  }
+
+.nav-link{
+    padding: 0;
+    margin: 0;
+}

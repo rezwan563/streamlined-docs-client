@@ -30,7 +30,9 @@
   font-weight: bold;
 }
 
-.flex {
+/* .flex is conflicting with tailwind css. Use different name */
+
+/* .flex {
   display: flex;
   justify-content: space-around;
-}
+} */

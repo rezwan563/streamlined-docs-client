@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { FaArrowAltCircleUp } from "react-icons/fa";
 
-
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -15,11 +14,11 @@ const Navbar = () => {
     <nav>
       <header className="bg-white shadow-md">
         <div className="container mx-auto py-4 px-8 flex justify-between items-center">
-        <div className="flex items-center">
-        {/* <img className="w-32" src="./streamlineddocs-logo.svg" alt="" /> */}
-        <h4 className="font-semibold text-2xl">Streamlined</h4>
-        </div>
-         
+          <div className="flex items-center">
+            {/* <img className="w-32" src="./streamlineddocs-logo.svg" alt="" /> */}
+            <h4 className="font-semibold text-2xl">Streamlined</h4>
+          </div>
+
           <div className="md:hidden">
             {isMenuOpen ? (
               <FaArrowAltCircleUp

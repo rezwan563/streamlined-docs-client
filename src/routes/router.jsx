@@ -1,6 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../layout/MainLayout";
-import Home from "../pages/homepage/Home";
 import DashboardLayout from "../layout/DashboardLayout";
 import MyDetails from "../pages/dashboard/mydetails/MyDetails";
 import DashboardSummary from "../pages/dashboard/dasboardsummary/DashboardSummary";
@@ -9,20 +8,27 @@ import PendingDocument from "../pages/dashboard/pendingdoc/PendingDocument";
 import UploadDocument from "../pages/dashboard/uploaddocument/UploadDocument";
 import DocumentProgress from "../pages/dashboard/progress/DocumentProgress";
 import Settings from "../pages/dashboard/settings/Settings";
-import PassportApplicationForm from "../Sections/PassportApplicationForm";
+import PassportApplicationForm from "../sections/PassportApplicationForm";
 import EditProfile from "../pages/dashboard/mydetails/Editprofile"
+import Chatbox from "../pages/dashboard/chat/Chatbox";
 import Auth from "../pages/Auth/Auth";
+import Header from "../shared/header/Header";
+import Homepage from "../pages/homepage/Homepage";
 import AdminHome from "../pages/dashboard/admin/adminHomePage/AdminHome";
 import UsersHome from "../pages/dashboard/admin/adminHomePage/adminHomePage/usersHome/UsersHome";
 
 const router = createBrowserRouter([
+  {
+    path:'/header',
+    element: <Header/>
+  },
   {
     path: "/",
     element: <MainLayout />,
     children: [
       {
         path: "/",
-        element: <Home />,
+        element: <Homepage/>,
       },
        {
         path: "/auth",
@@ -32,6 +38,8 @@ const router = createBrowserRouter([
         path: "/apply",
         element: <PassportApplicationForm></PassportApplicationForm>,
       },
+      
+      
     ],
   },
   {
@@ -40,7 +48,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/dashboard/",
-        element: <DashboardSummary />,
+        element: <AdminHome />,
       },
       {
         path: "/dashboard/my-details",
@@ -56,16 +64,17 @@ const router = createBrowserRouter([
         element: <AllDocuments />,
       },
       {
+        path:'/dashboard/chat',
+        element:<Chatbox/>
+      },
+     
+      {
         path: "/dashboard/pending_documents",
         element: <PendingDocument />,
       },
       {
         path: "/dashboard/upload",
         element: <UploadDocument />,
-      },
-      {
-        path: "/dashboard/pending_documents",
-        element: <PendingDocument />,
       },
       {
         path: "/dashboard/progress",
