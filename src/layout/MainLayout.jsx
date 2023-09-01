@@ -1,13 +1,11 @@
 import { Outlet } from "react-router-dom";
-import Navbar from "../shared/Navbar";
-import Footer from "../shared/Footer";
+import Header from "../shared/header/Header";
 
 const MainLayout = () => {
   return (
-    <div>
-      <Navbar />
+    <div className="lg:max-w-7xl lg:mx-auto">
+      <Header/>
       <Outlet />
-      <Footer />
     </div>
   );
 };

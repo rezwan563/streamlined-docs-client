@@ -11,7 +11,7 @@ const PendingDocument = () => {
     },[])
 
     return (
-        <div>
+        <div className="bg-white p-2">
             <h1 className="text-4xl text-center font-bold mb-8">Pending Documents will be here</h1>
        
             <div className="overflow-x-auto w-full">

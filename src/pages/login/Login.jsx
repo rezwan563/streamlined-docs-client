@@ -47,7 +47,7 @@ const Login = () => {
             };
             console.log(savedUser);
     
-            fetch("https://streamlined-docs-server.vercel.app/users", {
+            fetch(`${import.meta.env.VITE_SERVER_API}/users`, {
               method: "POST",
               headers: {
                 "content-type": "application/json",
