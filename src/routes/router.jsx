@@ -13,6 +13,7 @@ import PassportApplicationForm from "../Sections/PassportApplicationForm";
 import EditProfile from "../pages/dashboard/mydetails/Editprofile"
 import Auth from "../pages/Auth/Auth";
 import AdminHome from "../pages/dashboard/admin/adminHomePage/AdminHome";
+import UsersHome from "../pages/dashboard/admin/adminHomePage/adminHomePage/usersHome/UsersHome";
 
 const router = createBrowserRouter([
   {
@@ -77,6 +78,10 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/adminhome",
         element:<AdminHome></AdminHome>
+      },
+      {
+        path: "/dashboard/usershome",
+        element:<UsersHome></UsersHome>
       }
     ],
   },

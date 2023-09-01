@@ -49,6 +49,9 @@ const DashboardLayout = () => {
             <Link to="/dashboard/adminhome" className="block mb-4">
               Admin Home
             </Link>
+            <Link to="/dashboard/usershome" className="block mb-4">
+              Users Home
+            </Link>
             <Link to="/dashboard/my-details" className="block mb-4">
               My Details
             </Link>
