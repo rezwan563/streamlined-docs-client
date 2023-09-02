@@ -1,8 +1,8 @@
-import demo1 from '../../../../assets/demo1.jpg'
-import demo2 from '../../../../assets/demo2.jpg'
-import demo3 from '../../../../assets/demo3.jpg'
-import AdminHomeChart from './adminHomePage/adminHomeComponent/AdminHomeChart';
-import AdminHomePieChart from './adminHomePage/adminHomeComponent/AdminHomePieChart';
+import demo1 from '../../../../assets/demo1.jpg';
+import demo2 from '../../../../assets/demo2.jpg';
+import demo3 from '../../../../assets/demo3.jpg';
+import AdminHomeChart from '../adminHomeComponent/AdminHomeChart';
+import AdminHomePieChart from '../adminHomeComponent/AdminHomePieChart';
 
 
 const AdminHome = () => {
