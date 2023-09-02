@@ -16,6 +16,7 @@ import Header from "../shared/header/Header";
 import Homepage from "../pages/homepage/Homepage";
 import AdminHome from "../pages/dashboard/admin/adminHomePage/AdminHome";
 import UsersHome from "../pages/dashboard/admin/adminHomePage/adminHomePage/usersHome/UsersHome";
+import UsersEditProfile from "../pages/dashboard/admin/adminHomePage/adminHomePage/usersHome/UsersEditProfile";
 
 const router = createBrowserRouter([
   {
@@ -47,7 +48,7 @@ const router = createBrowserRouter([
     element: <DashboardLayout />,
     children: [
       {
-        path: "/dashboard/",
+        path: "/dashboard/admin",
         element: <AdminHome />,
       },
       {
@@ -85,9 +86,13 @@ const router = createBrowserRouter([
         element: <Settings />,
       },
       {
-        path: "/dashboard/adminhome",
-        element:<AdminHome></AdminHome>
+        path:"/dashboard/admin_review",
+        element:<UsersHome/>,
       },
+      // {
+      //   path: "/dashboard/adminhome",
+      //   element:<AdminHome></AdminHome>
+      // },
      
     ],
   },
