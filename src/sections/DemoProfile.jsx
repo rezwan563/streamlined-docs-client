@@ -1,8 +1,8 @@
 import { useState, useEffect, useContext } from "react";
-import { AuthContext } from "../../../providers/AuthProvider";
+import { AuthContext } from "../providers/AuthProvider";
 import Swal from "sweetalert2";
 
-function EditProfile() {
+function DemoProfile() {
   const [formData, setFormData] = useState({
     fullName: "",
     nationalIdNumber: "",
@@ -168,4 +168,4 @@ function EditProfile() {
   );
 }
 
-export default EditProfile;
+export default DemoProfile;

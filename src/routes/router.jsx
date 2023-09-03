@@ -2,21 +2,19 @@ import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../layout/MainLayout";
 import DashboardLayout from "../layout/DashboardLayout";
 import MyDetails from "../pages/dashboard/mydetails/MyDetails";
-import DashboardSummary from "../pages/dashboard/dasboardsummary/DashboardSummary";
 import AllDocuments from "../pages/dashboard/alldocuments/AllDocuments";
 import PendingDocument from "../pages/dashboard/pendingdoc/PendingDocument";
 import UploadDocument from "../pages/dashboard/uploaddocument/UploadDocument";
 import DocumentProgress from "../pages/dashboard/progress/DocumentProgress";
 import Settings from "../pages/dashboard/settings/Settings";
 import PassportApplicationForm from "../sections/PassportApplicationForm";
-import EditProfile from "../pages/dashboard/mydetails/Editprofile"
 import Chatbox from "../pages/dashboard/chat/Chatbox";
 import Auth from "../pages/Auth/Auth";
 import Header from "../shared/header/Header";
 import Homepage from "../pages/homepage/Homepage";
 import AdminHome from "../pages/dashboard/admin/adminHomePage/AdminHome";
 import UsersHome from "../pages/dashboard/admin/adminHomePage/adminHomePage/usersHome/UsersHome";
-import UsersEditProfile from "../pages/dashboard/admin/adminHomePage/adminHomePage/usersHome/UsersEditProfile";
+import EditProfile from "../pages/dashboard/editprofile/EditProfile";
 
 const router = createBrowserRouter([
   {
@@ -55,10 +53,9 @@ const router = createBrowserRouter([
         path: "/dashboard/my-details",
         element: <MyDetails />,
       },
-
       {
-        path: "/dashboard/edit-profile",
-        element: <EditProfile />,
+        path:"/dashboard/create_profile",
+        element:<EditProfile/>
       },
       {
         path: "/dashboard/all_documents",
@@ -68,7 +65,6 @@ const router = createBrowserRouter([
         path:'/dashboard/chat',
         element:<Chatbox/>
       },
-     
       {
         path: "/dashboard/pending_documents",
         element: <PendingDocument />,
@@ -89,10 +85,7 @@ const router = createBrowserRouter([
         path:"/dashboard/admin_review",
         element:<UsersHome/>,
       },
-      // {
-      //   path: "/dashboard/adminhome",
-      //   element:<AdminHome></AdminHome>
-      // },
+     
      
     ],
   },
