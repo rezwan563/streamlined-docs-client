@@ -5,12 +5,7 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {
-      fontFamily:{
-        bebas:['Bebas Neue'," sans-serif"],
-        staatliches:['Staatliches', "sans"]
-      }
-    },
+    extend: {},
   },
-  plugins: [require("daisyui")]
+  plugins: [],
 }
