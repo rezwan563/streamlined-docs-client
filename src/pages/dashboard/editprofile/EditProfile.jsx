@@ -39,7 +39,7 @@ const EditProfile = () => {
             </div>
             <div className="flex justify-between items-center">
               <label htmlFor="name" className="font-normal text-base mr-2 ">
-                Fathers Name(bn)
+                Father Name(bn)
               </label>
               <input
                 type="text"
@@ -50,7 +50,7 @@ const EditProfile = () => {
             </div>
             <div className="flex justify-between items-center">
               <label htmlFor="name" className="font-normal text-base mr-2 ">
-                Fathers Name(en)
+                Father Name(en)
               </label>
               <input
                 type="text"
