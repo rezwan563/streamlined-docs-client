@@ -44,9 +44,10 @@ const Login = () => {
         const savedUser = {
           email: loggedInUser.email,
         };
+        navigate(from);
         console.log(savedUser);
 
-        fetch("http://localhost:5000/users", {
+        fetch(`${import.meta.env.VITE_SERVER_API}/users`, {
           method: "POST",
           headers: {
             "content-type": "application/json",

@@ -24,7 +24,7 @@ function EditProfile() {
 
   useEffect(() => {
     if (user?.email) {
-      fetch(`http://localhost:5000/edits/${user.email}`)
+      fetch(`${import.meta.env.VITE_SERVER_API}/edits/${user.email}`)
         .then((response) => response.json())
         .then((profileData) => {
           setFormData(profileData || {});
@@ -53,8 +53,8 @@ function EditProfile() {
 
     const method = formData.id ? "PUT" : "POST";
     const endpoint = formData.id
-      ? `http://localhost:5000/edits/${user.email}`
-      : "http://localhost:5000/edits";
+      ? `${import.meta.env.VITE_SERVER_API}/edits/${user.email}`
+      : `${import.meta.env.VITE_SERVER_API}/edits`;
 
     fetch(endpoint, {
       method: method,

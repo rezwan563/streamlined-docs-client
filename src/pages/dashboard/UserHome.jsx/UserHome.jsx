@@ -2,7 +2,7 @@ import ProfileCard from "./ProfileCard";
 import TimeSection from "./TimeSection";
 import CalendarSection from "./CalendarSection";
 
-function DashboardHome() {
+function UsersHome() {
   return (
     <div className="flex justify-between p-8">
       <div className="w-3/4">
@@ -16,4 +16,4 @@ function DashboardHome() {
   );
 }
 
-export default DashboardHome;
+export default UsersHome;
