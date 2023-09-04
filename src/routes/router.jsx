@@ -11,10 +11,11 @@ import PassportApplicationForm from "../sections/PassportApplicationForm";
 import Chatbox from "../pages/dashboard/chat/Chatbox";
 import Auth from "../pages/Auth/Auth";
 import Header from "../shared/header/Header";
-import Homepage from "../pages/homepage/Homepage";
 import AdminHome from "../pages/dashboard/admin/adminHomePage/AdminHome";
 import UsersHome from "../pages/dashboard/admin/adminHomePage/adminHomePage/usersHome/UsersHome";
 import EditProfile from "../pages/dashboard/editprofile/EditProfile";
+import Homepage from "../pages/homepage/homepage/Homepage"
+
 
 const router = createBrowserRouter([
   {
@@ -27,7 +28,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Homepage/>,
+        element: <Homepage/>
       },
        {
         path: "/auth",

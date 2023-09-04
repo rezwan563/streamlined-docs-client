@@ -1,6 +1,6 @@
 import Lottie from "lottie-react";
-import globe from "../../assets/globe_animation.json";
-import BannerBadge from "../../shared/bannerbadge/BannerBadge";
+import globe from "../../../assets/globe_animation.json";
+import BannerBadge from "../../../shared/bannerbadge/BannerBadge";
 const Homepage = () => {
   
   return (

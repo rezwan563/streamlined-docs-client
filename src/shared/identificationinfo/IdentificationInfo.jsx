@@ -15,7 +15,7 @@ const IdentificationInfo = () => {
         </div>
         <div className="flex justify-between items-center">
           <label htmlFor="name" className="font-normal text-base mr-2 ">
-            Occupation
+            Occupation(bn)
           </label>
           <input
             type="text"
@@ -48,7 +48,7 @@ const IdentificationInfo = () => {
         </div>
         <div className="flex justify-between items-center">
           <label htmlFor="name" className="font-normal text-base mr-2 ">
-            Driving License Number
+            Driving License
           </label>
           <input
             type="text"
