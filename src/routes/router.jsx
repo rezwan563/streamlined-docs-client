@@ -5,20 +5,21 @@ import Auth from "../pages/Auth/Auth";
 import AdminHome from "../pages/dashboard/admin/adminHomePage/adminHomePage/AdminHome";
 import AllDocuments from "../pages/dashboard/alldocuments/AllDocuments";
 import Chatbox from "../pages/dashboard/chat/Chatbox";
-import EditProfile from "../pages/dashboard/mydetails/Editprofile";
 import MyDetails from "../pages/dashboard/mydetails/MyDetails";
 import PendingDocument from "../pages/dashboard/pendingdoc/PendingDocument";
 import DocumentProgress from "../pages/dashboard/progress/DocumentProgress";
 import Settings from "../pages/dashboard/settings/Settings";
-import UploadDocument from "../pages/dashboard/uploaddocument/UploadDocument";
-import Homepage from "../pages/homepage/Homepage";
-import PassportApplicationForm from "../sections/PassportApplicationForm";
 import Header from "../shared/header/Header";
+import Homepage from "../pages/homepage/homepage/Homepage";
+
+import UploadDocument from "../pages/dashboard/uploaddocument/UploadDocument";
+import AdminReview from "../pages/dashboard/admin/adminReview/adminReviewPage/AdminReview";
+import EditProfile from "../pages/dashboard/editprofile/EditProfile";
 
 const router = createBrowserRouter([
   {
-    path:'/header',
-    element: <Header/>
+    path: "/header",
+    element: <Header />,
   },
   {
     path: "/",
@@ -26,18 +27,12 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Homepage/>,
+        element: <Homepage />,
       },
-       {
-        path: "/auth",
-        element: <Auth />
-       },
       {
-        path: "/apply",
-        element: <PassportApplicationForm></PassportApplicationForm>,
+        path: "/auth",
+        element: <Auth />,
       },
-      
-      
     ],
   },
   {
@@ -45,27 +40,25 @@ const router = createBrowserRouter([
     element: <DashboardLayout />,
     children: [
       {
-        path: "/dashboard/",
+        path: "/dashboard/admin",
         element: <AdminHome />,
       },
       {
         path: "/dashboard/my-details",
         element: <MyDetails />,
       },
-
       {
-        path: "/dashboard/edit-profile",
-        element: <EditProfile />,
+        path:"/dashboard/create_profile",
+        element:<EditProfile/>
       },
       {
         path: "/dashboard/all_documents",
         element: <AllDocuments />,
       },
       {
-        path:'/dashboard/chat',
-        element:<Chatbox/>
+        path: "/dashboard/chat",
+        element: <Chatbox />,
       },
-     
       {
         path: "/dashboard/pending_documents",
         element: <PendingDocument />,
@@ -83,10 +76,9 @@ const router = createBrowserRouter([
         element: <Settings />,
       },
       {
-        path: "/dashboard/adminhome",
-        element:<AdminHome></AdminHome>
+        path: "/dashboard/admin_review",
+        element: <AdminReview/>,
       },
-     
     ],
   },
 ]);

@@ -8,8 +8,9 @@ const Header = () => {
   const navLinks = (
     <>
       <ActiveLink to="/">HOME</ActiveLink>
-      <ActiveLink to="/details">DETAILS</ActiveLink>
+      <ActiveLink to="/">DETAILS</ActiveLink>
       <ActiveLink to="/faq">FAQ</ActiveLink>
+      <ActiveLink to="/dashboard">DASHBOARD</ActiveLink>
     </>
   );
   const loginButton = (

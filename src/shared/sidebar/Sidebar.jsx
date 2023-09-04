@@ -28,11 +28,23 @@ const Sidebar = () => {
           </div>
         </div>
        <div>
+          <Link to="/" className="block mb-4">
+            Home
+          </Link>
+          <Link to="/dashboard/admin" className="block mb-4">
+            Dashboard
+          </Link>
           <Link to="/dashboard/my-details" className="block mb-4">
             My Details
           </Link>
+          <Link to="/dashboard/create_profile" className="block mb-4">
+            Create Profile
+          </Link>
           <Link to="/dashboard/all_documents" className="block mb-4">
             All Documents
+          </Link>
+          <Link to="/dashboard/admin_review" className="block mb-4">
+            Admin Review
           </Link>
           {/* This will be admin link. Only admin can go to this route */}
           {/* <Link to="/dashboard/pending_documents" className="block mb-4">
