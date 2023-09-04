@@ -1,4 +1,4 @@
-
+import "./EditProfile.css"
 const EditProfile = () => {
   return (
     <div>
@@ -9,8 +9,8 @@ const EditProfile = () => {
               Please fill up your profile information
             </p>
           </div>
-          <div className="py-4">
-            <p className="font-bold text-base border-b-2 border-blue-600 pb-2">
+          <div className="py-2 mb-2 border-b-2 border-blue-700">
+            <p className=" font-bold text-base">
               Personal Information
             </p>
           </div>
@@ -22,7 +22,7 @@ const EditProfile = () => {
               <input
                 type="text"
                 name="name"
-                className="border-b-2 border-slate-200 pl-2 rounded-md py-1 outline-none text-xl"
+                className="border-b-2 border-slate-200 pl-2 rounded-md py-1   text-xl  focus:border-blue-500 focus:outline-none transition duration-300 ease-in-out "
                 placeholder="নাম"
               />
             </div>
@@ -33,7 +33,7 @@ const EditProfile = () => {
               <input
                 type="text"
                 name="nameEnglish"
-                className="border-b-2 border-slate-200 pl-2 rounded-md py-1 outline-none text-xl"
+                className="border-b-2 border-slate-200 pl-2 rounded-md py-1   text-xl  focus:border-blue-500 focus:outline-none transition duration-300 ease-in-out"
                 placeholder="Name"
               />
             </div>
@@ -44,7 +44,7 @@ const EditProfile = () => {
               <input
                 type="text"
                 name="fatherName"
-                className="border-b-2 border-slate-200 pl-2 rounded-md py-1 outline-none text-xl"
+                className="border-b-2 border-slate-200 pl-2 rounded-md py-1   text-xl  focus:border-blue-500 focus:outline-none transition duration-300 ease-in-out"
                 placeholder="পিতার নাম"
               />
             </div>
@@ -55,7 +55,7 @@ const EditProfile = () => {
               <input
                 type="text"
                 name="fatherNameEnglish"
-                className="border-b-2 border-slate-200 pl-2 rounded-md py-1 outline-none text-xl"
+                className="border-b-2 border-slate-200 pl-2 rounded-md py-1   text-xl  focus:border-blue-500 focus:outline-none transition duration-300 ease-in-out"
                 placeholder="Father Name"
               />
             </div>
@@ -66,7 +66,7 @@ const EditProfile = () => {
               <input
                 type="text"
                 name="motherName"
-                className="border-b-2 border-slate-200 pl-2 rounded-md py-1 outline-none text-xl"
+                className="border-b-2 border-slate-200 pl-2 rounded-md py-1   text-xl  focus:border-blue-500 focus:outline-none transition duration-300 ease-in-out"
                 placeholder="মাতার নাম"
               />
             </div>
@@ -77,7 +77,7 @@ const EditProfile = () => {
               <input
                 type="text"
                 name="motherNameEnglish"
-                className="border-b-2 border-slate-200 pl-2 rounded-md py-1 outline-none text-xl"
+                className="border-b-2 border-slate-200 pl-2 rounded-md py-1   text-xl  focus:border-blue-500 focus:outline-none transition duration-300 ease-in-out"
                 placeholder="Mother Name"
               />
             </div>
