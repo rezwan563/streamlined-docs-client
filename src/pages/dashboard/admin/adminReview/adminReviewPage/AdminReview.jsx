@@ -1,7 +1,7 @@
-import UsersCurrentInfo from '../usersHome/UsersCurrentInfo';
-import UserEditProfile from '../usersHome/UsersEditProfile';
+import UsersCurrentInfo from '../adminReviewComponents/UsersCurrentInfo';
+import UserEditProfile from '../adminReviewComponents/UsersEditProfile';
 
-const UsersHome = () => {
+const AdminReview = () => {
     return (
 
         <div>
@@ -22,4 +22,4 @@ const UsersHome = () => {
     );
 };
 
-export default UsersHome;
+export default AdminReview;

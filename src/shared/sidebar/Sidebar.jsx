@@ -28,6 +28,9 @@ const Sidebar = () => {
           </div>
         </div>
        <div>
+          <Link to="/" className="block mb-4">
+            Home
+          </Link>
           <Link to="/dashboard/admin" className="block mb-4">
             Dashboard
           </Link>
