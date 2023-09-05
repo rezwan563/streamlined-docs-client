@@ -1,7 +1,8 @@
 import Lottie from "lottie-react";
-import globe from "../../assets/globe_animation.json";
-import BannerBadge from "../../shared/bannerbadge/BannerBadge";
+import globe from "../../../assets/globe_animation.json";
+import BannerBadge from "../../../shared/bannerbadge/BannerBadge";
 const Homepage = () => {
+  
   return (
     <div className="pt-12 md:pt-24 ">
       <div className="grid grid-cols-1 px-2 lg:grid-cols-2">
@@ -19,7 +20,7 @@ const Homepage = () => {
             <button className="border-2 border-black px-8 py-3 lg:px-12 lg:py-5 font-semibold text-lg hover:bg-slate-100">Learn More</button>
           </div>
         </div>
-        <div className="w-full lg:w-[900px] lg:block ">
+        <div className="w-full lg:w-[600px] lg:block ">
           <Lottie animationData={globe} />
         </div>
         <div className="block space-y-5 lg:hidden w-full">

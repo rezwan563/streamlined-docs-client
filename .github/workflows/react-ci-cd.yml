@@ -1,0 +1,45 @@
+name: CI/CD for React
+
+on:
+  push:
+    branches:
+      - development  # Define the branch where this workflow should trigger
+  pull_request:
+    branches:
+      - development  # Define the branch where this workflow should trigger
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14  # Choose the Node.js version you want to use
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build
+        run: npm run build
+
+      - name: Test
+        run: npm test
+    
+      - name: Install Firebase CLI
+        run: npm install -g firebase-tools
+      
+      - name: Authenticate with Firebase
+        run: firebase login:ci
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+
+      - name: Deploy to Firebase
+        run: firebase deploy --only hosting
+
+      # Add more steps for deployment here (e.g., deploying to a hosting service)
+

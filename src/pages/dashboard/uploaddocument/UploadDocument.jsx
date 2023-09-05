@@ -1,10 +1,10 @@
 
 const UploadDocument = () => {
-    return (
-        <div>
-            Documents upload functionality will be here
-        </div>
-    );
+  return (
+    <div>
+      <p>Upload document will be here</p>
+    </div>
+  );
 };
 
 export default UploadDocument;
