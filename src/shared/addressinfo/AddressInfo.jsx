@@ -1,49 +1,53 @@
-const IdentificationInfo = () => {
+
+const AddressInfo = () => {
   return (
     <div className="">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div className="flex justify-between items-center">
-          <label htmlFor="name" className="font-normal text-base mr-2 ">
-            Education(bn)
+          <label htmlFor="division" className="font-normal text-base mr-2 ">
+            Division(bn)
           </label>
           <input
             type="text"
-            name="education"
+            name="division"
             className="border-b-2 border-slate-200 pl-2 rounded-md py-1   text-xl  focus:border-blue-500 focus:outline-none transition duration-300 ease-in-out "
-            placeholder="শিক্ষাগত যোগ্যতা"
+            placeholder="বিভাগ"
           />
         </div>
         <div className="flex justify-between items-center">
-          <label htmlFor="name" className="font-normal text-base mr-2 ">
-            Occupation(bn)
+          <label htmlFor="district" className="font-normal text-base mr-2 ">
+            District(bn)
           </label>
           <input
             type="text"
-            name="occupation"
+            name="district"
             className="border-b-2 border-slate-200 pl-2 rounded-md py-1   text-xl  focus:border-blue-500 focus:outline-none transition duration-300 ease-in-out"
-            placeholder="পেশা"
+            placeholder="জেলা"
           />
         </div>
         <div className="flex justify-between items-center">
-          <label htmlFor="name" className="font-normal text-base mr-2 ">
-            Reliogion(bn)
+          <label htmlFor="upzilla" className="font-normal text-base mr-2 ">
+            Upazilla(bn)
           </label>
           <input
             type="text"
-            name="religion"
+            name="upzilla"
             className="border-b-2 border-slate-200 pl-2 rounded-md py-1   text-xl  focus:border-blue-500 focus:outline-none transition duration-300 ease-in-out"
-            placeholder="ধর্ম"
+            placeholder="উপজেলা"
           />
         </div>
         <div className="flex justify-between items-center">
-          <label htmlFor="name" className="font-normal text-base mr-2 ">
-            Phone
+          <label
+            htmlFor="policeStation"
+            className="font-normal text-base mr-2 "
+          >
+            Police Station
           </label>
           <input
             type="text"
-            name="phone"
+            name="police Station"
             className="border-b-2 border-slate-200 pl-2 rounded-md py-1   text-xl  focus:border-blue-500 focus:outline-none transition duration-300 ease-in-out"
-            placeholder="Phone"
+            placeholder="থানা"
           />
         </div>
         <div className="flex justify-between items-center">
@@ -58,36 +62,58 @@ const IdentificationInfo = () => {
           />
         </div>
         <div className="flex justify-between items-center">
-          <label htmlFor="name" className="font-normal text-base mr-2">
-            Passport Number
+          <label htmlFor="postCode" className="font-normal text-base mr-2">
+            Post Code
           </label>
           <input
             type="text"
-            name="passportNumber"
+            name="postCode"
             className="border-b-2 border-slate-200 pl-2 rounded-md py-1   text-xl  focus:border-blue-500 focus:outline-none transition duration-300 ease-in-out"
-            placeholder="Passport Number"
+            placeholder="পোস্ট কোড"
           />
         </div>
         <div className="flex justify-between items-center">
-          <label htmlFor="name" className="font-normal text-base mr-2">
-            TIN Number
+          <label htmlFor="postOffice" className="font-normal text-base mr-2">
+            Post Office(bn)
           </label>
           <input
             type="text"
-            name="tinNumber"
+            name="postOffice"
             className="border-b-2 border-slate-200 pl-2 rounded-md py-1   text-xl  focus:border-blue-500 focus:outline-none transition duration-300 ease-in-out"
-            placeholder="TIN Number"
+            placeholder="পোস্ট অফিস"
           />
         </div>
         <div className="flex justify-between items-center">
-          <label htmlFor="name" className="font-normal text-base mr-2">
-            Identification Mark(bn)
+          <label htmlFor="holdingNumber" className="font-normal text-base mr-2">
+            House Holding No(bn)
           </label>
           <input
             type="text"
-            name="identificationMark"
+            name="holdingNumber"
             className="border-b-2 border-slate-200 pl-2 rounded-md py-1   text-xl  focus:border-blue-500 focus:outline-none transition duration-300 ease-in-out"
-            placeholder="Identification Mark"
+            placeholder="হোল্ডিং নম্বর"
+          />
+        </div>
+        <div className="flex justify-between items-center">
+          <label htmlFor="voterArea" className="font-normal text-base mr-2">
+            Voter Area(bn)
+          </label>
+          <input
+            type="text"
+            name="voterArea"
+            className="border-b-2 border-slate-200 pl-2 rounded-md py-1   text-xl  focus:border-blue-500 focus:outline-none transition duration-300 ease-in-out"
+            placeholder="ভোটার এলাকা"
+          />
+        </div>
+        <div className="flex justify-between items-center">
+          <label htmlFor="villageNumber" className="font-normal text-base mr-2">
+            Village Road No(bn)
+          </label>
+          <input
+            type="text"
+            name="villageRoad"
+            className="border-b-2 border-slate-200 pl-2 rounded-md py-1   text-xl  focus:border-blue-500 focus:outline-none transition duration-300 ease-in-out"
+            placeholder="রোড নম্বর"
           />
         </div>
       </div>
@@ -95,4 +121,4 @@ const IdentificationInfo = () => {
   );
 };
 
-export default IdentificationInfo;
+export default AddressInfo;
