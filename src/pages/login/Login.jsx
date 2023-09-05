@@ -1,42 +1,41 @@
-import { useContext, useState } from 'react';
-import { FcGoogle } from 'react-icons/fc'
-import { useNavigate } from 'react-router-dom';
-import { AuthContext } from '../../providers/AuthProvider';
-import Swal from 'sweetalert2'
-import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import { useContext, useState } from "react";
+import { FcGoogle } from "react-icons/fc";
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../../providers/AuthProvider";
+import Swal from "sweetalert2";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Login = () => {
-    const [show, setShow] = useState(true);
-    const [error, setError] = useState("");
-    const { signIn, signInWithGoogle } = useContext(AuthContext);
-    const navigate = useNavigate()
-    const from = '/dashboard';
+  const [show, setShow] = useState(true);
+  const [error, setError] = useState("");
+  const { signIn, signInWithGoogle } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const from = "/dashboard";
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
 
-    const handleSubmit = e => {
-        e.preventDefault();
-        const form = e.target;
-        const email = form.email.value;
-        const password = form.password.value;
+    setError("");
 
-        setError("")
-
-        signIn(email, password)
-            .then(result => {
-                console.log(result.user)
-                Swal.fire({
-                    title: 'Success!',
-                    text: 'You have successfully Login',
-                    icon: 'success',
-                    confirmButtonText: 'Ok'
-                })
-                navigate("/")
-            })
-            .catch(error => {
-                setError(error.message)
-            })
-        form.reset()
-    }
+    signIn(email, password)
+      .then((result) => {
+        console.log(result.user);
+        Swal.fire({
+          title: "Success!",
+          text: "You have successfully Login",
+          icon: "success",
+          confirmButtonText: "Ok",
+        });
+        navigate("/");
+      })
+      .catch((error) => {
+        setError(error.message);
+      });
+    form.reset();
+  };
 
     const handleGoogleSignIn = () => {
         signInWithGoogle()

@@ -105,7 +105,7 @@ function DemoProfile() {
   ];
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="bg-white rounded-lg shadow-lg p-6 mx-auto">
       <h2 className="text-2xl font-semibold mb-4">Edit Profile</h2>
       {loading ? (
         <div>Loading...</div>

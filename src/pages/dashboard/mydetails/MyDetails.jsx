@@ -11,7 +11,7 @@ function ProfileSection() {
 
   useEffect(() => {
     if (user?.email) {
-      fetch(`https://streamlined-docs-server.vercel.app/details/${user.email}`)
+      fetch(`http://localhost:5000/details/${user.email}`)
         .then((response) => {
           if (!response.ok) {
             throw new Error("Network response was not ok");
