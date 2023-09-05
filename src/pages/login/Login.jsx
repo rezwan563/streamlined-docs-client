@@ -1,4 +1,5 @@
 import { useContext, useState } from "react";
+
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import Swal from "sweetalert2";
@@ -106,13 +107,9 @@ const Login = () => {
         </div>
         <div className="flex flex-col items-center pt-4 space-y-2">
           <div className="flex-1 h-px w-16 md:w-full dark:bg-gray-700"></div>
-          <p className="px-3 text-sm dark:text-gray-400">
-            OR
-          </p>
-          <GoogleLogin/>
-          <div className="flex-1 h-px sm:w-16 dark:bg-gray-700">
-            
-          </div>
+          <p className="px-3 text-sm dark:text-gray-400">OR</p>
+          <GoogleLogin />
+          <div className="flex-1 h-px sm:w-16 dark:bg-gray-700"></div>
         </div>
       </div>
     </div>
