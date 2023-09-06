@@ -45,6 +45,10 @@ const router = createBrowserRouter([
         element: <AdminHome />,
       },
       {
+        path:"/dashboard/user",
+        element:<UsersHome/>,
+      },
+      {
         path: "/dashboard/users",
         element: <UsersHome />,
       },

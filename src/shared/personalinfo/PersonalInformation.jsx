@@ -6,7 +6,7 @@ const PersonalInformation = () => {
       <div className="py-2 mb-2 border-b-2 border-blue-700">
         <p className=" font-bold text-base">Personal Information</p>
       </div>
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div className="flex justify-between items-center">
           <label htmlFor="name" className="font-normal text-base mr-2 ">
             Name(bn)
