@@ -1,14 +1,14 @@
-import demo1 from '../../../../assets/demo1.jpg'
-import demo2 from '../../../../assets/demo2.jpg'
-import demo3 from '../../../../assets/demo3.jpg'
-import AdminHomeChart from './adminHomePage/adminHomeComponent/AdminHomeChart';
-import AdminHomePieChart from './adminHomePage/adminHomeComponent/AdminHomePieChart';
+import demo1 from '../../../../../assets/Images/demo1.jpg';
+import demo2 from '../../../../../assets/Images/demo2.jpg';
+import demo3 from '../../../../../assets/Images/demo3.jpg';
+import AdminHomeChart from '../adminHomeComponent/AdminHomeChart';
+import AdminHomePieChart from '../adminHomeComponent/AdminHomePieChart';
 
 
 const AdminHome = () => {
     return (
         <div>
-            <h1 className='text-2xl font-bold mb-3'>Welcome to Admin Hom page</h1>
+            <h1 className='text-2xl font-bold mb-3'>Welcome to Admin Home page</h1>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-5">
 
                 <div className="card w-80 image-full mx-auto">

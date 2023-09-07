@@ -1,7 +1,8 @@
 import Lottie from "lottie-react";
-import globe from "../../assets/globe_animation.json";
-import BannerBadge from "../../shared/bannerbadge/BannerBadge";
+import globe from "../../../assets/globe_animation.json";
+import BannerBadge from "../../../shared/bannerbadge/BannerBadge";
 const Homepage = () => {
+  
   return (
     <div className="pt-12 md:pt-24">
       <div className="grid grid-cols-1 px-2 lg:grid-cols-2">

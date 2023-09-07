@@ -1,8 +1,8 @@
 import { useState, useEffect, useContext } from "react";
-import { AuthContext } from "../../../providers/AuthProvider";
+import { AuthContext } from "../providers/AuthProvider";
 import Swal from "sweetalert2";
 
-function EditProfile() {
+function DemoProfile() {
   const [formData, setFormData] = useState({
     fullName: "",
     nationalIdNumber: "",
@@ -105,7 +105,7 @@ function EditProfile() {
   ];
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="bg-white rounded-lg shadow-lg p-6 mx-auto">
       <h2 className="text-2xl font-semibold mb-4">Edit Profile</h2>
       {loading ? (
         <div>Loading...</div>
@@ -168,4 +168,4 @@ function EditProfile() {
   );
 }
 
-export default EditProfile;
+export default DemoProfile;
