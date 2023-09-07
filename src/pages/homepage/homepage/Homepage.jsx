@@ -21,7 +21,7 @@ const Homepage = () => {
           </div>
         </div>
         <div className="w-full lg:w-[600px] lg:block ">
-          <Lottie animationData={globe} />
+          <Lottie animationData={globe} data-testid="lottie-animation"/>
         </div>
         <div className="block space-y-5 lg:hidden w-full">
             <button className="bg-red-700 px-8 py-3 w-full lg:px-12 lg:py-5 text-white text-lg font-semibold mr-5 lg:mr-12 hover:bg-red-600 hover:text-neutral-50">

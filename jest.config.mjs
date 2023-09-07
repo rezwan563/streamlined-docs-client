@@ -1,7 +1,12 @@
+// jest.config.mjs
+
 export default {
-    collectCoverage: true,
-    collectCoverageFrom: ['src/**/*.{js,jsx}'],
-    coverageDirectory: 'coverage',
     testEnvironment: 'jsdom',
-    setupFilesAfterEnv: ['./jest.setup.js'],
-}
+    moduleFileExtensions: ['js', 'jsx', 'json', 'node'],
+    setupFilesAfterEnv: ['@testing-library/jest-dom/extend-expect'],
+    moduleNameMapper: {
+      '^@/(.*)$': '<rootDir>/src/$1', // Adjust the path mapping as needed
+    },
+    testMatch: ['**/__tests__/**/*.[jt]s?(x)', '**/?(*.)+(spec|test).[jt]s?(x)'],
+  };
+  

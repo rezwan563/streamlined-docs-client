@@ -9,7 +9,7 @@ import MyDetails from "../pages/dashboard/mydetails/MyDetails";
 import PendingDocument from "../pages/dashboard/pendingdoc/PendingDocument";
 import DocumentProgress from "../pages/dashboard/progress/DocumentProgress";
 import Settings from "../pages/dashboard/settings/Settings";
-import Header from "../shared/header/Header";
+import Header from "../shared/header/header/Header";
 import Homepage from "../pages/homepage/homepage/Homepage";
 
 import UploadDocument from "../pages/dashboard/uploaddocument/UploadDocument";

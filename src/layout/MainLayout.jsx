@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import Header from "../shared/header/Header";
+import Header from "../shared/header/header/Header";
 import { useState } from "react";
 
 const MainLayout = () => {
