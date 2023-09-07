@@ -16,6 +16,7 @@ import UploadDocument from "../pages/dashboard/uploaddocument/UploadDocument";
 import AdminReview from "../pages/dashboard/admin/adminReview/adminReviewPage/AdminReview";
 import EditProfile from "../pages/dashboard/editprofile/EditProfile";
 import UsersHome from "../pages/dashboard/UserHome.jsx/UserHome";
+import Details from "../pages/details/Details";
 
 const router = createBrowserRouter([
   {
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
         path: "/auth",
         element: <Auth />,
       },
+      {
+        path: "/details",
+        element:<Details></Details>
+      }
     ],
   },
   {
