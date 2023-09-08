@@ -1,22 +1,24 @@
-import { useState } from "react";
-import ActiveLink from "../activelink/ActiveLink";
+import { useContext, useState } from "react";
+import ActiveLink from "../../activelink/ActiveLink";
 import { HiMenuAlt3 } from "react-icons/hi";
 import { SiDocsdotrs } from "react-icons/si";
 import { AiOutlineCloseCircle } from "react-icons/ai"
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../providers/AuthProvider";
 const Header = () => {
+  const {user} = useContext(AuthContext)
   const navLinks = (
     <>
       <ActiveLink to="/">HOME</ActiveLink>
-      <ActiveLink to="/details">DETAILS</ActiveLink>
+      <ActiveLink to="/about_us">ABOUT US</ActiveLink>
       <ActiveLink to="/faq">FAQ</ActiveLink>
-      <ActiveLink to="/dashboard">DASHBOARD</ActiveLink>
+      {user ? <ActiveLink to="/dashboard">DASHBOARD</ActiveLink> : ''}
     </>
   );
   const loginButton = (
     <>
       <button  className="bg-red-700 px-4 py-2 lg:rounded-md text-white font-semibold hover:bg-red-600 ">
-        <Link to='/auth'>LOGIN</Link>
+        <Link to='/auth'>Get Started</Link>
       </button>
     </>
   );
@@ -34,7 +36,7 @@ const Header = () => {
             </div>
             <div className="flex items-center lg:gap-16">{navLinks}</div>
           </div>
-          <div className="hidden lg:block">{loginButton}</div>
+          {/* <div className="hidden lg:block">{loginButton}</div> */}
         </div>
         {/* mobile device */}
         <div className="lg:hidden w-full">

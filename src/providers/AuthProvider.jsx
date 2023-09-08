@@ -56,27 +56,15 @@ const AuthProvider = ({ children }) => {
     });
   };
 
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser);
-      // get and set token
-      // if (currentUser) {
-      //   axios
-      //     .post(`${import.meta.env.VITE_SERVER_API}/jwt`, {
-      //       email: currentUser.email,
-      //     })
-      //     .then((data) => {
-      //       localStorage.setItem("access-token", data.data.token);
-      //       setLoading(false);
-      //     });
-      // } else {
-      //   localStorage.removeItem("access-token");
-      // }
-    });
-    return () => {
-      return unsubscribe;
-    };
-  }, []);
+  useEffect(() =>{
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) =>{
+        setUser(currentUser)
+        setLoading(false)
+    })
+    return () =>{
+        return unsubscribe
+    }
+},[])
 
   const authInfo = {
     user,

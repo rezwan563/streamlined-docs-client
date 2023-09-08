@@ -10,18 +10,14 @@ const Register = () => {
   const [show, setShow] = useState(true);
   const [showConfirm, setShowConfirm] = useState(true);
   const [error, setError] = useState("");
-  const { createUser, updateUserProfile } = useContext(AuthContext);
+  const { createUser } = useContext(AuthContext);
   const navigate = useNavigate();
   const from = "/dashboard";
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
-    const firstName = form.first_name.value;
-    const lastName = form.last_name.value;
-    const fullName = firstName + " " + lastName;
     const email = form.email.value;
-    const phone = form.phone.value;
     const password = form.password.value;
     const confirmPassword = form.confirm_password.value;
 
@@ -34,19 +30,27 @@ const Register = () => {
     createUser(email, password)
       .then((result) => {
         console.log(result.user);
-        updateUserProfile(fullName, phone)
+        const savedUser = {
+          email: result.user.email,
+        };
+        fetch(`${import.meta.env.VITE_SERVER_API}/api/users`, {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(savedUser),
+        })
+          .then((res) => res.json())
           .then(() => {
-            Swal.fire({
-              title: "Success!",
-              text: "You have successfully registered",
-              icon: "success",
-              confirmButtonText: "Ok",
-            });
-            navigate(from);
-          })
-          .catch((error) => {
-            setError(error.message);
+            navigate(from, { replace: true });
           });
+        Swal.fire({
+          title: "Success!",
+          text: "You have successfully registered",
+          icon: "success",
+          confirmButtonText: "Ok",
+        });
+        navigate(from);
       })
       .catch((error) => {
         setError(error.message);
@@ -56,7 +60,7 @@ const Register = () => {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen sm:py-12 bg-white">
+    <div className="flex justify-center sm:py-12 bg-white">
       <div className="flex flex-col max-w-lg p-6 rounded-md sm:p-5 w-full bg-gray-100 text-gray-900">
         <div className="mb-8 text-center">
           <h1 className="my-3 text-4xl font-bold">Sign Up</h1>
@@ -70,37 +74,15 @@ const Register = () => {
           action=""
           className="space-y-6 ng-untouched ng-pristine ng-valid"
         >
-          <div className="grid md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 gap-4">
+           
+
             <div>
-              <label htmlFor="email" className="block mb-2 text-sm">
-                First Name
-              </label>
-              <input
-                type="text"
-                name="first_name"
-                required
-                placeholder="first name"
-                className="w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-green-500 bg-gray-200 text-gray-900"
-                data-temp-mail-org="0"
-              />
-            </div>
-            <div>
-              <label htmlFor="email" className="block mb-2 text-sm">
-                Last Name
-              </label>
-              <input
-                type="text"
-                name="last_name"
-                required
-                placeholder="last name"
-                className="w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-green-500 bg-gray-200 text-gray-900"
-                data-temp-mail-org="0"
-              />
-            </div>
-            <div>
-              <label htmlFor="email" className="block mb-2 text-sm">
+              <div className="flex justify-between">
+              <label htmlFor="email" className="text-sm mb-2">
                 Email address
               </label>
+              </div>
               <input
                 type="email"
                 name="email"
@@ -110,19 +92,7 @@ const Register = () => {
                 data-temp-mail-org="0"
               />
             </div>
-            <div>
-              <label htmlFor="email" className="block mb-2 text-sm">
-                Phone Number
-              </label>
-              <input
-                type="number"
-                name="phone"
-                required
-                placeholder="type phone number"
-                className="w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-green-500 bg-gray-200 text-gray-900"
-                data-temp-mail-org="0"
-              />
-            </div>
+
             <div className="relative">
               <div className="flex justify-between">
                 <label htmlFor="password" className="text-sm mb-2">
