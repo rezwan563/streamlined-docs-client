@@ -68,7 +68,7 @@ const EditProfile = () => {
 
       // Make a POST request to your backend API
       const response = await fetch(
-        "http://localhost:5000/api/pending_profiles",
+        `${import.meta.env.VITE_SERVER_API}/api/pending_profiles`,
         {
           method: "POST",
           body: formDataToSend,
