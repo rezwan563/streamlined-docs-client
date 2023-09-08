@@ -8,10 +8,10 @@ import Login from "../login/Login";
 const Auth = () => {
   return (
     <div className="grid md:grid-cols-2">
-      <Lottie className="hidden md:block h-[100vh]" animationData={regAnim} />
+      <Lottie className="hidden md:block " animationData={regAnim} />
       <div className="text-center">
         <Tabs className="">
-          <TabList className="">
+          <TabList className="w-1/2 flex justify-between mx-auto">
             <Tab>Login</Tab>
             <Tab>Sign Up</Tab>
           </TabList>

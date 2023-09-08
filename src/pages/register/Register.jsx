@@ -10,7 +10,7 @@ const Register = () => {
   const [show, setShow] = useState(true);
   const [showConfirm, setShowConfirm] = useState(true);
   const [error, setError] = useState("");
-  const { createUser, updateUserProfile } = useContext(AuthContext);
+  const { createUser } = useContext(AuthContext);
   const navigate = useNavigate();
   const from = "/dashboard";
 
@@ -60,7 +60,7 @@ const Register = () => {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen sm:py-12 bg-white">
+    <div className="flex justify-center sm:py-12 bg-white">
       <div className="flex flex-col max-w-lg p-6 rounded-md sm:p-5 w-full bg-gray-100 text-gray-900">
         <div className="mb-8 text-center">
           <h1 className="my-3 text-4xl font-bold">Sign Up</h1>
