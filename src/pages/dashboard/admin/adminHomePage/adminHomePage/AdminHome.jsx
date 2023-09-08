@@ -8,7 +8,7 @@ import AdminHomePieChart from '../adminHomeComponent/AdminHomePieChart';
 const AdminHome = () => {
     return (
         <div>
-            <h1 className='text-2xl font-bold mb-3'>Welcome to Admin Hom page</h1>
+            <h1 className='text-2xl font-bold mb-3'>Welcome to Admin Home page</h1>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-5">
 
                 <div className="card w-80 image-full mx-auto">

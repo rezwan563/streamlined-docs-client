@@ -16,6 +16,7 @@ import UploadDocument from "../pages/dashboard/uploaddocument/UploadDocument";
 import AdminReview from "../pages/dashboard/admin/adminReview/adminReviewPage/AdminReview";
 import EditProfile from "../pages/dashboard/editprofile/EditProfile";
 import UsersHome from "../pages/dashboard/UserHome.jsx/UserHome";
+import AboutUs from "../pages/aboutus/AboutUs";
 
 const router = createBrowserRouter([
   {
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
         path: "/auth",
         element: <Auth />,
       },
+      {
+        path: "/about_us",
+        element: <AboutUs />,
+      },
     ],
   },
   {
@@ -45,8 +50,8 @@ const router = createBrowserRouter([
         element: <AdminHome />,
       },
       {
-        path:"/dashboard/user",
-        element:<UsersHome/>,
+        path: "/dashboard/user",
+        element: <UsersHome />,
       },
       {
         path: "/dashboard/users",
