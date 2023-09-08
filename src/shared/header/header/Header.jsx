@@ -1,16 +1,18 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import ActiveLink from "../../activelink/ActiveLink";
 import { HiMenuAlt3 } from "react-icons/hi";
 import { SiDocsdotrs } from "react-icons/si";
 import { AiOutlineCloseCircle } from "react-icons/ai"
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../providers/AuthProvider";
 const Header = () => {
+  const {user} = useContext(AuthContext)
   const navLinks = (
     <>
       <ActiveLink to="/">HOME</ActiveLink>
       <ActiveLink to="/about_us">ABOUT US</ActiveLink>
       <ActiveLink to="/faq">FAQ</ActiveLink>
-      <ActiveLink to="/dashboard">DASHBOARD</ActiveLink>
+      {user ? <ActiveLink to="/dashboard">DASHBOARD</ActiveLink> : ''}
     </>
   );
   const loginButton = (

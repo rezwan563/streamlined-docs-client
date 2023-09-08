@@ -18,6 +18,7 @@ import EditProfile from "../pages/dashboard/editprofile/EditProfile";
 import UsersHome from "../pages/dashboard/UserHome.jsx/UserHome";
 import AboutUs from "../pages/aboutus/AboutUs";
 import FAQ from "../pages/faq/FAQ";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -48,7 +49,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <DashboardLayout />,
+    element: <PrivateRoute><DashboardLayout /></PrivateRoute>,
     children: [
       {
         path: "/dashboard/admin",
