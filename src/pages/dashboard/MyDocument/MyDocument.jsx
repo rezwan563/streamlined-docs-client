@@ -48,7 +48,7 @@ function MyDocument() {
         </div>
         <div className="flex justify-center my-10">
           <Link
-            to="/dashboard/edit-profile"
+            to="/dashboard/create_profile"
             className="bg-blue-500 text-white px-4 py-2 rounded"
           >
             Apply for Profile Details
