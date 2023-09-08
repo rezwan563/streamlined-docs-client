@@ -1,6 +1,6 @@
-import ProfileCard from "./ProfileCard";
-import TimeSection from "./TimeSection";
-import CalendarSection from "./CalendarSection";
+import ProfileCard from "../UserHomeComponents/ProfileCard";
+import TimeSection from "../UserHomeComponents/TimeSection";
+import CalendarSection from "../UserHomeComponents/CalendarSection";
 
 function UsersHome() {
   return (

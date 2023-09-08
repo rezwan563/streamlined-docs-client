@@ -27,15 +27,15 @@ const Sidebar = () => {
             <p>jashim@gmail.com</p>
           </div>
         </div>
-       <div>
+        <div>
           <Link to="/" className="block mb-4">
             Home
           </Link>
           <Link to="/dashboard/admin" className="block mb-4">
             Dashboard
           </Link>
-          <Link to="/dashboard/my-details" className="block mb-4">
-            My Details
+          <Link to="/dashboard/my_document" className="block mb-4">
+            My Document
           </Link>
           <Link to="/dashboard/create_profile" className="block mb-4">
             Create Profile

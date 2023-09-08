@@ -18,7 +18,7 @@ const DashboardLayout = () => {
             <div className="col-span-1 ">
               <Sidebar />
             </div>
-            <div className="col-span-4 bg-gray-200 px-8 py-12">
+            <div className="col-span-4 bg-gray-100 px-8 py-8">
               <Outlet />
             </div>
           </div>

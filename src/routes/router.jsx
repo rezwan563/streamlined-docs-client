@@ -5,7 +5,7 @@ import Auth from "../pages/Auth/Auth";
 import AdminHome from "../pages/dashboard/admin/adminHomePage/adminHomePage/AdminHome";
 import AllDocuments from "../pages/dashboard/alldocuments/AllDocuments";
 import Chatbox from "../pages/dashboard/chat/Chatbox";
-import MyDetails from "../pages/dashboard/mydetails/MyDetails";
+import MyDocument from "../pages/dashboard/MyDocument/MyDocument";
 import PendingDocument from "../pages/dashboard/pendingdoc/PendingDocument";
 import DocumentProgress from "../pages/dashboard/progress/DocumentProgress";
 import Settings from "../pages/dashboard/settings/Settings";
@@ -15,7 +15,7 @@ import Homepage from "../pages/homepage/homepage/Homepage";
 import UploadDocument from "../pages/dashboard/uploaddocument/UploadDocument";
 import AdminReview from "../pages/dashboard/admin/adminReview/adminReviewPage/AdminReview";
 import EditProfile from "../pages/dashboard/editprofile/EditProfile";
-import UsersHome from "../pages/dashboard/UserHome.jsx/UserHome";
+import UsersHome from "../pages/dashboard/UserHome/UserHome/UserHome";
 
 const router = createBrowserRouter([
   {
@@ -44,17 +44,14 @@ const router = createBrowserRouter([
         path: "/dashboard/admin",
         element: <AdminHome />,
       },
-      {
-        path:"/dashboard/user",
-        element:<UsersHome/>,
-      },
+
       {
         path: "/dashboard/users",
         element: <UsersHome />,
       },
       {
-        path: "/dashboard/my-details",
-        element: <MyDetails />,
+        path: "/dashboard/my_document",
+        element: <MyDocument />,
       },
       {
         path: "/dashboard/create_profile",

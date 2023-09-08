@@ -3,12 +3,12 @@ import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import { Link } from "react-router-dom";
 import Loader from "../../../shared/loader/Loader";
-import useUserProfile from "../../../hooks/useProfileData";
+import useMyDocument from "../../../hooks/useProfileData";
 
 // eslint-disable-next-line react/prop-types
-function ProfileInfoSection({ title, data }) {
+function InfoSection({ title, data }) {
   return (
-    <div className="mb-6">
+    <div>
       {/* <h2 className="text-2xl font-semibold mb-4 text-indigo-600">{title}</h2> */}
       <div className="border border-indigo-200 rounded-lg shadow-md">
         {data.map((item, index) => (
@@ -26,8 +26,8 @@ function ProfileInfoSection({ title, data }) {
   );
 }
 
-function UserProfile() {
-  const { data, loading, error } = useUserProfile();
+function MyDocument() {
+  const { data, loading, error } = useMyDocument();
   const [activeTab, setActiveTab] = useState(0);
 
   if (!data || !data.userEmail) {
@@ -138,11 +138,11 @@ function UserProfile() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div className="bg-white">
       <div className="flex justify-between items-center px-4 py-2 bg-blue-100">
         <h1 className="text-4xl font-medium">User Profile</h1>
         <Link
-          to="/dashboard/edit-profile"
+          to="/dashboard/create_profile"
           className="px-2 py-1 rounded bg-yellow-500 hover:bg-yellow-600"
         >
           Edit
@@ -178,22 +178,16 @@ function UserProfile() {
           </TabList>
           <div className="mt-4">
             <TabPanel>
-              <ProfileInfoSection
-                title="Personal Information"
-                data={personalInfo}
-              />
+              <InfoSection title="Personal Information" data={personalInfo} />
             </TabPanel>
             <TabPanel>
-              <ProfileInfoSection
+              <InfoSection
                 title="Identification Information"
                 data={identificationInfo}
               />
             </TabPanel>
             <TabPanel>
-              <ProfileInfoSection
-                title="Address Information"
-                data={addressInfo}
-              />
+              <InfoSection title="Address Information" data={addressInfo} />
             </TabPanel>
           </div>
         </Tabs>
@@ -202,4 +196,4 @@ function UserProfile() {
   );
 }
 
-export default UserProfile;
+export default MyDocument;
