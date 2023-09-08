@@ -17,7 +17,7 @@ const Homepage = () => {
           <div className="hidden lg:block">
            <Link to='/auth'> <button className="bg-red-700 px-8 py-3 lg:px-12 lg:py-5 text-white text-lg font-semibold mr-5 lg:mr-12 hover:bg-red-600 hover:text-neutral-50">
             Get Started</button></Link>
-            <button className="border-2 border-black px-8 py-3 lg:px-12 lg:py-5 font-semibold text-lg hover:bg-slate-100">Learn More</button>
+            {/* <button className="border-2 border-black px-8 py-3 lg:px-12 lg:py-5 font-semibold text-lg hover:bg-slate-100">Learn More</button> */}
           </div>
         </div>
         <div className="w-full lg:w-[600px] lg:block ">
@@ -27,7 +27,7 @@ const Homepage = () => {
             <button className="bg-red-700 px-8 py-3 w-full lg:px-12 lg:py-5 text-white text-lg font-semibold mr-5 lg:mr-12 hover:bg-red-600 hover:text-neutral-50">
               Get Started
             </button>
-            <button className="border-2 border-black w-full px-8 py-3 lg:px-12 lg:py-5 font-semibold text-lg hover:bg-slate-100">Learn More</button>
+            {/* <button className="border-2 border-black w-full px-8 py-3 lg:px-12 lg:py-5 font-semibold text-lg hover:bg-slate-100">Learn More</button> */}
           </div>
       </div>
       <div className="">
