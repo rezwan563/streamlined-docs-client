@@ -11,7 +11,7 @@ function ProfileSection() {
 
   useEffect(() => {
     if (user?.email) {
-      fetch(`http://localhost:5000/details/${user.email}`)
+      fetch(`${import.meta.env.VITE_SERVER_API}/api/users${user.email}`)
         .then((response) => {
           if (!response.ok) {
             throw new Error("Network response was not ok");

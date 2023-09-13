@@ -34,15 +34,25 @@ const Sidebar = () => {
           <Link to="/dashboard/admin" className="block mb-4">
             Dashboard
           </Link>
+          <Link to="/dashboard/user" className="block mb-4">
+            User Home
+          </Link>
           <Link to="/dashboard/my-details" className="block mb-4">
             My Details
           </Link>
           <Link to="/dashboard/create_profile" className="block mb-4">
             Create Profile
           </Link>
-          <Link to="/dashboard/all_documents" className="block mb-4">
-            All Documents
+          <Link to="/dashboard/pending_application" className="block mb-4">
+            Pending Application
           </Link>
+          <Link to="/dashboard/approved_application" className="block mb-4">
+            Approved Application
+          </Link>
+          <Link to="/dashboard/rejected_application" className="block mb-4">
+            Rejected Application
+          </Link>
+        
           <Link to="/dashboard/admin_review" className="block mb-4">
             Admin Review
           </Link>
@@ -50,9 +60,10 @@ const Sidebar = () => {
           {/* <Link to="/dashboard/pending_documents" className="block mb-4">
               Pending Documents
             </Link> */}
-          <Link to="/dashboard/upload" className="block mb-4">
+            {/* TODO: Finish backend code */}
+          {/* <Link to="/dashboard/upload" className="block mb-4">
             Documents Upload
-          </Link>
+          </Link> */}
 
           <Link to="/dashboard/progress" className="block mb-4">
             Correction Progress
