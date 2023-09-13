@@ -3,10 +3,9 @@ import DashboardLayout from "../layout/DashboardLayout";
 import MainLayout from "../layout/MainLayout";
 import Auth from "../pages/Auth/Auth";
 import AdminHome from "../pages/dashboard/admin/adminHomePage/adminHomePage/AdminHome";
-import AllDocuments from "../pages/dashboard/alldocuments/AllDocuments";
+import DataTable from "../pages/dashboard/dataTable/DataTable";
 import Chatbox from "../pages/dashboard/chat/Chatbox";
 import MyDetails from "../pages/dashboard/mydetails/MyDetails";
-import PendingDocument from "../pages/dashboard/pendingdoc/PendingDocument";
 import DocumentProgress from "../pages/dashboard/progress/DocumentProgress";
 import Settings from "../pages/dashboard/settings/Settings";
 import Header from "../shared/header/header/Header";
@@ -80,16 +79,20 @@ const router = createBrowserRouter([
         element: <EditProfile />,
       },
       {
-        path: "/dashboard/all_documents",
-        element: <AllDocuments />,
+        path: "/dashboard/pending_application",
+        element: <DataTable />,
+      },
+      {
+        path: "/dashboard/approved_application",
+        element: <DataTable />,
+      },
+      {
+        path: "/dashboard/rejected_application",
+        element: <DataTable />,
       },
       {
         path: "/dashboard/chat",
         element: <Chatbox />,
-      },
-      {
-        path: "/dashboard/pending_documents",
-        element: <PendingDocument />,
       },
       {
         path: "/dashboard/upload",
