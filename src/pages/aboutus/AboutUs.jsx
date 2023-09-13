@@ -6,7 +6,7 @@ const AboutUs = () => {
     <div className="pt-12 md:pt-24 ">
       <div className="grid grid-cols-1 px-2 lg:grid-cols-2 gap-8 max-w-screen-xl space-y-5">
         <div className="space-y-8 md:space-y-12 text-xl">
-          <div>ABOUT US</div>
+          ABOUT US
           <div className="">
             <p className="text-5xl lg:text-5xl text-left font-semibold font-staatliches ">
               StreamlinedDocs - Your Personal Document Correction Partner.
@@ -26,9 +26,10 @@ const AboutUs = () => {
           <img src={demo4} alt="" />
         </div>
 
-        <button className=" bg-red-600 text-lg font-semibold text-white p-2  mb-3">
-          <Link to='/auth'> Sign Up For Free</Link>
+        <Link to='/auth'><button className="btn bg-red-600 text-lg font-semibold text-white p-2 mb-3">
+          Sign Up For Free
         </button>
+        </Link>
       </div>
     </div>
   );

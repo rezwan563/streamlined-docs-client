@@ -1,6 +1,7 @@
 import { animated, useSpring } from "react-spring";
 import { FaDownload, FaCheckCircle, FaTimesCircle } from "react-icons/fa";
 import { CgProfile } from "react-icons/cg";
+import { Link } from "react-router-dom";
 
 function ApplicationStatusWidget() {
   const appliedCount = 12;
@@ -35,15 +36,17 @@ function ApplicationStatusWidget() {
           <animated.p className="text-gray-500 mb-2" style={welcomeProps}>
             We are glad to have you here!
           </animated.p>
-          <animated.button
-            style={buttonProps}
-            className="bg-cyan-200 px-2 py-2 rounded-lg mt-10"
-          >
-            <div className="flex items-center">
-              <CgProfile className="text-xl" />
-              <span className="text-xl font-semibold block">See Details</span>
-            </div>
-          </animated.button>
+          <Link to="/dashboard/create_profile">
+            <animated.button
+              style={buttonProps}
+              className="bg-cyan-200 px-2 py-2 rounded-lg mt-10"
+            >
+              <div className="flex items-center">
+                <CgProfile className="text-xl" />
+                <span className="text-xl font-semibold block">See Details</span>
+              </div>
+            </animated.button>
+          </Link>
         </div>
       </div>
       <div className="mt-4 space-y-4">
