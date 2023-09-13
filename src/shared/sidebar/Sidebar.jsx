@@ -34,6 +34,9 @@ const Sidebar = () => {
           <Link to="/dashboard/admin" className="block mb-4">
             Dashboard
           </Link>
+          <Link to="/dashboard/user" className="block mb-4">
+            User Home
+          </Link>
           <Link to="/dashboard/my-details" className="block mb-4">
             My Details
           </Link>
