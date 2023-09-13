@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
+import useAdmin from "../../hooks/useAdmin";
 
 const Sidebar = () => {
   const { logOut } = useContext(AuthContext);
@@ -13,6 +14,9 @@ const Sidebar = () => {
       .then(() => navigate(from))
       .catch((err) => console.log(err));
   };
+
+  const [isAdmin] = useAdmin()
+  console.log(isAdmin);
   return (
     <div className=" lg:min-h-screen">
       <div className="grid   md:flex px-8  md:flex-col justify-between  md:justify-start text-black  pt-10">

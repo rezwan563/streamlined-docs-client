@@ -8,10 +8,10 @@ const useAdmin = () =>{
     const {data: isAdmin, isLoading: isAdminLoading} = useQuery({
         queryKey: ['isAdmin', user?.email],
         queryFn: async() =>{
-            const res = await axios.get(`${import.meta.env.VITE_SERVER_API}/api/users/admin/${user?.email}`)
+            const res = await axios.get(`${import.meta.env.VITE_SERVER_API}/api/users/check_admin/${user?.email}`)
             return res.data
         }
     })
     return [isAdmin, isAdminLoading]
 }
-export default useAdmin
+export default useAdmin;
