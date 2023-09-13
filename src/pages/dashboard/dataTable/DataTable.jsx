@@ -1,7 +1,7 @@
 
 
 
-const AllDocuments = () => {
+const DataTable = () => {
     return (
         <div>
             <h4 className="text-2xl font-semibold border-green-300 pb-2 border-b-2">All Documents</h4>
@@ -131,4 +131,4 @@ const AllDocuments = () => {
     );
 };
 
-export default AllDocuments;
+export default DataTable;
