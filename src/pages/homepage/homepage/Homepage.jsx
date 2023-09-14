@@ -3,10 +3,12 @@ import globe from "../../../assets/globe_animation.json";
 import BannerBadge from "../../../shared/bannerbadge/BannerBadge";
 import { Link } from "react-router-dom";
 import { LiaUserEditSolid} from "react-icons/lia";
-import { LuClipboardEdit} from "react-icons/lu";
+import { LuClipboardEdit } from "react-icons/lu";
 import Aos from "aos";
 import 'aos/dist/aos.css';
 import Contact from "./Contact/Contact";
+
+
 const Homepage = () => {
   Aos.init();
   return (
