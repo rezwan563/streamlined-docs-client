@@ -19,6 +19,7 @@ import AboutUs from "../pages/aboutus/AboutUs";
 import FAQ from "../pages/faq/FAQ";
 import PrivateRoute from "./PrivateRoute";
 
+
 const router = createBrowserRouter([
   {
     path: "/header",
@@ -48,11 +49,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: (
-      <PrivateRoute>
-        <DashboardLayout />
-      </PrivateRoute>
-    ),
+    element: <DashboardLayout />,
     children: [
       {
         path: "/dashboard/admin",
@@ -61,18 +58,6 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/user",
         element: <UsersHome />,
-      },
-      {
-        path: "/dashboard/user",
-        element: <UsersHome />,
-      },
-      {
-        path: "/dashboard/users",
-        element: <UsersHome />,
-      },
-      {
-        path: "/dashboard/my-details",
-        element: <MyDetails />,
       },
       {
         path: "/dashboard/create_profile",
