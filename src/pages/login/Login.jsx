@@ -13,7 +13,7 @@ const Login = () => {
   const { signIn } = useContext(AuthContext);
   const navigate = useNavigate();
   const [isAdmin, isAdminLoading] = useAdmin()
-  // const from = isAdminLoading ? (isAdmin ? "/dashboard/admin" : "/dashboard/user") : "";
+  const from = isAdmin ? "/dashboard/" : "/dashboard/user";
 
   const handleSubmit = (e) => {
     e.preventDefault();
