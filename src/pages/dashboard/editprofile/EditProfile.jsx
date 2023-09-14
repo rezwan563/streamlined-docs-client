@@ -13,52 +13,49 @@ const EditProfile = () => {
     event.preventDefault();
     const form = event.target;
 
-    const usersEmail = {
-      email:user?.email,
-    }
-   
-    const personalInfo = [{
-      name_bn: form.name_bn.value,
-      name_en: form.name_en.value,
-      father_name_bn: form.father_name_bn.value,
-      mother_name_bn: form.mother_name_bn.value,
-      gender: form.gender.value,
-      blood_group: form.blood_group.value,
-      birth_registration: form.birth_registration.value,
-      dob: form.dob.value,
-      birth_place: form.birth_place.value,
-      // email: user?.email,
-    }];
+    const personalEmail = user?.email;
+      
+      const personalInfo = [{
+        name_bn: form.name_bn.value,
+        name_en: form.name_en.value,
+        father_name_bn: form.father_name_bn.value,
+        mother_name_bn: form.mother_name_bn.value,
+        gender: form.gender.value,
+        blood_group: form.blood_group.value,
+        birth_registration: form.birth_registration.value,
+        dob: form.dob.value,
+        birth_place: form.birth_place.value,
+      }];
 
-    const identificationInfo = [{
-      education_bn: form.education_bn.value,
-      occupation: form.occupation.value,
-      religion: form.religion.value,
-      mobile_number: form.mobile_number.value,
-      driving_license_number: form.driving_license_number.value,
-      passport_number: form.passport_number.value,
-      tin: form.tin.value,
-      identification_mark_bn: form.identification_mark_bn.value,
-    }];
+      const identificationInfo = [{
+        education_bn: form.education_bn.value,
+        occupation: form.occupation.value,
+        religion: form.religion.value,
+        mobile_number: form.mobile_number.value,
+        driving_license_number: form.driving_license_number.value,
+        passport_number: form.passport_number.value,
+        tin: form.tin.value,
+        identification_mark_bn: form.identification_mark_bn.value,
+      }];
 
-    const addressInfo = [{
-      division: form.division.value,
-      district: form.district.value,
-      upozila: form.upozila.value,
-      police_station: form.police_station.value,
-      post_code: form.post_code.value,
-      post_office_bn: form.post_office_bn.value,
-      house_holding_bn: form.house_holding_bn.value,
-      voter_area: form.voter_area.value,
-      village_road_bn: form.village_road_bn.value,
-    }];
+      const addressInfo = [{
+        division: form.division.value,
+        district: form.district.value,
+        upozila: form.upozila.value,
+        police_station: form.police_station.value,
+        post_code: form.post_code.value,
+        post_office_bn: form.post_office_bn.value,
+        house_holding_bn: form.house_holding_bn.value,
+        voter_area: form.voter_area.value,
+        village_road_bn: form.village_road_bn.value,
+      }];
 
-    const profileData = {
-      usersEmail,
-      personal_data: personalInfo,
-      identification_data: identificationInfo,
-      address_data: addressInfo,
-    };
+      const profileData = {
+        userEmail:personalEmail,
+        personal_data: personalInfo,
+        identification_data: identificationInfo,
+        address_data: addressInfo,
+      };
   
 
     console.log(profileData);

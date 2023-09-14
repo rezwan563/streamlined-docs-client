@@ -1,9 +1,13 @@
+
 import { animated, useSpring } from "react-spring";
 import { FaDownload, FaCheckCircle, FaTimesCircle } from "react-icons/fa";
 import { CgProfile } from "react-icons/cg";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../providers/AuthProvider";
+import { useContext } from "react";
 
 function ApplicationStatusWidget() {
+  const { user } = useContext(AuthContext);
   const appliedCount = 12;
   const rejectedCount = 4;
   const buttonProps = useSpring({
@@ -17,12 +21,16 @@ function ApplicationStatusWidget() {
     to: { opacity: 1, transform: "translateY(0)" },
     config: { duration: 800 },
   });
+  const hasProfile = true;
+
+  // Check if the user has created a profile
+  // const hasProfile = user && user.profile_data; // Assuming a property like "profileData" exists in your user object
 
   return (
     <div className="max-w-2xl mx-auto">
       <div className="bg-white p-6 rounded-lg shadow-md flex items-center">
         <img
-          src="https://i.ibb.co/hyGTygn/download.png"
+          src={user?.photoURL}
           alt="Profile"
           className="w-60 h-60 border-gray-500 border rounded-md mr-4"
         />
@@ -31,22 +39,36 @@ function ApplicationStatusWidget() {
             className="text-xl font-semibold mb-1"
             style={welcomeProps}
           >
-            Welcome, Raaz!
+            Welcome, {user?.displayName}!
           </animated.h3>
           <animated.p className="text-gray-500 mb-2" style={welcomeProps}>
             We are glad to have you here!
           </animated.p>
-          <Link to="/dashboard/create_profile">
-            <animated.button
-              style={buttonProps}
-              className="bg-cyan-200 px-2 py-2 rounded-lg mt-10"
-            >
-              <div className="flex items-center">
-                <CgProfile className="text-xl" />
-                <span className="text-xl font-semibold block">See Details</span>
-              </div>
-            </animated.button>
-          </Link>
+          {hasProfile ? (
+            <Link to="/dashboard/seedetails">
+              <animated.button
+                style={buttonProps}
+                className="bg-cyan-200 px-2 py-2 rounded-lg mt-10"
+              >
+                <div className="flex items-center">
+                  <CgProfile className="text-xl" />
+                  <span className="text-xl font-semibold block">See Details</span>
+                </div>
+              </animated.button>
+            </Link>
+          ) : (
+            <Link to="/dashboard/create_profile">
+              <animated.button
+                style={buttonProps}
+                className="bg-cyan-200 px-2 py-2 rounded-lg mt-10"
+              >
+                <div className="flex items-center">
+                  <CgProfile className="text-xl" />
+                  <span className="text-xl font-semibold block">Create Profile</span>
+                </div>
+              </animated.button>
+            </Link>
+          )}
         </div>
       </div>
       <div className="mt-4 space-y-4">
@@ -82,8 +104,10 @@ function ApplicationStatusWidget() {
           </div>
         </animated.button>
       </div>
+      {/* ... Rest of your component */}
     </div>
   );
 }
 
 export default ApplicationStatusWidget;
+
