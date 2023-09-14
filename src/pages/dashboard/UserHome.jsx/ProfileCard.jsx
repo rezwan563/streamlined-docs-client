@@ -4,10 +4,22 @@ import { FaDownload, FaCheckCircle, FaTimesCircle } from "react-icons/fa";
 import { CgProfile } from "react-icons/cg";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
-import { useContext } from "react";
+import { useContext, useState, useEffect } from "react";
+
 
 function ApplicationStatusWidget() {
   const { user } = useContext(AuthContext);
+  const [profile, setProfile] = useState([true]);
+
+  const url = `http://localhost:5000/api/profiles/${user?.email}`
+
+  useEffect(() => {
+    fetch(url)
+      .then(res => res.json())
+      .then(data => setProfile(data));
+  }, [url]);
+
+
   const appliedCount = 12;
   const rejectedCount = 4;
   const buttonProps = useSpring({
@@ -21,10 +33,6 @@ function ApplicationStatusWidget() {
     to: { opacity: 1, transform: "translateY(0)" },
     config: { duration: 800 },
   });
-  const hasProfile = true;
-
-  // Check if the user has created a profile
-  // const hasProfile = user && user.profile_data; // Assuming a property like "profileData" exists in your user object
 
   return (
     <div className="max-w-2xl mx-auto">
@@ -44,7 +52,7 @@ function ApplicationStatusWidget() {
           <animated.p className="text-gray-500 mb-2" style={welcomeProps}>
             We are glad to have you here!
           </animated.p>
-          {hasProfile ? (
+          {profile ? (
             <Link to="/dashboard/seedetails">
               <animated.button
                 style={buttonProps}

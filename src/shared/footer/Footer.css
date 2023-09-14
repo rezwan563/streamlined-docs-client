@@ -1,0 +1,45 @@
+footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: baseline;
+    width: 100%;
+    position: relative;
+    left:0;
+    right:0;
+    margin-bottom: 0;
+    position: relative;
+    bottom: 0;
+    background: #1f1f1f;
+    color: white;
+    font-weight: 700;
+    }
+    .f-container{
+        padding: 2rem;
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 10rem;
+    }
+    
+    .icons{
+        margin-top: 1.2rem;
+        display: flex;
+        gap: 10px;
+    }
+    .icon{
+        padding: 1rem;
+        border-radius: 50%;
+        background: linear-gradient(90deg, #ff2121 0%, #850606 100%);;
+        color: white;
+        width: fit-content;
+    }
+    @media (max-width:700px) {
+        .f-container{
+            padding: 2rem;
+            flex-direction: column;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 4rem;
+        }
+    }

@@ -49,10 +49,10 @@ const AuthProvider = ({ children }) => {
     return signOut(auth);
   };
 
-  const updateUserProfile = (fullName, phone) => {
+  const updateUserProfile = (fullName, photo) => {
     return updateProfile(auth.currentUser, {
       displayName: fullName,
-      phoneNumber: phone,
+      photoURL: photo,
     });
   };
 

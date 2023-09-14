@@ -1,8 +1,7 @@
 import { useContext, useState } from "react";
-
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
-import Swal from "sweetalert2";
+// import Swal from "sweetalert2";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import GoogleLogin from "../../shared/googlelogin/GoogleLogin";
 import useAdmin from "../../hooks/useAdmin";
