@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import Swal from "sweetalert2";
+// import Swal from "sweetalert2";
 import { AuthContext } from "../../../providers/AuthProvider";
 import { useNavigate } from "react-router-dom";
 
@@ -70,14 +70,14 @@ const EditProfile = () => {
       .then(res => res.json())
       .then(data => {
         console.log(data);
-        if (data.insertedId) {
-          Swal.fire({
-            title: 'success',
-            text: 'user added successfully',
-            icon: 'success',
-            confirmButtonText: 'Cool'
-          });
-        }
+        // if (data.insertedId) {
+        //   Swal.fire({
+        //     title: 'success',
+        //     text: 'user added successfully',
+        //     icon: 'success',
+        //     confirmButtonText: 'Cool'
+        //   });
+        // }
         navigate(from);
       })
     form.reset();

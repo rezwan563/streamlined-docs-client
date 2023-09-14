@@ -10,6 +10,7 @@ import { useContext, useState, useEffect } from "react";
 function ApplicationStatusWidget() {
   const { user } = useContext(AuthContext);
   const [profile, setProfile] = useState([true]);
+
   const url = `http://localhost:5000/api/profiles/${user?.email}`
 
   useEffect(() => {
@@ -17,6 +18,7 @@ function ApplicationStatusWidget() {
       .then(res => res.json())
       .then(data => setProfile(data));
   }, [url]);
+
 
   const appliedCount = 12;
   const rejectedCount = 4;

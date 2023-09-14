@@ -2,11 +2,14 @@ import { useContext } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from "../../providers/AuthProvider";
 import { useNavigate } from "react-router-dom";
+import useAdmin from "../../hooks/useAdmin";
 
 const GoogleLogin = () => {
   const { signInWithGoogle } = useContext(AuthContext);
   const navigate = useNavigate();
-  const from = "/dashboard";
+  const [isAdmin] = useAdmin();
+  const from = isAdmin ? "/dashboard" : "/dashboard/user";
+
 
   const handleGoogleSignIn = () => {
     signInWithGoogle()
