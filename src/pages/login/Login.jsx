@@ -12,8 +12,8 @@ const Login = () => {
   const [error, setError] = useState("");
   const { signIn } = useContext(AuthContext);
   const navigate = useNavigate();
-  const [isAdmin, isAdminLoading] = useAdmin()
-  const from = isAdmin ? "/dashboard/" : "/dashboard/user";
+  const [isAdmin] = useAdmin()
+  const from = isAdmin ? "/dashboard" : "/dashboard/user";
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -58,9 +58,11 @@ const Login = () => {
         >
           <div className="space-y-4">
             <div>
+              <div className="flex justify-between">
               <label htmlFor="email" className="block mb-2 text-sm">
                 Email address
               </label>
+              </div>
               <input
                 type="email"
                 name="email"

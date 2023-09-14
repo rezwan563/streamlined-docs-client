@@ -4,7 +4,7 @@ const DataTable = () => {
   return (
     <div>
       <h4 className="text-2xl font-semibold border-green-300 pb-2 border-b-2">
-        All Documents
+         Documents
       </h4>
 
       <div className="mt-5">

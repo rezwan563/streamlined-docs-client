@@ -38,7 +38,7 @@ const Sidebar = () => {
           {isAdmin ? (
             <>
               {" "}
-              <Link to="/dashboard/admin" className="block mb-4">
+              <Link to="/dashboard" className="block mb-4">
                 Dashboard
               </Link>
               <Link to="/dashboard/pending_application" className="block mb-4">
