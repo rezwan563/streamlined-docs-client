@@ -11,7 +11,7 @@ const Register = () => {
   const [error, setError] = useState("");
   const { createUser } = useContext(AuthContext);
   const navigate = useNavigate();
-  const from = "/dashboard";
+  const from = "/auth";
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -31,7 +31,7 @@ const Register = () => {
           email: result.user.email,
           photoURL: photo,
         };
-        fetch(`${import.meta.env.VITE_SERVER_API}/api/users`, {
+        fetch(`http://localhost:5000/api/users`, {
           method: "POST",
           headers: {
             "content-type": "application/json",

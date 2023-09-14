@@ -15,7 +15,6 @@ const GoogleLogin = () => {
         const savedUser = {
           email: loggedInUser.email,
         };
-        navigate(from);
         console.log(savedUser);
 
         fetch(`http://localhost:5000/api/users`, {

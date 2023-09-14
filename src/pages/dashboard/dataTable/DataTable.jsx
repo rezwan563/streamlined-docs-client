@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 
 
@@ -10,11 +11,11 @@ const DataTable = () => {
                 <div className="grid grid-cols-12 gap-5 bg-slate-200 py-4 px-3">
                     <div className="col-span-4 font-bold">User profile</div>
                     <div className="col-span-4 font-bold">Email</div>
-                    <div className="col-span-2 font-bold flex items-center">View Details</div>
+                    <div className="col-span-2 font-bold flex items-center"><Link to='/dashboard/admin_review'>View Details</Link></div>
                     <div className="col-span-2 font-bold flex items-center">Action</div>
                 </div>
 
-                <div className="grid grid-cols-12 gap-5 bg-white p-3 mt-4 hover:shadow-lg cursor-pointer">
+                {/* <div className="grid grid-cols-12 gap-5 bg-white p-3 mt-4 hover:shadow-lg cursor-pointer">
                     <div className="col-span-4">
                         <div className="flex items-center space-x-3">
                             <div className="avatar">
@@ -122,7 +123,7 @@ const DataTable = () => {
                     <div className="col-span-2 flex items-center">
                         <button className="btn-sm btn-error rounded-sm">Delete</button>
                     </div>
-                </div>
+                </div> */}
 
 
             </div>

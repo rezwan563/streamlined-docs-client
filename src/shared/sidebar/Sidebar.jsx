@@ -50,9 +50,7 @@ const Sidebar = () => {
               <Link to="/dashboard/rejected_application" className="block mb-4">
                 Rejected Application
               </Link>
-              <Link to="/dashboard/admin_review" className="block mb-4">
-                Admin Review
-              </Link>
+              
             </>
           ) : (
             ""

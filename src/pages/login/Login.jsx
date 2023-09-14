@@ -5,13 +5,15 @@ import { AuthContext } from "../../providers/AuthProvider";
 import Swal from "sweetalert2";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import GoogleLogin from "../../shared/googlelogin/GoogleLogin";
+import useAdmin from "../../hooks/useAdmin";
 
 const Login = () => {
   const [show, setShow] = useState(true);
   const [error, setError] = useState("");
   const { signIn } = useContext(AuthContext);
   const navigate = useNavigate();
-  const from = "/dashboard";
+  const [isAdmin] = useAdmin()
+  const from = isAdmin ? "/dashboard/admin" : "/dashboard/user";
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -24,17 +26,18 @@ const Login = () => {
     signIn(email, password)
       .then((result) => {
         console.log(result.user);
-        Swal.fire({
-          title: "Success!",
-          text: "You have successfully Login",
-          icon: "success",
-          confirmButtonText: "Ok",
-        });
+        // Swal.fire({
+        //   title: "Success!",
+        //   text: "You have successfully Login",
+        //   icon: "success",
+        //   confirmButtonText: "Ok",
+        // });
         navigate(from);
       })
       .catch((error) => {
         setError(error.message);
       });
+   
     form.reset();
   };
 
