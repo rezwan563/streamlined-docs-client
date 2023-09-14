@@ -8,22 +8,19 @@ import GoogleLogin from "../../shared/googlelogin/GoogleLogin";
 
 const Register = () => {
   const [show, setShow] = useState(true);
-  const [showConfirm, setShowConfirm] = useState(true);
   const [error, setError] = useState("");
   const { createUser } = useContext(AuthContext);
   const navigate = useNavigate();
-  const from = "/dashboard";
+  const from = "/auth";
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
-    const confirmPassword = form.confirm_password.value;
+    const photo = form.photURL.value;
 
-    if (password !== confirmPassword) {
-      return setError("Password is not match with confirm password");
-    }
+    
 
     setError("");
 
@@ -32,8 +29,9 @@ const Register = () => {
         console.log(result.user);
         const savedUser = {
           email: result.user.email,
+          photoURL: photo,
         };
-        fetch(`${import.meta.env.VITE_SERVER_API}/api/users`, {
+        fetch(`http://localhost:5000/api/users`, {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -115,23 +113,23 @@ const Register = () => {
             </div>
             <div className="relative">
               <div className="flex justify-between">
-                <label htmlFor="password" className="text-sm mb-2">
-                  Confirm Password
+                <label htmlFor="text" className="text-sm mb-2">
+                  Photo Url
                 </label>
               </div>
               <input
-                type={showConfirm ? "password" : "text"}
-                name="confirm_password"
+                type="url"
+                name="photURL"
                 required
-                placeholder="*******"
+                placeholder="url"
                 className="w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-green-500 bg-gray-200 text-gray-900"
               />
-              <span
+              {/* <span
                 onClick={() => setShowConfirm(!showConfirm)}
                 className="cursor-pointer absolute right-0 top-1/2 mt-2 me-4"
               >
                 {showConfirm ? <FaEyeSlash /> : <FaEye />}
-              </span>
+              </span> */}
             </div>
           </div>
           <p className="text-center text-red-500 font-medium">{error}</p>
