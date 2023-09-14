@@ -1,44 +1,74 @@
+import { useContext } from "react";
 import Swal from "sweetalert2";
+import { AuthContext } from "../../../providers/AuthProvider";
+import { useNavigate } from "react-router-dom";
+
 
 const EditProfile = () => {
+  const { user } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const from = "/dashboard/users";
 
   const createProfile = event => {
     event.preventDefault();
     const form = event.target;
 
-    const name = form.name.value;
-    const nameEnglish = form.nameEnglish.value;
-    const fatherName = form.fatherName.value;
-    const fatherNameEnglish = form.fatherNameEnglish.value;
-    const motherName = form.motherName.value;
-    const motherNameEnglish = form.motherNameEnglish.value;
-    const education = form.education.value;
-    const occupation = form.occupation.value;
-    const religion = form.religion.value;
-    const phone = form.phone.value;
-    const drivingLicense = form.drivingLicense.value;
-    const passportNumber = form.passportNumber.value;
-    const tinNumber = form.tinNumber.value;
-    const identificationMark = form.identificationMark.value;
-    const division = form.division.value;
-    const district = form.district.value;
-    const upzilla = form.upzilla.value;
-    const policeStation = form.policeStation.value;
-    const postCode = form.postCode.value;
-    const postOffice = form.postOffice.value;
-    const holdingNumber = form.holdingNumber.value;
-    const voterArea = form.voterArea.value;
-    const villageRoad = form.villageRoad.value;
+    const usersEmail = {
+      email:user?.email,
+    }
+   
+    const personalInfo = [{
+      name_bn: form.name_bn.value,
+      name_en: form.name_en.value,
+      father_name_bn: form.father_name_bn.value,
+      mother_name_bn: form.mother_name_bn.value,
+      gender: form.gender.value,
+      blood_group: form.blood_group.value,
+      birth_registration: form.birth_registration.value,
+      dob: form.dob.value,
+      birth_place: form.birth_place.value,
+      // email: user?.email,
+    }];
 
-    const profileOkey={name,nameEnglish,fatherName,fatherNameEnglish,motherName,motherNameEnglish,education,occupation,religion,phone,drivingLicense,passportNumber,tinNumber,identificationMark,division,district,upzilla,policeStation,postCode,postOffice,holdingNumber,voterArea,villageRoad}
+    const identificationInfo = [{
+      education_bn: form.education_bn.value,
+      occupation: form.occupation.value,
+      religion: form.religion.value,
+      mobile_number: form.mobile_number.value,
+      driving_license_number: form.driving_license_number.value,
+      passport_number: form.passport_number.value,
+      tin: form.tin.value,
+      identification_mark_bn: form.identification_mark_bn.value,
+    }];
 
+    const addressInfo = [{
+      division: form.division.value,
+      district: form.district.value,
+      upozila: form.upozila.value,
+      police_station: form.police_station.value,
+      post_code: form.post_code.value,
+      post_office_bn: form.post_office_bn.value,
+      house_holding_bn: form.house_holding_bn.value,
+      voter_area: form.voter_area.value,
+      village_road_bn: form.village_road_bn.value,
+    }];
+
+    const profileData = {
+      usersEmail,
+      personal_data: personalInfo,
+      identification_data: identificationInfo,
+      address_data: addressInfo,
+    };
+  
+
+    console.log(profileData);
     
     fetch('http://localhost:5000/api/profiles', {
       method: 'POST',
       headers: {
         'content-type': 'application/json'
       },
-      body: JSON.stringify(profileOkey)
+      body: JSON.stringify(profileData)
     })
       .then(res => res.json())
       .then(data => {
@@ -49,9 +79,11 @@ const EditProfile = () => {
             text: 'user added successfully',
             icon: 'success',
             confirmButtonText: 'Cool'
-          })
+          });
         }
+        navigate(from);
       })
+    form.reset();
 
 }
 
@@ -73,61 +105,42 @@ const EditProfile = () => {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="flex justify-between items-center">
-                <label htmlFor="name" className="font-normal text-base mr-2 ">
-                  Name(bn)
+                <label htmlFor="name" className="font-normal text-base mr-2 "> Name(bn)
                 </label>
-                <input
-                  type="text"
-                  name="name"
-                  className="border-b-2 border-slate-200 pl-2 rounded-md py-1   text-xl  focus:border-blue-500 focus:outline-none transition duration-300 ease-in-out "
-                  placeholder="নাম" required
-                />
+              <input type="text" name="name_bn"
+                  className="border-b-2 border-slate-200 pl-2 rounded-md py-1   text-xl  focus:border-blue-500 focus:outline-none transition duration-300 ease-in-out " placeholder="নাম" required/>
               </div>
               <div className="flex justify-between items-center">
-                <label htmlFor="name" className="font-normal text-base mr-2 ">
-                  Name(en)
+                <label htmlFor="name" className="font-normal text-base mr-2 ">Name(en)
                 </label>
-                <input
-                  type="text"
-                  name="nameEnglish"
-                  className="border-b-2 border-slate-200 pl-2 rounded-md py-1   text-xl  focus:border-blue-500 focus:outline-none transition duration-300 ease-in-out"
-                  placeholder="Name" required
-                />
+              <input type="text" name="name_en"
+                  className="border-b-2 border-slate-200 pl-2 rounded-md py-1   text-xl  focus:border-blue-500 focus:outline-none transition duration-300 ease-in-out" placeholder="Name" required/>
               </div>
               <div className="flex justify-between items-center">
-                <label htmlFor="name" className="font-normal text-base mr-2 ">
-                  Father Name(bn)
-                </label>
-                <input
-                  type="text"
-                  name="fatherName"
+                <label htmlFor="name" className="font-normal text-base mr-2 ">Father Name(bn)</label>
+                <input type="text" name="father_name_bn"
                   className="border-b-2 border-slate-200 pl-2 rounded-md py-1   text-xl  focus:border-blue-500 focus:outline-none transition duration-300 ease-in-out"
-                  placeholder="পিতার নাম" required
-                />
+                  placeholder="পিতার নাম" required/>
               </div>
-              <div className="flex justify-between items-center">
-                <label htmlFor="name" className="font-normal text-base mr-2 ">
-                  Father Name(en)
+              {/* <div className="flex justify-between items-center">
+                <label htmlFor="name" className="font-normal text-base mr-2 ">Father Name(en)
                 </label>
-                <input
-                  type="text"
-                  name="fatherNameEnglish"
+                <input type="text" name="fatherNameEnglish"
                   className="border-b-2 border-slate-200 pl-2 rounded-md py-1   text-xl  focus:border-blue-500 focus:outline-none transition duration-300 ease-in-out"
-                  placeholder="Father Name" required
-                />
-              </div>
+                  placeholder="Father Name" required/>
+              </div> */}
               <div className="flex justify-between items-center">
                 <label htmlFor="name" className="font-normal text-base mr-2 ">
                   Mother Name(bn)
                 </label>
                 <input
                   type="text"
-                  name="motherName"
+                  name="mother_name_bn"
                   className="border-b-2 border-slate-200 pl-2 rounded-md py-1   text-xl  focus:border-blue-500 focus:outline-none transition duration-300 ease-in-out"
                   placeholder="মাতার নাম" required
                 />
               </div>
-              <div className="flex justify-between items-center">
+              {/* <div className="flex justify-between items-center">
                 <label htmlFor="name" className="font-normal text-base mr-2 ">
                   Mother Name(en)
                 </label>
@@ -136,6 +149,61 @@ const EditProfile = () => {
                   name="motherNameEnglish"
                   className="border-b-2 border-slate-200 pl-2 rounded-md py-1   text-xl  focus:border-blue-500 focus:outline-none transition duration-300 ease-in-out"
                   placeholder="Mother Name" required
+                />
+              </div> */}
+              <div className="flex justify-between items-center">
+                <label htmlFor="name" className="font-normal text-base mr-2 ">
+                  Gender
+                </label>
+                <input
+                  type="text"
+                  name="gender"
+                  className="border-b-2 border-slate-200 pl-2 rounded-md py-1   text-xl  focus:border-blue-500 focus:outline-none transition duration-300 ease-in-out"
+                  placeholder="gender" required
+                />
+              </div>
+              <div className="flex justify-between items-center">
+                <label htmlFor="name" className="font-normal text-base mr-2 ">
+                  Blood Group
+                </label>
+                <input
+                  type="text"
+                name="blood_group"
+                  className="border-b-2 border-slate-200 pl-2 rounded-md py-1   text-xl  focus:border-blue-500 focus:outline-none transition duration-300 ease-in-out"
+                placeholder="blood group" required
+                />
+              </div>
+              <div className="flex justify-between items-center">
+                <label htmlFor="name" className="font-normal text-base mr-2 ">
+                Birth registration
+                </label>
+                <input
+                  type="text"
+                name="birth_registration"
+                  className="border-b-2 border-slate-200 pl-2 rounded-md py-1   text-xl  focus:border-blue-500 focus:outline-none transition duration-300 ease-in-out"
+                placeholder="birth registration" required
+                />
+              </div>
+              <div className="flex justify-between items-center">
+                <label htmlFor="name" className="font-normal text-base mr-2 ">
+                 date of birth
+                </label>
+                <input
+                  type="text"
+                  name="dob"
+                  className="border-b-2 border-slate-200 pl-2 rounded-md py-1   text-xl  focus:border-blue-500 focus:outline-none transition duration-300 ease-in-out"
+                  placeholder="date of birth" required
+                />
+              </div>
+              <div className="flex justify-between items-center">
+                <label htmlFor="name" className="font-normal text-base mr-2 ">
+                 Birth place
+                </label>
+                <input
+                  type="text"
+                  name="birth_place"
+                  className="border-b-2 border-slate-200 pl-2 rounded-md py-1   text-xl  focus:border-blue-500 focus:outline-none transition duration-300 ease-in-out"
+                  placeholder="Birth place" required
                 />
               </div>
             </div>
@@ -150,7 +218,7 @@ const EditProfile = () => {
               </label>
               <input
                 type="text"
-                name="education"
+                name="education_bn"
                 className="border-b-2 border-slate-200 pl-2 rounded-md py-1   text-xl  focus:border-blue-500 focus:outline-none transition duration-300 ease-in-out "
                 placeholder="শিক্ষাগত যোগ্যতা" required
               />
@@ -183,7 +251,7 @@ const EditProfile = () => {
               </label>
               <input
                 type="text"
-                name="phone"
+                name="mobile_number"
                 className="border-b-2 border-slate-200 pl-2 rounded-md py-1   text-xl  focus:border-blue-500 focus:outline-none transition duration-300 ease-in-out"
                 placeholder="Phone" required
               />
@@ -194,7 +262,7 @@ const EditProfile = () => {
               </label>
               <input
                 type="text"
-                name="drivingLicense"
+                name="driving_license_number"
                 className="border-b-2 border-slate-200 pl-2 rounded-md py-1   text-xl  focus:border-blue-500 focus:outline-none transition duration-300 ease-in-out"
                 placeholder="Driving License"
               />
@@ -205,7 +273,7 @@ const EditProfile = () => {
               </label>
               <input
                 type="text"
-                name="passportNumber"
+                name="passport_number"
                 className="border-b-2 border-slate-200 pl-2 rounded-md py-1   text-xl  focus:border-blue-500 focus:outline-none transition duration-300 ease-in-out"
                 placeholder="Passport Number"
               />
@@ -216,7 +284,7 @@ const EditProfile = () => {
               </label>
               <input
                 type="text"
-                name="tinNumber"
+                name="tin"
                 className="border-b-2 border-slate-200 pl-2 rounded-md py-1   text-xl  focus:border-blue-500 focus:outline-none transition duration-300 ease-in-out"
                 placeholder="TIN Number"
               />
@@ -227,7 +295,7 @@ const EditProfile = () => {
               </label>
               <input
                 type="text"
-                name="identificationMark"
+                name="identification_mark_bn"
                 className="border-b-2 border-slate-200 pl-2 rounded-md py-1   text-xl  focus:border-blue-500 focus:outline-none transition duration-300 ease-in-out"
                 placeholder="Identification Mark"
               />
@@ -262,11 +330,11 @@ const EditProfile = () => {
             </div>
             <div className="flex justify-between items-center">
               <label htmlFor="upzilla" className="font-normal text-base mr-2 ">
-                Upazilla(bn)
+                Upozilla(bn)
               </label>
               <input
                 type="text"
-                name="upzilla"
+                name="upozila"
                 className="border-b-2 border-slate-200 pl-2 rounded-md py-1   text-xl  focus:border-blue-500 focus:outline-none transition duration-300 ease-in-out"
                 placeholder="উপজেলা" required
               />
@@ -280,7 +348,7 @@ const EditProfile = () => {
               </label>
               <input
                 type="text"
-                name="policeStation"
+                name="police_station"
                 className="border-b-2 border-slate-200 pl-2 rounded-md py-1   text-xl  focus:border-blue-500 focus:outline-none transition duration-300 ease-in-out"
                 placeholder="থানা" required
               />
@@ -291,7 +359,7 @@ const EditProfile = () => {
               </label>
               <input
                 type="text"
-                name="postCode"
+                name="post_code"
                 className="border-b-2 border-slate-200 pl-2 rounded-md py-1   text-xl  focus:border-blue-500 focus:outline-none transition duration-300 ease-in-out"
                 placeholder="পোস্ট কোড" required
               />
@@ -302,7 +370,7 @@ const EditProfile = () => {
               </label>
               <input
                 type="text"
-                name="postOffice"
+                name="post_office_bn"
                 className="border-b-2 border-slate-200 pl-2 rounded-md py-1   text-xl  focus:border-blue-500 focus:outline-none transition duration-300 ease-in-out"
                 placeholder="পোস্ট অফিস" required
               />
@@ -313,7 +381,7 @@ const EditProfile = () => {
               </label>
               <input
                 type="text"
-                name="holdingNumber"
+                name="house_holding_bn"
                 className="border-b-2 border-slate-200 pl-2 rounded-md py-1   text-xl  focus:border-blue-500 focus:outline-none transition duration-300 ease-in-out"
                 placeholder="হোল্ডিং নম্বর" required
               />
@@ -324,7 +392,7 @@ const EditProfile = () => {
               </label>
               <input
                 type="text"
-                name="voterArea"
+                name="voter_area"
                 className="border-b-2 border-slate-200 pl-2 rounded-md py-1   text-xl  focus:border-blue-500 focus:outline-none transition duration-300 ease-in-out"
                 placeholder="ভোটার এলাকা" required
               />
@@ -335,16 +403,15 @@ const EditProfile = () => {
               </label>
               <input
                 type="text"
-                name="villageRoad"
+                name="village_road_bn"
                 className="border-b-2 border-slate-200 pl-2 rounded-md py-1   text-xl  focus:border-blue-500 focus:outline-none transition duration-300 ease-in-out"
                 placeholder="রোড নম্বর"
               />
             </div>
           </div>
-          <div className="flex items-center justify-between pt-4">
-            
+          <div className="flex items-center justify-between pt-4">  
             <div className="form-control mt-6">
-              <input className="btn btn-accent" type="submit" value="Submit" />
+              <input className="btn btn-accent text-xl font-bold" type="submit" value="Submit" />
             </div>
           </div>
         </form>
