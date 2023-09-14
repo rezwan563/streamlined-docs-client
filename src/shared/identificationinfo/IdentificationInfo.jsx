@@ -10,7 +10,7 @@ const IdentificationInfo = () => {
             type="text"
             name="education"
             className="border-b-2 border-slate-200 pl-2 rounded-md py-1   text-xl  focus:border-blue-500 focus:outline-none transition duration-300 ease-in-out "
-            placeholder="শিক্ষাগত যোগ্যতা"
+            placeholder="শিক্ষাগত যোগ্যতা" required
           />
         </div>
         <div className="flex justify-between items-center">
@@ -21,7 +21,7 @@ const IdentificationInfo = () => {
             type="text"
             name="occupation"
             className="border-b-2 border-slate-200 pl-2 rounded-md py-1   text-xl  focus:border-blue-500 focus:outline-none transition duration-300 ease-in-out"
-            placeholder="পেশা"
+            placeholder="পেশা" required
           />
         </div>
         <div className="flex justify-between items-center">
@@ -32,7 +32,7 @@ const IdentificationInfo = () => {
             type="text"
             name="religion"
             className="border-b-2 border-slate-200 pl-2 rounded-md py-1   text-xl  focus:border-blue-500 focus:outline-none transition duration-300 ease-in-out"
-            placeholder="ধর্ম"
+            placeholder="ধর্ম" required
           />
         </div>
         <div className="flex justify-between items-center">
@@ -43,7 +43,7 @@ const IdentificationInfo = () => {
             type="text"
             name="phone"
             className="border-b-2 border-slate-200 pl-2 rounded-md py-1   text-xl  focus:border-blue-500 focus:outline-none transition duration-300 ease-in-out"
-            placeholder="Phone"
+            placeholder="Phone" required
           />
         </div>
         <div className="flex justify-between items-center">

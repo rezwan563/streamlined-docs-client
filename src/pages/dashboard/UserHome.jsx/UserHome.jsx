@@ -4,12 +4,12 @@ import CalendarSection from "./CalendarSection";
 
 function UsersHome() {
   return (
-    <div className="flex justify-between p-8">
-      <div className="w-3/4">
+    <div className="grid grid-cols-1 lg:grid-cols-2">
+      <div className="w-full">
         <ProfileCard />
       </div>
-      <div className="w-1/4">
-        <TimeSection />
+      <div className="w-full">
+        <TimeSection/>
         <CalendarSection />
       </div>
     </div>

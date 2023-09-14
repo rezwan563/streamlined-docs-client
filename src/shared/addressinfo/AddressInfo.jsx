@@ -11,7 +11,7 @@ const AddressInfo = () => {
             type="text"
             name="division"
             className="border-b-2 border-slate-200 pl-2 rounded-md py-1   text-xl  focus:border-blue-500 focus:outline-none transition duration-300 ease-in-out "
-            placeholder="বিভাগ"
+            placeholder="বিভাগ" required
           />
         </div>
         <div className="flex justify-between items-center">
@@ -22,7 +22,7 @@ const AddressInfo = () => {
             type="text"
             name="district"
             className="border-b-2 border-slate-200 pl-2 rounded-md py-1   text-xl  focus:border-blue-500 focus:outline-none transition duration-300 ease-in-out"
-            placeholder="জেলা"
+            placeholder="জেলা" required
           />
         </div>
         <div className="flex justify-between items-center">
@@ -33,7 +33,7 @@ const AddressInfo = () => {
             type="text"
             name="upzilla"
             className="border-b-2 border-slate-200 pl-2 rounded-md py-1   text-xl  focus:border-blue-500 focus:outline-none transition duration-300 ease-in-out"
-            placeholder="উপজেলা"
+            placeholder="উপজেলা" required
           />
         </div>
         <div className="flex justify-between items-center">
@@ -47,7 +47,7 @@ const AddressInfo = () => {
             type="text"
             name="police Station"
             className="border-b-2 border-slate-200 pl-2 rounded-md py-1   text-xl  focus:border-blue-500 focus:outline-none transition duration-300 ease-in-out"
-            placeholder="থানা"
+            placeholder="থানা" required
           />
         </div>
         <div className="flex justify-between items-center">
@@ -69,7 +69,7 @@ const AddressInfo = () => {
             type="text"
             name="postCode"
             className="border-b-2 border-slate-200 pl-2 rounded-md py-1   text-xl  focus:border-blue-500 focus:outline-none transition duration-300 ease-in-out"
-            placeholder="পোস্ট কোড"
+            placeholder="পোস্ট কোড" required
           />
         </div>
         <div className="flex justify-between items-center">
@@ -80,7 +80,7 @@ const AddressInfo = () => {
             type="text"
             name="postOffice"
             className="border-b-2 border-slate-200 pl-2 rounded-md py-1   text-xl  focus:border-blue-500 focus:outline-none transition duration-300 ease-in-out"
-            placeholder="পোস্ট অফিস"
+            placeholder="পোস্ট অফিস" required
           />
         </div>
         <div className="flex justify-between items-center">
@@ -91,7 +91,7 @@ const AddressInfo = () => {
             type="text"
             name="holdingNumber"
             className="border-b-2 border-slate-200 pl-2 rounded-md py-1   text-xl  focus:border-blue-500 focus:outline-none transition duration-300 ease-in-out"
-            placeholder="হোল্ডিং নম্বর"
+            placeholder="হোল্ডিং নম্বর" required
           />
         </div>
         <div className="flex justify-between items-center">
@@ -102,7 +102,7 @@ const AddressInfo = () => {
             type="text"
             name="voterArea"
             className="border-b-2 border-slate-200 pl-2 rounded-md py-1   text-xl  focus:border-blue-500 focus:outline-none transition duration-300 ease-in-out"
-            placeholder="ভোটার এলাকা"
+            placeholder="ভোটার এলাকা" required
           />
         </div>
         <div className="flex justify-between items-center">
