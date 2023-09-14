@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 const EditProfile = () => {
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
-  const from = "/dashboard/users";
+  const from = "/dashboard/user";
 
   const createProfile = event => {
     event.preventDefault();

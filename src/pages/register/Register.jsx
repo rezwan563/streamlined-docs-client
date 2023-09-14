@@ -30,6 +30,7 @@ const Register = () => {
         const savedUser = {
           email: result.user.email,
           photoURL: photo,
+
         };
         fetch(`http://localhost:5000/api/users`, {
           method: "POST",
