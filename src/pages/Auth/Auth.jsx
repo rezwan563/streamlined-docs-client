@@ -6,6 +6,7 @@ import Register from "../register/Register";
 import Login from "../login/Login";
 
 const Auth = () => {
+  console.log(`${import.meta.env.VITE_SERVER_API}`);
   return (
     <div className="grid md:grid-cols-2">
       <Lottie className="hidden md:block " animationData={regAnim} />

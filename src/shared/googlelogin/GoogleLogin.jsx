@@ -18,7 +18,7 @@ const GoogleLogin = () => {
         navigate(from);
         console.log(savedUser);
 
-        fetch(`${import.meta.env.VITE_SERVER_API}/api/users`, {
+        fetch(`http://localhost:5000/api/users`, {
           method: "POST",
           headers: {
             "content-type": "application/json",

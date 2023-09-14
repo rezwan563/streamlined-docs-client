@@ -8,7 +8,6 @@ import GoogleLogin from "../../shared/googlelogin/GoogleLogin";
 
 const Register = () => {
   const [show, setShow] = useState(true);
-  const [showConfirm, setShowConfirm] = useState(true);
   const [error, setError] = useState("");
   const { createUser } = useContext(AuthContext);
   const navigate = useNavigate();
@@ -19,7 +18,7 @@ const Register = () => {
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
-    const confirmPassword = form.confirm_password.value;
+    const photo = form.photURL.value;
 
     
 
@@ -30,6 +29,7 @@ const Register = () => {
         console.log(result.user);
         const savedUser = {
           email: result.user.email,
+          photoURL: photo,
         };
         fetch(`${import.meta.env.VITE_SERVER_API}/api/users`, {
           method: "POST",
@@ -119,7 +119,7 @@ const Register = () => {
               </div>
               <input
                 type="url"
-                name="confirm_password"
+                name="photURL"
                 required
                 placeholder="url"
                 className="w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-green-500 bg-gray-200 text-gray-900"
