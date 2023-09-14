@@ -32,7 +32,7 @@ const Login = () => {
         //   icon: "success",
         //   confirmButtonText: "Ok",
         // });
-        navigate(from);
+        // navigate(from);
       })
       .catch((error) => {
         setError(error.message);
