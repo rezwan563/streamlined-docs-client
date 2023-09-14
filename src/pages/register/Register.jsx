@@ -5,38 +5,46 @@ import Swal from "sweetalert2";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import "react-tabs/style/react-tabs.css";
 import GoogleLogin from "../../shared/googlelogin/GoogleLogin";
+import useAdmin from "../../hooks/useAdmin";
 
 const Register = () => {
   const [show, setShow] = useState(true);
   const [error, setError] = useState("");
-  const { createUser } = useContext(AuthContext);
+  const { createUser, updateUserProfile } = useContext(AuthContext);
   const navigate = useNavigate();
-  const from = "/auth";
+  const [isAdmin] = useAdmin();
+  const from = isAdmin ? "/dashboard" : "/dashboard/user";
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
+    const name = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
     const photo = form.photURL.value;
-
-    
 
     setError("");
 
     createUser(email, password)
       .then((result) => {
         console.log(result.user);
-        const savedUser = {
-          email: result.user.email,
-          photoURL: photo,
-        };
-        fetch(`http://localhost:5000/api/users`, {
-          method: "POST",
-          headers: {
-            "content-type": "application/json",
-          },
-          body: JSON.stringify(savedUser),
+
+        updateUserProfile(name, photo )
+      
+        .then(() => {
+          const savedUser = {
+            email: result.user.email,
+            displayName: name,
+            photoURL: photo,
+          };
+          fetch(`http://localhost:5000/api/users`, {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(savedUser),
+          })
         })
           .then((res) => res.json())
           .then(() => {
@@ -75,6 +83,21 @@ const Register = () => {
           <div className="grid grid-cols-1 gap-4">
            
 
+            <div>
+              <div className="flex justify-between">
+              <label htmlFor="name" className="text-sm mb-2">
+                User Name
+              </label>
+              </div>
+              <input
+                type="name"
+                name="name"
+                required
+                placeholder="type your name"
+                className="w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-green-500 bg-gray-200 text-gray-900"
+                data-temp-mail-org="0"
+              />
+            </div>
             <div>
               <div className="flex justify-between">
               <label htmlFor="email" className="text-sm mb-2">

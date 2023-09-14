@@ -7,7 +7,7 @@ import { AuthContext } from "../../../providers/AuthProvider";
 const SeeDetails = () => {
     const [info, setInfo] = useState([null]);
     const {user} = useContext(AuthContext)
-    const url = `https://streamlined-docs-server.vercel.app/api/profiles/${user?.email}`
+    const url = `http://localhost:5000/api/profiles/${user?.email}`
 
     useEffect(() => {
         fetch(url)
@@ -90,7 +90,7 @@ const SeeDetails = () => {
                     </div>
                 </TabPanel>
                 <TabPanel>
-                    <h2 className='text-3xl font-bold mt-5 text-center'>Current Identification information</h2>
+                    <h2 className='text-3xl font-bold mt-5 text-center'> Identification information</h2>
                     <div className='w-full mx-auto font-bold'>
                         {
                             info?.identification_data && (
@@ -150,7 +150,7 @@ const SeeDetails = () => {
                     </div>
                 </TabPanel>
                 <TabPanel>
-                    <h2 className='text-3xl font-bold mt-5 text-center'>Current Address Information</h2>
+                    <h2 className='text-3xl font-bold mt-5 text-center'>Address Information</h2>
                     <div className='w-full mx-auto font-bold'>
                         {
                             info?.address_data && (
