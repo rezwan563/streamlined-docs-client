@@ -32,10 +32,10 @@ const Sidebar = () => {
           </div>
         </div>
         <div>
-          <Link to="/" className="block mb-4">
+          {/* <Link to="/" className="block mb-4">
             Homepage
-          </Link>
-          {isAdmin ? (
+          </Link> */}
+          {user && isAdmin &&(
             <>
               {" "}
               <Link to="/dashboard/admin" className="block mb-4">
@@ -51,10 +51,19 @@ const Sidebar = () => {
                 Rejected Application
               </Link>
             </>
-          ) : (
-              ""
+          )} 
+          { user && !isAdmin  &&(
+            <>
+              <Link to="/dashboard/user" className="block mb-4">
+                Dashboard
+              </Link>
+
+              <Link to="/dashboard/create_profile" className="block mb-4">
+                Create Profile
+              </Link>
+            </>
           )}
-          {isAdmin ? (
+          {/* {isAdmin ? (
             ""
           ) : (
             <>
@@ -66,7 +75,7 @@ const Sidebar = () => {
                 Create Profile
               </Link>
             </>
-          )}
+          )} */}
 
           {/* This will be admin link. Only admin can go to this route */}
           {/* <Link to="/dashboard/pending_documents" className="block mb-4">
