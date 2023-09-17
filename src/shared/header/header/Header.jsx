@@ -9,7 +9,7 @@ import { AuthContext } from "../../../providers/AuthProvider";
 
 const Header = () => {
   const { user } = useContext(AuthContext);
-  const { isAdmin } = useAdmin();
+  const [isAdmin] = useAdmin();
   const navLinks = (
     <>
       <ActiveLink to="/">HOME</ActiveLink>
@@ -18,9 +18,9 @@ const Header = () => {
       {/* {user ? <ActiveLink to="/dashboard">DASHBOARD</ActiveLink> : ""} */}
 
       {isAdmin ? (
-        <ActiveLink to="/dashboard">DASHBOARD</ActiveLink>
+        <ActiveLink to="/dashboard/adminhome">DASHBOARD</ActiveLink>
       ) : user ? (
-          <ActiveLink to="/dashboard/user">DASHBOARD</ActiveLink>
+      <ActiveLink to="/dashboard/user">DASHBOARD</ActiveLink>
       ) : ''}
 
     </>

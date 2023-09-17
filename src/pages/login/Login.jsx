@@ -5,6 +5,7 @@ import { AuthContext } from "../../providers/AuthProvider";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import GoogleLogin from "../../shared/googlelogin/GoogleLogin";
 import useAdmin from "../../hooks/useAdmin";
+// import ActiveLink from "../../shared/activelink/ActiveLink";
 
 const Login = () => {
   const [show, setShow] = useState(true);
@@ -12,7 +13,7 @@ const Login = () => {
   const { signIn } = useContext(AuthContext);
   const navigate = useNavigate();
   const [isAdmin] = useAdmin();
-  const from = isAdmin ? "/dashboard" : "/dashboard/user";
+  const from = isAdmin ? '/dashboard/adminhome' : '/dashboard/user';
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -31,6 +32,7 @@ const Login = () => {
         //   icon: "success",
         //   confirmButtonText: "Ok",
         // });
+      
         navigate(from);
       })
       .catch((error) => {

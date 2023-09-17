@@ -52,7 +52,7 @@ const router = createBrowserRouter([
     element: <DashboardLayout />,
     children: [
       {
-        path: "/dashboard",
+        path: "/dashboard/adminhome",
         element: <AdminHome />,
       },
       {
@@ -92,8 +92,9 @@ const router = createBrowserRouter([
         element: <Settings />,
       },
       {
-        path: "/dashboard/admin_review",
+        path: "/dashboard/admin_review/:userEmail",
         element: <AdminReview />,
+        loader: ({ params }) => fetch(`http://localhost:5000/api/profiles/${params.userEmail}`)
       },
       {
         path: "/dashboard/seedetails",

@@ -18,6 +18,7 @@ const Sidebar = () => {
   const { user } = useContext(AuthContext);
   const [isAdmin] = useAdmin();
   console.log(isAdmin);
+
   return (
     <div className=" lg:min-h-screen">
       <div className="grid   md:flex px-8  md:flex-col justify-between  md:justify-start text-black  pt-10">
@@ -32,13 +33,13 @@ const Sidebar = () => {
           </div>
         </div>
         <div>
-          <Link to="/" className="block mb-4">
-            Homepage
-          </Link>
+          
           {isAdmin ? (
             <>
-              {" "}
-              <Link to="/dashboard/admin" className="block mb-4">
+              <Link to="/" className="block mb-4">
+                Homepage
+              </Link>
+              <Link to="/dashboard/adminhome" className="block mb-4">
                 Dashboard
               </Link>
               <Link to="/dashboard/pending_application" className="block mb-4">
@@ -52,9 +53,22 @@ const Sidebar = () => {
               </Link>
             </>
           ) : (
-              ""
+              
+              <>
+                <Link to="/" className="block mb-4">
+                  Homepage
+                </Link>
+                  <Link to="/dashboard/user" className="block mb-4">
+                    Dashboard
+                  </Link>
+
+                  <Link to="/dashboard/create_profile" className="block mb-4">
+                    Create Profile
+                  </Link>
+                </>
+              
           )}
-          {isAdmin ? (
+          {/* {isAdmin ? (
             ""
           ) : (
             <>
@@ -66,7 +80,7 @@ const Sidebar = () => {
                 Create Profile
               </Link>
             </>
-          )}
+          )} */}
 
           {/* This will be admin link. Only admin can go to this route */}
           {/* <Link to="/dashboard/pending_documents" className="block mb-4">
@@ -89,7 +103,7 @@ const Sidebar = () => {
         </div>
         <div className="lg:hidden flex flex-wrap items-center  gap-2 pb-5">
           <img
-            src={user?.email}
+            src={user?.photoURL}
             className="w-12 h-12 rounded-full shadow-sm"
             alt=""
           />
