@@ -42,7 +42,7 @@ const Homepage = () => {
       <div className=" mt-5 flex flex-col justify-between mb-20 ">
         <h1 className="text-4xl mb-10 font-semibold text-center"> Services We provide</h1>
          <div className=" my-5 flex flex-col md:flex-row justify-between ">
-         <div data-aos="fade-up" data-aos-duration="3000" className="flex flex-col border-t-8  shadow-lg border-red-700 justify-center w-[600px] mb-10 items-center">
+         <div data-aos="fade-up" data-aos-duration="3000" className="flex flex-col border-t-8  shadow-lg border-red-700 justify-center w-[90%] mx-auto md:w-[600px] mb-10 items-center">
            <LiaUserEditSolid className="text-9xl my-10 text-red-900"></LiaUserEditSolid>
             <div className="flex flex-col items-start justify-center px-10">
             <span className="text-2xl font-semibold font-staatliches mb-5">NID Applications</span>
@@ -51,7 +51,7 @@ const Homepage = () => {
            Explore Now</button></Link>
             </div>
           </div>
-          <div  data-aos="fade-up" data-aos-duration="3000" className="flex flex-col border-t-8 shadow-lg border-red-700 justify-center w-[600px] mb-10 items-center">
+          <div  data-aos="fade-up" data-aos-duration="3000" className="flex flex-col border-t-8 shadow-lg border-red-700 justify-center w-[90%] mx-auto md:w-[600px] mb-10 items-center">
            <LuClipboardEdit className="text-9xl my-10 text-red-900"></LuClipboardEdit>
             <div className="flex flex-col items-start justify-center px-10">
             <span className="text-2xl font-semibold font-staatliches mb-5">NID Corrections</span>
