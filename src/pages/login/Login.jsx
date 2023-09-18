@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 // import Swal from "sweetalert2";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
@@ -12,6 +12,9 @@ const Login = () => {
   const [error, setError] = useState("");
   const { signIn } = useContext(AuthContext);
   const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
+
   //const [isAdmin] = useAdmin();
  // const from = isAdmin ? "/dashboard" : "/dashboard/user";
 
@@ -32,7 +35,7 @@ const Login = () => {
         //   icon: "success",
         //   confirmButtonText: "Ok",
         // });
-        navigate('/');
+        navigate((from));
       })
       .catch((error) => {
         setError(error.message);

@@ -98,7 +98,11 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/seedetails",
         element:<SeeDetails></SeeDetails>
-      }
+      },
+      {
+        path: "/dashboard/edit_profile",
+        element:<DocumentProgress></DocumentProgress>
+      },
     ],
   },
 ]);

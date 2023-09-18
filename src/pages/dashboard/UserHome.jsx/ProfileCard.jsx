@@ -5,21 +5,26 @@ import { CgProfile } from "react-icons/cg";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
 import { useContext, useState, useEffect } from "react";
+import useProfile from "../../../hooks/useProfile";
 
 
 function ApplicationStatusWidget() {
   const { user } = useContext(AuthContext);
   const [profile, setProfile] = useState([true]);
 
-  const url = `http://localhost:5000/api/profiles/${user?.email}`
-
+  // const url = `http://localhost:5000/api/profiles/${user?.email}`
+  const [Profile] = useProfile();
+ 
   useEffect(() => {
-    fetch(url)
-      .then(res => res.json())
-      .then(data => setProfile(data));
-  }, [url]);
+    setProfile(Profile);
+    },Profile);
+  // useEffect(() => {
+  //   fetch(url)
+  //     .then(res => res.json())
+  //     .then(data => setProfile(data));
+  // }, [url]);
 
-
+console.log(profile);
   const appliedCount = 12;
   const rejectedCount = 4;
   const buttonProps = useSpring({
