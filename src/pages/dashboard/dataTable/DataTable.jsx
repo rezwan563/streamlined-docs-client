@@ -8,7 +8,7 @@ const DataTable = () => {
   const [del, setDel] = useState();
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/profiles')
+    fetch('http://localhost:5000/pending_applications')
       .then(res => res.json())
       .then(data => setInfo(data));
   }, []);
@@ -25,7 +25,7 @@ const DataTable = () => {
     }).then((result) => {
       if (result.isConfirmed) {
 
-        fetch(`http://localhost:5000/api/users/${_id}`, {
+        fetch(`http://localhost:5000/pending_applications/${_id}`, {
           method: 'DELETE'
         })
           .then(res => res.json())
@@ -87,7 +87,7 @@ const DataTable = () => {
               </div>
               <div className="col-span-2 flex items-center">
                 <button className="btn-sm btn-success rounded-sm">
-                  <Link to={`/dashboard/admin_review/${profile.userEmail}`}>Details</Link>
+                  <Link to={`/dashboard/admin_review/${profile._id}`}>Details</Link>
                 </button>
               </div>
               <div className="col-span-2 flex items-center">

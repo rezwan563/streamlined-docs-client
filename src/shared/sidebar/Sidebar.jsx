@@ -65,7 +65,7 @@ const photoURL = User?.photoURL;
               <Link to="/" className="block mb-4">
                 Homepage
               </Link>
-              <Link to="/dashboard/adminhome" className="block mb-4">
+              <Link to="/dashboard/admin" className="block mb-4">
                 Dashboard
               </Link>
               <Link to="/dashboard/pending_application" className="block mb-4">
@@ -96,35 +96,7 @@ const photoURL = User?.photoURL;
               </Link>
             </>
           )}
-          {/* {isAdmin ? (
-            ""
-          ) : (
-            <>
-              <Link to="/dashboard/user" className="block mb-4">
-                Dashboard
-              </Link>
-
-              <Link to="/dashboard/create_profile" className="block mb-4">
-                Create Profile
-              </Link>
-            </>
-          )} */}
-
-          {/* This will be admin link. Only admin can go to this route */}
-          {/* <Link to="/dashboard/pending_documents" className="block mb-4">
-              Pending Documents
-            </Link> */}
-          {/* TODO: Finish backend code */}
-          {/* <Link to="/dashboard/upload" className="block mb-4">
-            Documents Upload
-          </Link> */}
-
-          {/* <Link to="/dashboard/progress" className="block mb-4">
-            Correction Progress
-          </Link>
-          <Link to="/dashboard/settings" className="block mb-4">
-            Settings
-          </Link> */}
+        
           <div className="mb-4 cursor-pointer " onClick={signOut}>
             Sign out
           </div>

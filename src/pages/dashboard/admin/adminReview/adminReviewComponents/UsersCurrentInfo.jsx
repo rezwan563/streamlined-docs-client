@@ -1,14 +1,10 @@
-// import {  } from "react";
 import { useLoaderData } from "react-router-dom";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 
 
 const UsersCurrentInfo = () => {
-
-    const info = useLoaderData();
+    const info = useLoaderData([null]);
     console.log(info);
-
-    
    
     return (
         <div data-testid="child" className="card card-compact w-full bg-base-100 shadow-xl mt-4">
@@ -22,7 +18,7 @@ const UsersCurrentInfo = () => {
                 <TabPanel>
                     <h2 className='text-3xl font-bold mt-5 text-center'>Current Personal Information</h2>
                     <div className='w-full mx-auto'>
-                        <p>name:</p>
+                    
                         {
                             info?.personal_data &&(
                                 <>

@@ -120,13 +120,7 @@ const EditProfile = () => {
                   className="border-b-2 border-slate-200 pl-2 rounded-md py-1   text-xl  focus:border-blue-500 focus:outline-none transition duration-300 ease-in-out"
                   placeholder="পিতার নাম" required/>
               </div>
-              {/* <div className="flex justify-between items-center">
-                <label htmlFor="name" className="font-normal text-base mr-2 ">Father Name(en)
-                </label>
-                <input type="text" name="fatherNameEnglish"
-                  className="border-b-2 border-slate-200 pl-2 rounded-md py-1   text-xl  focus:border-blue-500 focus:outline-none transition duration-300 ease-in-out"
-                  placeholder="Father Name" required/>
-              </div> */}
+             
               <div className="flex justify-between items-center">
                 <label htmlFor="name" className="font-normal text-base mr-2 ">
                   Mother Name(bn)
@@ -138,17 +132,7 @@ const EditProfile = () => {
                   placeholder="মাতার নাম" required
                 />
               </div>
-              {/* <div className="flex justify-between items-center">
-                <label htmlFor="name" className="font-normal text-base mr-2 ">
-                  Mother Name(en)
-                </label>
-                <input
-                  type="text"
-                  name="motherNameEnglish"
-                  className="border-b-2 border-slate-200 pl-2 rounded-md py-1   text-xl  focus:border-blue-500 focus:outline-none transition duration-300 ease-in-out"
-                  placeholder="Mother Name" required
-                />
-              </div> */}
+             
               <div className="flex justify-between items-center">
                 <label htmlFor="name" className="font-normal text-base mr-2 ">
                   Gender

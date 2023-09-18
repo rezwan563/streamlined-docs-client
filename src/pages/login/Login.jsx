@@ -12,9 +12,6 @@ const Login = () => {
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
 
-  //const [isAdmin] = useAdmin();
- // const from = isAdmin ? "/dashboard" : "/dashboard/user";
-
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;

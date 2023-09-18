@@ -11,7 +11,7 @@ const AdminHome = () => {
     const [info, setInfo] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/api/pending_profiles')
+        fetch('http://localhost:5000/pending_applications')
             .then(res => res.json())
             .then(data => setInfo(data));
     }, []);

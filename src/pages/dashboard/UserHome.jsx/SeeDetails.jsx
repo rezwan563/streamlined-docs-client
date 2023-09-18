@@ -1,23 +1,16 @@
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import { useEffect, useState } from "react";
-import { useContext } from "react";
-import { AuthContext } from "../../../providers/AuthProvider";
 import useProfile from "../../../hooks/useProfile";
 
 
 const SeeDetails = () => {
     const [info, setInfo] = useState([null]);
-    const {user} = useContext(AuthContext)
-    //const url = `http://localhost:5000/profiles/${user?.email}`
+    
 const [Profile] = useProfile();
 useEffect(() => {
     setInfo(Profile);
-  }, Profile);
-    // useEffect(() => {
-    //     fetch(url)
-    //         .then(res => res.json())
-    //         .then(data => setInfo(data));
-    // }, [url])
+}, [Profile]);
+   
     return (
         <div data-testid="child" className="card card-compact w-full bg-base-100 shadow-xl mt-4">
             <Tabs>

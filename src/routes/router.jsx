@@ -90,9 +90,9 @@ const router = createBrowserRouter([
         element: <Settings />,
       },
       {
-        path: "/dashboard/admin_review/:userEmail",
+        path: "/dashboard/admin_review/:id",
         element: <AdminReview />,
-        loader: ({ params }) => fetch(`http://localhost:5000/api/profiles/${params.userEmail}`)
+        loader: ({ params }) => fetch(`http://localhost:5000/pending_applications/${params.id}`)
       },
       {
         path: "/dashboard/seedetails",
