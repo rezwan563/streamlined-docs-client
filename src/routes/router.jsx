@@ -5,7 +5,6 @@ import Auth from "../pages/Auth/Auth";
 import AdminHome from "../pages/dashboard/admin/adminHomePage/adminHomePage/AdminHome";
 import DataTable from "../pages/dashboard/dataTable/DataTable";
 import Chatbox from "../pages/dashboard/chat/Chatbox";
-// import MyDetails from "../pages/dashboard/mydetails/MyDetails";
 import DocumentProgress from "../pages/dashboard/progress/DocumentProgress";
 import Settings from "../pages/dashboard/settings/Settings";
 import Header from "../shared/header/header/Header";
@@ -16,7 +15,6 @@ import EditProfile from "../pages/dashboard/editprofile/EditProfile";
 import UsersHome from "../pages/dashboard/UserHome.jsx/UserHome";
 import AboutUs from "../pages/aboutus/AboutUs";
 import FAQ from "../pages/faq/FAQ";
-// import PrivateRoute from "./PrivateRoute";
 import SeeDetails from "../pages/dashboard/UserHome.jsx/SeeDetails";
 
 
@@ -52,7 +50,7 @@ const router = createBrowserRouter([
     element: <DashboardLayout />,
     children: [
       {
-        path: "/dashboard/adminhome",
+        path: "/dashboard/admin",
         element: <AdminHome />,
       },
       {
@@ -99,7 +97,11 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/seedetails",
         element:<SeeDetails></SeeDetails>
-      }
+      },
+      {
+        path: "/dashboard/edit_profile",
+        element:<DocumentProgress></DocumentProgress>
+      },
     ],
   },
 ]);

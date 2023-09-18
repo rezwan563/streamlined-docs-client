@@ -1,5 +1,5 @@
 import { useContext } from "react";
-// import Swal from "sweetalert2";
+import Swal from "sweetalert2";
 import { AuthContext } from "../../../providers/AuthProvider";
 import { useNavigate } from "react-router-dom";
 
@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 const EditProfile = () => {
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
-  const from = "/dashboard/user";
+ // const from = "/dashboard/user";
 
   const createProfile = event => {
     event.preventDefault();
@@ -50,15 +50,13 @@ const EditProfile = () => {
         village_road_bn: form.village_road_bn.value,
       }];
 
-      const profileData = {
+      const profileData = { 
         userEmail:personalEmail,
         personal_data: personalInfo,
         identification_data: identificationInfo,
-        address_data: addressInfo,
+        address_data: addressInfo
       };
   
-
-    console.log(profileData);
     
     fetch('http://localhost:5000/profiles', {
       method: 'POST',
@@ -70,15 +68,18 @@ const EditProfile = () => {
       .then(res => res.json())
       .then(data => {
         console.log(data);
-        // if (data.insertedId) {
-        //   Swal.fire({
-        //     title: 'success',
-        //     text: 'user added successfully',
-        //     icon: 'success',
-        //     confirmButtonText: 'Cool'
-        //   });
-        // }
-        navigate(from);
+          if (data.insertedId) {
+            Swal.fire({
+              title: 'success',
+              text: 'Profile created successfully',
+              icon: 'success',
+              confirmButtonText: 'Cool'
+            });
+            navigate("/");
+          }
+          else{
+            Swal.fire('Profile already added')
+          }
       })
     form.reset();
 

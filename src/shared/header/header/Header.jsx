@@ -4,12 +4,15 @@ import { HiMenuAlt3 } from "react-icons/hi";
 import { SiDocsdotrs } from "react-icons/si";
 import { AiOutlineCloseCircle } from "react-icons/ai"
 import { Link } from "react-router-dom";
-import useAdmin from "../../../hooks/useAdmin";
 import { AuthContext } from "../../../providers/AuthProvider";
+import useUser from "../../../hooks/useUser";
 
 const Header = () => {
   const { user } = useContext(AuthContext);
-  const [isAdmin] = useAdmin();
+  //const { isAdmin } = useAdmin();
+  const [User] = useUser();
+
+  const isAdmin = User?.isAdmin;
   const navLinks = (
     <>
       <ActiveLink to="/">HOME</ActiveLink>
@@ -17,11 +20,12 @@ const Header = () => {
       <ActiveLink to="/faq">FAQ</ActiveLink>
       {/* {user ? <ActiveLink to="/dashboard">DASHBOARD</ActiveLink> : ""} */}
 
-      {isAdmin ? (
-        <ActiveLink to="/dashboard/adminhome">DASHBOARD</ActiveLink>
-      ) : user ? (
-      <ActiveLink to="/dashboard/user">DASHBOARD</ActiveLink>
-      ) : ''}
+      {user && isAdmin && (
+        <ActiveLink to="/dashboard/admin">DASHBOARD</ActiveLink>
+      ) }
+       {user && !isAdmin && (
+          <ActiveLink to="/dashboard/user">DASHBOARD</ActiveLink>
+      ) }
 
     </>
   );

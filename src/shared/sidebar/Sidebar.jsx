@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
-import useAdmin from "../../hooks/useAdmin";
+import useUser from "../../hooks/useUser";
 
 const Sidebar = () => {
   const { logOut } = useContext(AuthContext);
@@ -16,25 +16,51 @@ const Sidebar = () => {
   };
 
   const { user } = useContext(AuthContext);
-  const [isAdmin] = useAdmin();
-  console.log(isAdmin);
+
+  const [User] = useUser();
+
+ const isAdmin = User?.isAdmin;
+const photoURL = User?.photoURL;
+ 
+ // const User = Users.filter(ins => ins.email === user?.email);
+
 
   return (
     <div className=" lg:min-h-screen">
       <div className="grid   md:flex px-8  md:flex-col justify-between  md:justify-start text-black  pt-10">
         <div className="hidden lg:flex md:flex-wrap lg:flex-wrap lg:items-center lg:gap-4 pb-5">
+         { user && User && (<img
+            src={photoURL}
+            className="w-36 h-36 rounded-full shadow-sm"
+            alt=""
+          />)
+         }
+        { !user && (
           <img
-            src={user?.photoURL}
+            src='https://i.ibb.co/PwHygL1/image.png'
             className="w-36 h-36 rounded-full shadow-sm"
             alt=""
           />
+        )
+        }
+        { user && !User && (
+          <img
+            src={user.photoURL}
+            className="w-36 h-36 rounded-full shadow-sm"
+            alt=""
+          />
+        )
+        }
+        
           <div>
             <p>{user?.email}</p>
           </div>
         </div>
         <div>
-          
-          {isAdmin ? (
+          {/* <Link to="/" className="block mb-4">
+            Homepage
+          </Link> */}
+          {user && isAdmin &&(
             <>
               <Link to="/" className="block mb-4">
                 Homepage
@@ -52,21 +78,23 @@ const Sidebar = () => {
                 Rejected Application
               </Link>
             </>
-          ) : (
-              
-              <>
-                <Link to="/" className="block mb-4">
-                  Homepage
-                </Link>
-                  <Link to="/dashboard/user" className="block mb-4">
-                    Dashboard
-                  </Link>
+          )} 
+          { user && !isAdmin &&(
+            <>
+              <Link to="/dashboard/user" className="block mb-4">
+                Dashboard
+              </Link>
 
-                  <Link to="/dashboard/create_profile" className="block mb-4">
-                    Create Profile
-                  </Link>
-                </>
-              
+              <Link to="/dashboard/seedetails" className="block mb-4">
+                View Profile
+              </Link>
+              <Link to="/dashboard/create_profile" className="block mb-4">
+                Create Profile
+              </Link>
+              <Link to="/dashboard/edit_profile" className="block mb-4">
+               Progress Check
+              </Link>
+            </>
           )}
           {/* {isAdmin ? (
             ""
