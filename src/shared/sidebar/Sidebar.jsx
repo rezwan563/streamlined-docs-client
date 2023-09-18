@@ -91,6 +91,9 @@ const photoURL = User?.photoURL;
               <Link to="/dashboard/create_profile" className="block mb-4">
                 Create Profile
               </Link>
+              <Link to="/dashboard/users_edit_profile" className="block mb-4">
+                Edit Profile
+              </Link>
               <Link to="/dashboard/edit_profile" className="block mb-4">
                Progress Check
               </Link>

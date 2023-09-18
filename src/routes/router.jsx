@@ -16,6 +16,7 @@ import UsersHome from "../pages/dashboard/UserHome.jsx/UserHome";
 import AboutUs from "../pages/aboutus/AboutUs";
 import FAQ from "../pages/faq/FAQ";
 import SeeDetails from "../pages/dashboard/UserHome.jsx/SeeDetails";
+import UsersEditeRoute from "../pages/dashboard/UserHome.jsx/UsersEditeRoute";
 
 
 const router = createBrowserRouter([
@@ -101,7 +102,11 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/edit_profile",
         element:<DocumentProgress></DocumentProgress>
-      },
+      }, 
+      {
+        path: "/dashboard/users_edit_profile",
+        element:<UsersEditeRoute></UsersEditeRoute>
+      }
     ],
   },
 ]);

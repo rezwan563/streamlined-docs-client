@@ -7,7 +7,6 @@ import { useNavigate } from "react-router-dom";
 const EditProfile = () => {
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
- // const from = "/dashboard/user";
 
   const createProfile = event => {
     event.preventDefault();
@@ -88,9 +87,7 @@ const EditProfile = () => {
   return (
     <div>
       <div
-        className="bg-white w-full md:max-w-5xl 
-      md:mx-auto rounded-md md:p-12 px-4"
-      >
+        className="bg-white w-full md:max-w-5xl md:mx-auto rounded-md md:p-12 px-4">
         <div>
           <p className="text-2xl font-bold">
             Please fill up your profile information
@@ -102,7 +99,7 @@ const EditProfile = () => {
               <p className=" font-bold text-base">Personal Information</p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="flex justify-between items-center">
+            <div className="flex justify-between items-center">
                 <label htmlFor="name" className="font-normal text-base mr-2 "> Name(bn)
                 </label>
               <input type="text" name="name_bn"
@@ -171,7 +168,7 @@ const EditProfile = () => {
                  date of birth
                 </label>
                 <input
-                  type="text"
+                  type="date"
                   name="dob"
                   className="border-b-2 border-slate-200 pl-2 rounded-md py-1   text-xl  focus:border-blue-500 focus:outline-none transition duration-300 ease-in-out"
                   placeholder="date of birth" required
@@ -391,10 +388,8 @@ const EditProfile = () => {
               />
             </div>
           </div>
-          <div className="flex items-center justify-between pt-4">  
-            <div className="form-control mt-6">
-              <input className="btn btn-accent text-xl font-bold" type="submit" value="Submit" />
-            </div>
+          <div className="form-control mt-6 mb-10">
+            <input className="btn btn-accent text-xl font-bold" type="submit" value="Submit" />
           </div>
         </form>
       </div>
