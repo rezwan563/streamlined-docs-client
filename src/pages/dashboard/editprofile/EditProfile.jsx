@@ -60,7 +60,7 @@ const EditProfile = () => {
 
     console.log(profileData);
     
-    fetch('http://localhost:5000/api/profiles', {
+    fetch('http://localhost:5000/profiles', {
       method: 'POST',
       headers: {
         'content-type': 'application/json'

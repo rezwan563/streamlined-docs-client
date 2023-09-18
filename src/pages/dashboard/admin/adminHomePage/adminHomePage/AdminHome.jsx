@@ -11,10 +11,10 @@ const AdminHome = () => {
     const [info, setInfo] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/api/profiles')
+        fetch('http://localhost:5000/api/pending_profiles')
             .then(res => res.json())
             .then(data => setInfo(data));
-    }, [])
+    }, []);
     return (
         <div>
             <h1 className='text-2xl font-bold mb-3'>Welcome to Admin Home page</h1>
