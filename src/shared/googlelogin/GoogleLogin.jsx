@@ -1,14 +1,16 @@
 import { useContext } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from "../../providers/AuthProvider";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import useAdmin from "../../hooks/useAdmin";
 
 const GoogleLogin = () => {
   const { signInWithGoogle } = useContext(AuthContext);
   const navigate = useNavigate();
-  const [isAdmin] = useAdmin();
-  const from = isAdmin ? "/dashboard" : "/dashboard/user";
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
+ // const [isAdmin] = useAdmin();
+ // const from = isAdmin ? "/dashboard" : "/dashboard/user";
 
 
   const handleGoogleSignIn = () => {
@@ -20,7 +22,7 @@ const GoogleLogin = () => {
         };
         console.log(savedUser);
 
-        fetch(`http://localhost:5000/api/users`, {
+        fetch(`http://localhost:5000/users`, {
           method: "POST",
           headers: {
             "content-type": "application/json",
