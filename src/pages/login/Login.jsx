@@ -1,11 +1,8 @@
 import { useContext, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
-// import Swal from "sweetalert2";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import GoogleLogin from "../../shared/googlelogin/GoogleLogin";
-import useAdmin from "../../hooks/useAdmin";
-import useUser from "../../hooks/useUser";
 
 const Login = () => {
   const [show, setShow] = useState(true);
@@ -14,9 +11,6 @@ const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
-
-  //const [isAdmin] = useAdmin();
- // const from = isAdmin ? "/dashboard" : "/dashboard/user";
 
   const handleSubmit = (e) => {
     e.preventDefault();

@@ -1,6 +1,6 @@
 
 import { animated, useSpring } from "react-spring";
-import { FaDownload, FaCheckCircle, FaTimesCircle } from "react-icons/fa";
+import { FaDownload } from "react-icons/fa";
 import { CgProfile } from "react-icons/cg";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
@@ -12,21 +12,16 @@ function ApplicationStatusWidget() {
   const { user } = useContext(AuthContext);
   const [profile, setProfile] = useState([true]);
 
-  // const url = `http://localhost:5000/api/profiles/${user?.email}`
   const [Profile] = useProfile();
  
   useEffect(() => {
     setProfile(Profile);
-    },Profile);
-  // useEffect(() => {
-  //   fetch(url)
-  //     .then(res => res.json())
-  //     .then(data => setProfile(data));
-  // }, [url]);
+  }, [Profile]);
+  
 
 console.log(profile);
-  const appliedCount = 12;
-  const rejectedCount = 4;
+  // const appliedCount = 12;
+  // const rejectedCount = 4;
   const buttonProps = useSpring({
     from: { opacity: 0, transform: "translateY(20px)" },
     to: { opacity: 1, transform: "translateY(0)" },
@@ -85,7 +80,7 @@ console.log(profile);
         </div>
       </div>
       <div className="mt-4 space-y-4">
-        <div className="flex space-x-4">
+        {/* <div className="flex space-x-4">
           <animated.button
             style={buttonProps}
             className="bg-blue-300 px-8 py-4 rounded-lg flex items-center justify-between w-1/2"
@@ -106,7 +101,7 @@ console.log(profile);
               <span className="text-sm">Total: {rejectedCount}</span>
             </div>
           </animated.button>
-        </div>
+        </div> */}
         <animated.button
           style={buttonProps}
           className="bg-green-300 px-8 py-4 rounded-lg flex items-center justify-between w-full"

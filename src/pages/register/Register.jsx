@@ -13,7 +13,7 @@ const Register = () => {
   const { createUser, updateUserProfile } = useContext(AuthContext);
   const navigate = useNavigate();
   const [isAdmin] = useAdmin();
-  const from = isAdmin ? "/dashboard" : "/dashboard/user";
+  const from = isAdmin ? "/dashboard/adminhome" : "/dashboard/user";
 
 
   const handleSubmit = (e) => {

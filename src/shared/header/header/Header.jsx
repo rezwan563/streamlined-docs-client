@@ -4,7 +4,6 @@ import { HiMenuAlt3 } from "react-icons/hi";
 import { SiDocsdotrs } from "react-icons/si";
 import { AiOutlineCloseCircle } from "react-icons/ai"
 import { Link } from "react-router-dom";
-import useAdmin from "../../../hooks/useAdmin";
 import { AuthContext } from "../../../providers/AuthProvider";
 import useUser from "../../../hooks/useUser";
 

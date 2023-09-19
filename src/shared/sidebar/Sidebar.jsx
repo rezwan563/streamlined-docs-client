@@ -1,7 +1,6 @@
 import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
-//import useAdmin from "../../hooks/useAdmin";
 import useUser from "../../hooks/useUser";
 
 const Sidebar = () => {
@@ -63,7 +62,9 @@ const photoURL = User?.photoURL;
           </Link> */}
           {user && isAdmin &&(
             <>
-              {" "}
+              <Link to="/" className="block mb-4">
+                Homepage
+              </Link>
               <Link to="/dashboard/admin" className="block mb-4">
                 Dashboard
               </Link>
@@ -90,47 +91,22 @@ const photoURL = User?.photoURL;
               <Link to="/dashboard/create_profile" className="block mb-4">
                 Create Profile
               </Link>
+              <Link to="/dashboard/users_edit_profile" className="block mb-4">
+                Edit Profile
+              </Link>
               <Link to="/dashboard/edit_profile" className="block mb-4">
                Progress Check
               </Link>
             </>
           )}
-          {/* {isAdmin ? (
-            ""
-          ) : (
-            <>
-              <Link to="/dashboard/user" className="block mb-4">
-                Dashboard
-              </Link>
-
-              <Link to="/dashboard/create_profile" className="block mb-4">
-                Create Profile
-              </Link>
-            </>
-          )} */}
-
-          {/* This will be admin link. Only admin can go to this route */}
-          {/* <Link to="/dashboard/pending_documents" className="block mb-4">
-              Pending Documents
-            </Link> */}
-          {/* TODO: Finish backend code */}
-          {/* <Link to="/dashboard/upload" className="block mb-4">
-            Documents Upload
-          </Link> */}
-
-          {/* <Link to="/dashboard/progress" className="block mb-4">
-            Correction Progress
-          </Link>
-          <Link to="/dashboard/settings" className="block mb-4">
-            Settings
-          </Link> */}
+        
           <div className="mb-4 cursor-pointer " onClick={signOut}>
             Sign out
           </div>
         </div>
         <div className="lg:hidden flex flex-wrap items-center  gap-2 pb-5">
           <img
-            src={user?.email}
+            src={user?.photoURL}
             className="w-12 h-12 rounded-full shadow-sm"
             alt=""
           />
