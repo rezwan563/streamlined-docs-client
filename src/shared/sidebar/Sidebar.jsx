@@ -4,7 +4,7 @@ import { AuthContext } from "../../providers/AuthProvider";
 import useUser from "../../hooks/useUser";
 
 const Sidebar = () => {
-  const { logOut } = useContext(AuthContext);
+  const {user, logOut } = useContext(AuthContext);
   const navigate = useNavigate();
   //   console.log(user);
   const from = "/";
@@ -15,7 +15,7 @@ const Sidebar = () => {
       .catch((err) => console.log(err));
   };
 
-  const { user } = useContext(AuthContext);
+  
 
   const [User] = useUser();
 
@@ -61,11 +61,12 @@ const photoURL = User?.photoURL;
               <Link to="/dashboard/pending_application" className="block mb-4">
                 Pending Correction Applications
               </Link>
+             
+              <Link to="/dashboard/reviewed_application" className="block mb-4">
+                Reviewed Correction Applications
+              </Link>
               <Link to="/dashboard/approved_application" className="block mb-4">
                 Approved Correction Applications
-              </Link>
-              <Link to="/dashboard/rejected_application" className="block mb-4">
-                Rejected Correction Applications
               </Link>
             </>
           )} 

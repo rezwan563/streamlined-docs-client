@@ -72,7 +72,7 @@ const router = createBrowserRouter([
         element: <DataTable />,
       },
       {
-        path: "/dashboard/rejected_application",
+        path: "/dashboard/reviewed_application",
         element: <DataTable />,
       },
       {
