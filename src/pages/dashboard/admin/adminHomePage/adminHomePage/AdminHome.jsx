@@ -9,11 +9,19 @@ import { useEffect, useState } from 'react';
 
 const AdminHome = () => {
     const [info, setInfo] = useState([]);
+    const [approved, setAppreved] = useState([]);
 
     useEffect(() => {
         fetch('http://localhost:5000/pending_applications')
             .then(res => res.json())
             .then(data => setInfo(data));
+    }, []);
+   
+
+    useEffect(() => {
+        fetch('http://localhost:5000/approved_applications')
+            .then(res => res.json())
+            .then(data => setAppreved(data));
     }, []);
     return (
         <div>
@@ -33,8 +41,8 @@ const AdminHome = () => {
                 <div className="card w-80 image-full mx-auto">
                     <figure><img src={demo1} alt="Shoes" /></figure>
                     <div className="card-body">
-                        <h2 className="card-title">Total Aproved</h2>
-                        <p className='text-2xl font-bold'>2,021</p>
+                        <h2 className="card-title">Total Approved</h2>
+                        <p className='text-2xl font-bold'>{approved.length}</p>
                         <div className="card-actions justify-end">
                             <button className="btn btn-primary">View</button>
                         </div>

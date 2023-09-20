@@ -49,7 +49,7 @@ const UsersCurrentInfo = () => {
                                     <div className="grid grid-cols-2 gap-2 mb-2">
                                         <div className="card card-compact w-full bg-base-100 shadow-xl mt-2">
                                             <div className="card-body border rounded-b-xl">
-                                                <p>Gender:  {info.personal_data[0].gender}</p>
+                                                <p>birth_place: {info.personal_data[0].birth_place}</p>
                                             </div>
                                         </div>
                                         <div className="card card-compact w-full bg-base-100 shadow-xl mt-2">
@@ -67,13 +67,6 @@ const UsersCurrentInfo = () => {
                                         <div className="card card-compact w-full bg-base-100 shadow-xl mt-2">
                                             <div className="card-body border rounded-b-xl">
                                                 <p>Birth registration:  {info.personal_data[0].birth_registration}</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="grid grid-cols-2 gap-2 mb-2">
-                                        <div className="card card-compact w-full bg-base-100 shadow-xl mt-2">
-                                            <div className="card-body border rounded-b-xl">
-                                                <p>birth_place: {info.personal_data[0].birth_place}</p>
                                             </div>
                                         </div>
                                     </div>
