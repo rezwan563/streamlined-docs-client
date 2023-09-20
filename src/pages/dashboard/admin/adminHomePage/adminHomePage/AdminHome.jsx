@@ -9,6 +9,19 @@ import { useEffect, useState } from 'react';
 
 const AdminHome = () => {
     const [info, setInfo] = useState([]);
+    const [reviewed, setReviewed] = useState([]);
+    const [approved, setApproved] = useState([]);
+   useEffect(() => {
+    fetch('http://localhost:5000/approved_applications')
+    .then(res => res.json())
+    .then(data => setApproved(data));
+   }, []);
+
+   useEffect(() => {
+    fetch('http://localhost:5000/reviewed_applications')
+    .then(res => res.json())
+    .then(data => setReviewed(data));
+   }, []);
 
     useEffect(() => {
         fetch('http://localhost:5000/pending_applications')
@@ -33,10 +46,10 @@ const AdminHome = () => {
                 <div className="card w-80 image-full mx-auto">
                     <figure><img src={demo1} alt="Shoes" /></figure>
                     <div className="card-body">
-                        <h2 className="card-title">Total Aproved</h2>
-                        <p className='text-2xl font-bold'>2,021</p>
+                        <h2 className="card-title">Total Approved</h2>
+                        <p className='text-2xl font-bold'>{approved.length}</p>
                         <div className="card-actions justify-end">
-                            <button className="btn btn-primary">View</button>
+                        <Link to="/dashboard/approved_application"><button className="btn btn-primary">View</button></Link>
                         </div>
                     </div>
                 </div>
@@ -44,16 +57,16 @@ const AdminHome = () => {
                     <figure><img src={demo2} alt="Shoes" /></figure>
                     <div className="card-body">
                         <h2 className="card-title">Total Reviwed</h2>
-                        <p className='text-2xl font-bold'>2,021</p>
+                        <p className='text-2xl font-bold'>{reviewed.length}</p>
                         <div className="card-actions justify-end">
-                            <button className="btn btn-primary">View</button>
+                        <Link to="/dashboard/reviewed_application"><button className="btn btn-primary">View</button></Link>
                         </div>
                     </div>
                 </div>
             </div>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 mb-5">
-                <AdminHomeChart></AdminHomeChart>
-                <AdminHomePieChart></AdminHomePieChart>
+                <AdminHomeChart info={info} reviewed={reviewed} approved={approved}></AdminHomeChart>
+                <AdminHomePieChart info={info} reviewed={reviewed} approved={approved}></AdminHomePieChart>
             </div>
         </div>
     );

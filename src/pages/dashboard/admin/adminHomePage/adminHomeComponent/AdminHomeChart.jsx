@@ -1,54 +1,16 @@
 
 import { BarChart, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, Bar } from 'recharts';
 
-const AdminHomeChart = () => {
+const AdminHomeChart = ({info, reviewed, approved}) => {
+
     const data = [
-        {
-            name: 'Page A',
-            Pending: 4000,
-            Aproved: 240,
-            Reviwed: 2400,
-        },
-        {
-            name: 'Page B',
-            Pending: 2000,
-            Aproved: 3400,
-            Reviwed: 400,
-        },
-        {
-            name: 'Page C',
-            Pending: 400,
-            Aproved: 2000,
-            Reviwed: 2400,
-        },
-        {
-            name: 'Page D',
-            Pending: 400,
-            Aproved: 200,
-            Reviwed: 2400,
-        },
-        {
-            name: 'Page E',
-            Pending: 5500,
-            Aproved: 2400,
-            Reviwed: 240,
-        },
-        {
-            name: 'Page F',
-            Pending: 400,
-            Aproved: 400,
-            Reviwed: 200,
-        },
-        {
-            name: 'Page G',
-            Pending: 3000,
-            Aproved: 2400,
-            Reviwed: 2900,
-        },
-    ];
-    console.log(data);
+      {  pending: info.length,
+        reviewed:reviewed.length, 
+        approved:approved.length
+    }];
+   
         return (
-            <div className='mt-10 bg-white'>
+            <div className='mt-10 p-2 bg-white'>
                 <h1 className='text-2xl font-bold mt-2 mb-2'>Admin Bar Chart</h1>
 
                 <div> <ResponsiveContainer width="100%" height={300}>
@@ -68,9 +30,9 @@ const AdminHomeChart = () => {
                         <YAxis />
                         <Tooltip />
                         <Legend />
-                        <Bar dataKey="Pending" fill="blue" />
-                        <Bar dataKey="Aproved" fill="red" />
-                        <Bar dataKey="Reviwed" fill="orange" />
+                        <Bar dataKey="pending" fill="blue" />
+                        <Bar dataKey="approved" fill="red" />
+                        <Bar dataKey="reviewed" fill="orange" />
                     </BarChart>
                 </ResponsiveContainer></div>
             </div>

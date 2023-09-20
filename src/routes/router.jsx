@@ -18,6 +18,8 @@ import FAQ from "../pages/faq/FAQ";
 import SeeDetails from "../pages/dashboard/UserHome.jsx/SeeDetails";
 import UsersEditeRoute from "../pages/dashboard/UserHome.jsx/UsersEditeRoute";
 import CorrectionProgress from "../pages/dashboard/progress/CorrectionProgress";
+import DataTableForReview from "../pages/dashboard/dataTable/DataTableForReview";
+import DataTableForApprove from "../pages/dashboard/dataTable/DataTableForApprove";
 
 
 const router = createBrowserRouter([
@@ -69,11 +71,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/dashboard/approved_application",
-        element: <DataTable />,
+        element: <DataTableForApprove />,
       },
       {
         path: "/dashboard/reviewed_application",
-        element: <DataTable />,
+        element: <DataTableForReview />,
       },
       {
         path: "/dashboard/chat",
