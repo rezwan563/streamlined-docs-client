@@ -1,10 +1,27 @@
 import { useLoaderData } from "react-router-dom";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
+import usePending from "../../../../../hooks/usePending";
+import useProfile from "../../../../../hooks/useProfile";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 
 const UsersCurrentInfo = () => {
-    const info = useLoaderData([null]);
-    console.log(info);
+    const userdata = useLoaderData();
+
+    const [info, setInfo] = useState([true]);
+
+  
+   useEffect(() => {
+    axios.get('http://localhost:5000/profiles')
+    .then(response => {
+      const currentProfile = response.data.find(profile => profile.userEmail === userdata?.userEmail);
+      setInfo(currentProfile);
+    })
+    .catch(error => {
+      console.error('Error fetching profiles:', error);
+    });
+}, []);
    
     return (
         <div data-testid="child" className="card card-compact w-full bg-base-100 shadow-xl mt-4">

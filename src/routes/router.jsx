@@ -17,6 +17,7 @@ import AboutUs from "../pages/aboutus/AboutUs";
 import FAQ from "../pages/faq/FAQ";
 import SeeDetails from "../pages/dashboard/UserHome.jsx/SeeDetails";
 import UsersEditeRoute from "../pages/dashboard/UserHome.jsx/UsersEditeRoute";
+import CorrectionProgress from "../pages/dashboard/progress/CorrectionProgress";
 
 
 const router = createBrowserRouter([
@@ -71,7 +72,7 @@ const router = createBrowserRouter([
         element: <DataTable />,
       },
       {
-        path: "/dashboard/rejected_application",
+        path: "/dashboard/reviewed_application",
         element: <DataTable />,
       },
       {
@@ -81,10 +82,6 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/upload",
         element: <UploadDocument />,
-      },
-      {
-        path: "/dashboard/progress",
-        element: <DocumentProgress />,
       },
       {
         path: "/dashboard/settings",
@@ -100,8 +97,8 @@ const router = createBrowserRouter([
         element:<SeeDetails></SeeDetails>
       },
       {
-        path: "/dashboard/edit_profile",
-        element:<DocumentProgress></DocumentProgress>
+        path: "/dashboard/progress_check",
+        element:<CorrectionProgress></CorrectionProgress>
       }, 
       {
         path: "/dashboard/users_edit_profile",

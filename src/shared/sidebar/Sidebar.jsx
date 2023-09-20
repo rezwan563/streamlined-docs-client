@@ -4,7 +4,7 @@ import { AuthContext } from "../../providers/AuthProvider";
 import useUser from "../../hooks/useUser";
 
 const Sidebar = () => {
-  const { logOut } = useContext(AuthContext);
+  const {user, logOut } = useContext(AuthContext);
   const navigate = useNavigate();
   //   console.log(user);
   const from = "/";
@@ -15,7 +15,7 @@ const Sidebar = () => {
       .catch((err) => console.log(err));
   };
 
-  const { user } = useContext(AuthContext);
+  
 
   const [User] = useUser();
 
@@ -29,8 +29,8 @@ const photoURL = User?.photoURL;
     <div className=" lg:min-h-screen">
       <div className="grid   md:flex px-8  md:flex-col justify-between  md:justify-start text-black  pt-10">
         <div className="hidden lg:flex md:flex-wrap lg:flex-wrap lg:items-center lg:gap-4 pb-5">
-         { user && User && (<img
-            src={photoURL}
+         { user  && (<img
+            src={user.photoURL}
             className="w-36 h-36 rounded-full shadow-sm"
             alt=""
           />)
@@ -43,14 +43,7 @@ const photoURL = User?.photoURL;
           />
         )
         }
-        { user && !User && (
-          <img
-            src={user.photoURL}
-            className="w-36 h-36 rounded-full shadow-sm"
-            alt=""
-          />
-        )
-        }
+       
         
           <div>
             <p>{user?.email}</p>
@@ -62,20 +55,18 @@ const photoURL = User?.photoURL;
           </Link> */}
           {user && isAdmin &&(
             <>
-              <Link to="/" className="block mb-4">
-                Homepage
-              </Link>
               <Link to="/dashboard/admin" className="block mb-4">
                 Dashboard
               </Link>
               <Link to="/dashboard/pending_application" className="block mb-4">
-                Pending Application
+                Pending Correction Applications
+              </Link>
+             
+              <Link to="/dashboard/reviewed_application" className="block mb-4">
+                Reviewed Correction Applications
               </Link>
               <Link to="/dashboard/approved_application" className="block mb-4">
-                Approved Application
-              </Link>
-              <Link to="/dashboard/rejected_application" className="block mb-4">
-                Rejected Application
+                Approved Correction Applications
               </Link>
             </>
           )} 
@@ -86,16 +77,16 @@ const photoURL = User?.photoURL;
               </Link>
 
               <Link to="/dashboard/seedetails" className="block mb-4">
-                View Profile
+                View NID Profile
               </Link>
               <Link to="/dashboard/create_profile" className="block mb-4">
-                Create Profile
+                Create NID Profile
               </Link>
               <Link to="/dashboard/users_edit_profile" className="block mb-4">
-                Edit Profile
+                Edit NID Profile
               </Link>
-              <Link to="/dashboard/edit_profile" className="block mb-4">
-               Progress Check
+              <Link to="/dashboard/progress_check" className="block mb-4">
+               Check NID Correction Progress 
               </Link>
             </>
           )}

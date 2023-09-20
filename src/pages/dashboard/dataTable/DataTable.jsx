@@ -61,7 +61,7 @@ const DataTable = () => {
           <div className="col-span-2 font-bold flex items-center">
             View Details
           </div>
-          <div className="col-span-2 font-bold flex items-center">Action</div>
+          <div className="col-span-2 font-bold flex items-center"></div>
         </div>
         {
           info.map((profile) => <p key={profile._id}>
@@ -90,9 +90,9 @@ const DataTable = () => {
                   <Link to={`/dashboard/admin_review/${profile._id}`}>Details</Link>
                 </button>
               </div>
-              <div className="col-span-2 flex items-center">
+              {/* <div className="col-span-2 flex items-center">
                 <button onClick={()=>handleDelete(profile._id)} className="btn-sm btn-error rounded-sm">Delete</button>
-              </div>
+              </div> */}
             </div>
           </p>)
         }
