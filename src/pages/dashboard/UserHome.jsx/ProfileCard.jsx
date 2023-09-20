@@ -32,7 +32,7 @@ function ApplicationStatusWidget() {
     to: { opacity: 1, transform: "translateY(0)" },
     config: { duration: 800 },
   });
-
+console.log(user)
   return (
     <div className="max-w-2xl mx-auto">
       <div className="bg-white p-6 rounded-lg shadow-md flex items-center">

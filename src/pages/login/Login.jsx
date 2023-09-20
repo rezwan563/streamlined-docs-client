@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import GoogleLogin from "../../shared/googlelogin/GoogleLogin";
+import Swal from "sweetalert2";
 
 const Login = () => {
   const [show, setShow] = useState(true);
@@ -22,13 +23,13 @@ const Login = () => {
 
     signIn(email, password)
       .then((result) => {
-        console.log(result.user);
-        // Swal.fire({
-        //   title: "Success!",
-        //   text: "You have successfully Login",
-        //   icon: "success",
-        //   confirmButtonText: "Ok",
-        // });
+      
+        Swal.fire({
+          title: "Success!",
+          text: "You have successfully Login",
+          icon: "success",
+          confirmButtonText: "Ok",
+        });
         navigate((from));
       })
       .catch((error) => {
