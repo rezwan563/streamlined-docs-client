@@ -107,14 +107,14 @@ console.log(defaultValues);
                 if (data.insertedId) {
                     Swal.fire({
                         title: 'success',
-                        text: 'Profile update successfully',
+                        text: 'Profile update request sent successfully',
                         icon: 'success',
                         confirmButtonText: 'Cool'
                     });
                     navigate("/");
                 }
                 else {
-                    Swal.fire('Profile already update')
+                    Swal.fire('Profile update request sent already ')
                 }
             })
         form.reset();
@@ -126,8 +126,8 @@ console.log(defaultValues);
             <div
                 className="bg-white w-full md:max-w-5xl md:mx-auto rounded-md md:p-12 px-4">
                 <div>
-                    <p className="text-2xl font-bold">
-                        Please fill up your profile information
+                    <p className="text-2xl font-bold mb-5">
+                        Please carefully edit your NID profile information, after verification your NID correction will be accepted 
                     </p>
                 </div>
                 <form onSubmit={createProfile}>

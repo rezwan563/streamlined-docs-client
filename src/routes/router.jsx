@@ -100,7 +100,7 @@ const router = createBrowserRouter([
         element:<SeeDetails></SeeDetails>
       },
       {
-        path: "/dashboard/edit_profile",
+        path: "/dashboard/progress_check",
         element:<DocumentProgress></DocumentProgress>
       }, 
       {

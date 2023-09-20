@@ -19,7 +19,6 @@ function ApplicationStatusWidget() {
   }, [Profile]);
   
 
-console.log(profile);
   // const appliedCount = 12;
   // const rejectedCount = 4;
   const buttonProps = useSpring({
@@ -47,7 +46,7 @@ console.log(profile);
             className="text-xl font-semibold mb-1"
             style={welcomeProps}
           >
-            Welcome, {user?.displayName}!
+            Welcome, {user?.displayName} !
           </animated.h3>
           <animated.p className="text-gray-500 mb-2" style={welcomeProps}>
             We are glad to have you here!
