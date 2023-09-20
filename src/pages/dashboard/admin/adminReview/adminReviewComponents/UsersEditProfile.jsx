@@ -1,212 +1,216 @@
 import { useEffect, useState } from "react";
+import { useLoaderData } from "react-router-dom";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 
 const UsersEditProfile = () => {
-    const [info, setInfo] = useState([]);
+   
+    const info= useLoaderData();
 
-    useEffect(() => {
-        fetch('/usersPersonalInfo.json')
-            .then(res => res.json())
-            .then(data => setInfo(data))
-    }, [])
     return (
-        <div className="card card-compact w-full bg-base-100 shadow-xl mt-4">
-            <Tabs>
-                <TabList>
-                    <Tab>Personal Info</Tab>
-                    <Tab>Identification info</Tab>
-                    <Tab>Address Info</Tab>
-                </TabList>
+        <div data-testid="child" className="card card-compact w-full bg-base-100 shadow-xl mt-4">
+        <Tabs>
+            <TabList>
+                <Tab>Personal Info</Tab>
+                <Tab>Identification info</Tab>
+                <Tab>Address Info</Tab>
+            </TabList>
 
-                <TabPanel>
-                    <h2 className='text-3xl font-bold mt-5 text-center'>Edited Personal Information</h2>
-                    <div className='w-full mx-auto'>
-                        {
-                            info.filter(d => d.category == 'Personal Info').map(user => <p key={user._id}>
+            <TabPanel>
+                <h2 className='text-3xl font-bold mt-5 text-center'>Edited Personal Information</h2>
+                <div className='w-full mx-auto'>
+                
+                    {
+                        info?.personal_data &&(
+                            <>
                                 <div className="grid grid-cols-2 gap-2 mb-2">
                                     <div className="card card-compact w-full bg-base-100 shadow-xl mt-2">
                                         <div className="card-body border rounded-b-xl">
-                                            <p>Name Bangla: {user.name_bangla}</p>
+                                            <p>Name Bangla: {info.personal_data[0].name_bn}</p>
                                         </div>
                                     </div>
                                     <div className="card card-compact w-full bg-base-100 shadow-xl mt-2">
                                         <div className="card-body border rounded-b-xl">
-                                            <p>Name English: {user.name_english}</p>
+                                            <p>Father Name:  {info.personal_data[0].father_name_bn}</p>
                                         </div>
                                     </div>
                                 </div>
                                 <div className="grid grid-cols-2 gap-2 mb-2">
                                     <div className="card card-compact w-full bg-base-100 shadow-xl mt-2">
                                         <div className="card-body border rounded-b-xl">
-                                            <p>Father name: {user.father_name}</p>
+                                            <p>Mother Name:  {info.personal_data[0].mother_name_bn}</p>
                                         </div>
                                     </div>
                                     <div className="card card-compact w-full bg-base-100 shadow-xl mt-2">
                                         <div className="card-body border rounded-b-xl">
-                                            <p>Mother name: {user.mother_name}</p>
+                                            <p>Gender:  {info.personal_data[0].gender}</p>
                                         </div>
                                     </div>
                                 </div>
                                 <div className="grid grid-cols-2 gap-2 mb-2">
                                     <div className="card card-compact w-full bg-base-100 shadow-xl mt-2">
                                         <div className="card-body border rounded-b-xl">
-                                            <p>Gender: {user.gender}</p>
+                                            <p>Gender:  {info.personal_data[0].gender}</p>
                                         </div>
                                     </div>
                                     <div className="card card-compact w-full bg-base-100 shadow-xl mt-2">
                                         <div className="card-body border rounded-b-xl">
-                                            <p>Blood group: {user.blood_group}</p>
+                                            <p>Blood Group:  {info.personal_data[0].blood_group}</p>
                                         </div>
                                     </div>
                                 </div>
                                 <div className="grid grid-cols-2 gap-2 mb-2">
                                     <div className="card card-compact w-full bg-base-100 shadow-xl mt-2">
                                         <div className="card-body border rounded-b-xl">
-                                            <p>Birth regist no: {user.birth_regist_no}</p>
+                                            <p>Date of Birth: {info.personal_data[0].dob}</p>
                                         </div>
                                     </div>
                                     <div className="card card-compact w-full bg-base-100 shadow-xl mt-2">
                                         <div className="card-body border rounded-b-xl">
-                                            <p>Date of Birth: {user.Date_of_Birth}</p>
+                                            <p>Birth registration:  {info.personal_data[0].birth_registration}</p>
                                         </div>
                                     </div>
                                 </div>
                                 <div className="grid grid-cols-2 gap-2 mb-2">
                                     <div className="card card-compact w-full bg-base-100 shadow-xl mt-2">
                                         <div className="card-body border rounded-b-xl">
-                                            <p>birth_place: {user.birth_place}</p>
+                                            <p>birth_place: {info.personal_data[0].birth_place}</p>
                                         </div>
                                     </div>
                                 </div>
-                            </p>)
-                        }
-                    </div>
-                </TabPanel>
-                <TabPanel>
-                    <h2 className='text-3xl font-bold mt-5 text-center'>Edited Identification information</h2>
-                    <div className='w-full mx-auto'>
-                        {
-                            info.filter(d => d.category == 'Identification info').map(user => <p key={user._id}>
+                            </>
+                      )
+                    }
+                </div>
+            </TabPanel>
+            <TabPanel>
+                <h2 className='text-3xl font-bold mt-5 text-center'>Edited Identification information</h2>
+                <div className='w-full mx-auto'>
+                    {
+                        info?.identification_data && (
+                            <>
                                 <div className="grid grid-cols-2 gap-2 mb-2">
                                     <div className="card card-compact w-full bg-base-100 shadow-xl mt-2">
                                         <div className="card-body border rounded-b-xl">
-                                            <p>Education: {user.education}</p>
+                                            <p>Education: {info.identification_data[0].education_bn}</p>
                                         </div>
                                     </div>
                                     <div className="card card-compact w-full bg-base-100 shadow-xl mt-2">
                                         <div className="card-body border rounded-b-xl">
-                                            <p>Occupation: {user.occupation}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="grid grid-cols-2 gap-2 mb-2">
-                                    <div className="card card-compact w-full bg-base-100 shadow-xl mt-2">
-                                        <div className="card-body border rounded-b-xl">
-                                            <p>mobile_number: {user.mobile_number}</p>
-                                        </div>
-                                    </div>
-                                    <div className="card card-compact w-full bg-base-100 shadow-xl mt-2">
-                                        <div className="card-body border rounded-b-xl">
-                                            <p>Religion: {user.religion}</p>
+                                            <p>Occupation: {info.identification_data[0].occupation}</p>
                                         </div>
                                     </div>
                                 </div>
                                 <div className="grid grid-cols-2 gap-2 mb-2">
                                     <div className="card card-compact w-full bg-base-100 shadow-xl mt-2">
                                         <div className="card-body border rounded-b-xl">
-                                            <p>driving license number: {user.driving_license_number}</p>
-                                        </div>
-                                    </div>
-                                    <div className="card card-compact w-full bg-base-100 shadow-xl mt-2">
-                                        <div className="card-body border rounded-b-xl">
-                                            <p>Passport number: {user.passport_number}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="grid grid-cols-2 gap-2 mb-2">
-                                    <div className="card card-compact w-full bg-base-100 shadow-xl mt-2">
-                                        <div className="card-body border rounded-b-xl">
-                                            <p>Tin: {user.tin}</p>
-                                        </div>
-                                    </div>
-                                    <div className="card card-compact w-full bg-base-100 shadow-xl mt-2">
-                                        <div className="card-body border rounded-b-xl">
-                                            <p>Identification Mark: {user.Identification_Mark}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </p>)
-                        }
+                                            <p>Religion: {info.identification_data[0].religion}</p>
 
-                    </div>
-                </TabPanel>
-                <TabPanel>
-                    <h2 className='text-3xl font-bold mt-5 text-center'>Edited Address Information</h2>
-                    <div className='w-full mx-auto'>
-                        {
-                            info.filter(d => d.category == 'Address Info').map(user => <p key={user._id}>
-                                <div className="grid grid-cols-2 gap-2 mb-2">
-                                    <div className="card card-compact w-full bg-base-100 shadow-xl mt-2">
-                                        <div className="card-body border rounded-b-xl">
-                                            <p>Division: {user.division}</p>
                                         </div>
                                     </div>
                                     <div className="card card-compact w-full bg-base-100 shadow-xl mt-2">
                                         <div className="card-body border rounded-b-xl">
-                                            <p>District: {user.district}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="grid grid-cols-2 gap-2 mb-2">
-                                    <div className="card card-compact w-full bg-base-100 shadow-xl mt-2">
-                                        <div className="card-body border rounded-b-xl">
-                                            <p>Upazila: {user.upazila}</p>
-                                        </div>
-                                    </div>
-                                    <div className="card card-compact w-full bg-base-100 shadow-xl mt-2">
-                                        <div className="card-body border rounded-b-xl">
-                                            <p>Police station: {user.police_station}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="grid grid-cols-2 gap-2 mb-2">
-                                    <div className="card card-compact w-full bg-base-100 shadow-xl mt-2">
-                                        <div className="card-body border rounded-b-xl">
-                                            <p>Post code: {user.post_code}</p>
-                                        </div>
-                                    </div>
-                                    <div className="card card-compact w-full bg-base-100 shadow-xl mt-2">
-                                        <div className="card-body border rounded-b-xl">
-                                            <p>Post office: {user.post_office}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="grid grid-cols-2 gap-2 mb-2">
-                                    <div className="card card-compact w-full bg-base-100 shadow-xl mt-2">
-                                        <div className="card-body border rounded-b-xl">
-                                            <p>House holding: {user.house_holding}</p>
-                                        </div>
-                                    </div>
-                                    <div className="card card-compact w-full bg-base-100 shadow-xl mt-2">
-                                        <div className="card-body border rounded-b-xl">
-                                            <p>Voter area: {user.voter_area}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="grid grid-cols-2 gap-2 mb-2">
-                                    <div className="card card-compact w-full bg-base-100 shadow-xl mt-2">
-                                        <div className="card-body border rounded-b-xl">
-                                            <p>village road: {user.village_road}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </p>)
-                        }
+                                            <p>Passport Number: {info.identification_data[0].passport_number}</p>
 
-                    </div>
-                </TabPanel>
-            </Tabs>
-        </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="grid grid-cols-2 gap-2 mb-2">
+                                    <div className="card card-compact w-full bg-base-100 shadow-xl mt-2">
+                                        <div className="card-body border rounded-b-xl">
+                                            <p>Tin: {info.identification_data[0].tin}</p>
+
+                                        </div>
+                                    </div>
+                                    <div className="card card-compact w-full bg-base-100 shadow-xl mt-2">
+                                        <div className="card-body border rounded-b-xl">
+                                            <p>Mobile number: {info.identification_data[0].mobile_number}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="grid grid-cols-2 gap-2 mb-2">
+                                    <div className="card card-compact w-full bg-base-100 shadow-xl mt-2">
+                                        <div className="card-body border rounded-b-xl">
+                                            <p>Identification mark: {info.identification_data[0].mobile_number}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                               
+                            </>
+                        )
+                    }
+
+                </div>
+            </TabPanel>
+            <TabPanel>
+                <h2 className='text-3xl font-bold mt-5 text-center'>Edited Address Information</h2>
+                <div className='w-full mx-auto'>
+                    {
+                        info?.address_data && (
+                            <>
+                                <div className="grid grid-cols-2 gap-2 mb-2">
+                                    <div className="card card-compact w-full bg-base-100 shadow-xl mt-2">
+                                        <div className="card-body border rounded-b-xl">
+                                            <p>Division: {info.address_data[0].division}</p>
+                                        </div>
+                                    </div>
+                                    <div className="card card-compact w-full bg-base-100 shadow-xl mt-2">
+                                        <div className="card-body border rounded-b-xl">
+                                            <p>District:  {info.address_data[0].district}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="grid grid-cols-2 gap-2 mb-2">
+                                    <div className="card card-compact w-full bg-base-100 shadow-xl mt-2">
+                                        <div className="card-body border rounded-b-xl">
+                                            <p>Upozila:  {info.address_data[0].upozila}</p>
+                                        </div>
+                                    </div>
+                                    <div className="card card-compact w-full bg-base-100 shadow-xl mt-2">
+                                        <div className="card-body border rounded-b-xl">
+                                            <p>Police station:  {info.address_data[0].police_station}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="grid grid-cols-2 gap-2 mb-2">
+                                    <div className="card card-compact w-full bg-base-100 shadow-xl mt-2">
+                                        <div className="card-body border rounded-b-xl">
+                                            <p>Post code:  {info.address_data[0].post_code}</p>
+                                        </div>
+                                    </div>
+                                    <div className="card card-compact w-full bg-base-100 shadow-xl mt-2">
+                                        <div className="card-body border rounded-b-xl">
+                                            <p>Post office:  {info.address_data[0].post_office_bn}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="grid grid-cols-2 gap-2 mb-2">
+                                    <div className="card card-compact w-full bg-base-100 shadow-xl mt-2">
+                                        <div className="card-body border rounded-b-xl">
+                                            <p>House holding: {info.address_data[0].house_holding_bn}</p>
+                                        </div>
+                                    </div>
+                                    <div className="card card-compact w-full bg-base-100 shadow-xl mt-2">
+                                        <div className="card-body border rounded-b-xl">
+                                            <p>Voter area:  {info.address_data[0].voter_area}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="grid grid-cols-2 gap-2 mb-2">
+                                    <div className="card card-compact w-full bg-base-100 shadow-xl mt-2">
+                                        <div className="card-body border rounded-b-xl">
+                                            <p>Village road: {info.address_data[0].village_road_bn}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </>
+                        )
+                    }
+
+                </div>
+            </TabPanel>
+        </Tabs>
+    </div>
     );
 };
 
