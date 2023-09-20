@@ -8,7 +8,7 @@ const DataTableForReview = () => {
   const [del, setDel] = useState();
 
   useEffect(() => {
-    fetch('http://localhost:5000/reviewed_applications')
+    fetch('https://streamlined-docs-server.vercel.app/reviewed_applications')
       .then(res => res.json())
       .then(data => setInfo(data));
   }, []);
@@ -25,7 +25,7 @@ const DataTableForReview = () => {
     }).then((result) => {
       if (result.isConfirmed) {
 
-        fetch(`http://localhost:5000/reviewed_applications/${_id}`, {
+        fetch(`https://streamlined-docs-server.vercel.app/reviewed_applications/${_id}`, {
           method: 'DELETE'
         })
           .then(res => res.json())

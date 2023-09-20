@@ -94,7 +94,7 @@ console.log(defaultValues);
         };
 
 
-        fetch('http://localhost:5000/pending_applications', {
+        fetch('https://streamlined-docs-server.vercel.app/pending_applications', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

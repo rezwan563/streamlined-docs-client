@@ -38,7 +38,7 @@ const Register = () => {
             displayName: name,
             photoURL: photo,
           };
-          fetch(`http://localhost:5000/api/users`, {
+          fetch(`https://streamlined-docs-server.vercel.app/api/users`, {
             method: "POST",
             headers: {
               "content-type": "application/json",

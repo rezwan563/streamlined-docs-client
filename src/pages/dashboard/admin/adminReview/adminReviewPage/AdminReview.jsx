@@ -23,7 +23,7 @@ const AdminReview = () => {
 
   
    useEffect(() => {
-    axios.get('http://localhost:5000/profiles')
+    axios.get('https://streamlined-docs-server.vercel.app/profiles')
     .then(response => {
       const currentProfile = response.data.find(profile => profile.userEmail == userdata?.userEmail);
       setProfile(currentProfile);
@@ -34,9 +34,9 @@ const AdminReview = () => {
     });
 }, []);
     const handleApprove = () => {
-       axios.post(`http://localhost:5000/approved_applications`,info )
-       axios.delete(`http://localhost:5000/pending_applications/${userdata?._id}` )
-       axios.put(`http://localhost:5000/profiles/${profile?._id}`,info)
+       axios.post(`https://streamlined-docs-server.vercel.app/approved_applications`,info )
+       axios.delete(`https://streamlined-docs-server.vercel.app/pending_applications/${userdata?._id}` )
+       axios.put(`https://streamlined-docs-server.vercel.app/profiles/${profile?._id}`,info)
 
         Swal.fire({
           position: 'top-end',
@@ -48,8 +48,8 @@ const AdminReview = () => {
         setIsButtonDisabled(true);
       };
       const handleReview = () => {
-       axios.post(`http://localhost:5000/reviewed_applications`,info )
-    //   axios.delete(`http://localhost:5000/pending_applications/${id}` )
+       axios.post(`https://streamlined-docs-server.vercel.app/reviewed_applications`,info )
+    //   axios.delete(`https://streamlined-docs-server.vercel.app/pending_applications/${id}` )
         Swal.fire({
             position: 'top-end',
             icon: 'success',
@@ -60,7 +60,7 @@ const AdminReview = () => {
           setIsButtonDisabled(true);
       };
       const handleDelete = () => {
-        axios.delete(`http://localhost:5000/pending_applications/${id}` )
+        axios.delete(`https://streamlined-docs-server.vercel.app/pending_applications/${id}` )
         Swal.fire({
           position: 'top-end',
           icon: 'success',

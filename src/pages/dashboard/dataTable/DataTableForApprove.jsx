@@ -8,7 +8,7 @@ const DataTableForApprove = () => {
   const [del, setDel] = useState();
 
   useEffect(() => {
-    fetch('http://localhost:5000/approved_applications')
+    fetch('https://streamlined-docs-server.vercel.app/approved_applications')
       .then(res => res.json())
       .then(data => setInfo(data));
   }, []);
@@ -25,7 +25,7 @@ const DataTableForApprove = () => {
     }).then((result) => {
       if (result.isConfirmed) {
 
-        fetch(`http://localhost:5000/approved_applications/${_id}`, {
+        fetch(`https://streamlined-docs-server.vercel.app/approved_applications/${_id}`, {
           method: 'DELETE'
         })
           .then(res => res.json())

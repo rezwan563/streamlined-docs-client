@@ -12,19 +12,19 @@ const AdminHome = () => {
     const [reviewed, setReviewed] = useState([]);
     const [approved, setApproved] = useState([]);
    useEffect(() => {
-    fetch('http://localhost:5000/approved_applications')
+    fetch('https://streamlined-docs-server.vercel.app/approved_applications')
     .then(res => res.json())
     .then(data => setApproved(data));
    }, []);
 
    useEffect(() => {
-    fetch('http://localhost:5000/reviewed_applications')
+    fetch('https://streamlined-docs-server.vercel.app/reviewed_applications')
     .then(res => res.json())
     .then(data => setReviewed(data));
    }, []);
 
     useEffect(() => {
-        fetch('http://localhost:5000/pending_applications')
+        fetch('https://streamlined-docs-server.vercel.app/pending_applications')
             .then(res => res.json())
             .then(data => setInfo(data));
     }, []);

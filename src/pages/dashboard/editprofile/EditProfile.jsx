@@ -57,7 +57,7 @@ const EditProfile = () => {
       };
   
     
-    fetch('http://localhost:5000/profiles', {
+    fetch('https://streamlined-docs-server.vercel.app/profiles', {
       method: 'POST',
       headers: {
         'content-type': 'application/json'

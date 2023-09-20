@@ -13,7 +13,7 @@ const UsersCurrentInfo = () => {
 
   
    useEffect(() => {
-    axios.get('http://localhost:5000/profiles')
+    axios.get('https://streamlined-docs-server.vercel.app/profiles')
     .then(response => {
       const currentProfile = response.data.find(profile => profile.userEmail == userdata?.userEmail);
       setInfo(currentProfile);
