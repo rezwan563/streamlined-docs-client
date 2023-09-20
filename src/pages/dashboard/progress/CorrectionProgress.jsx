@@ -9,20 +9,20 @@ const CorrectionProgress = () => {
     //const { user } = useContext(AuthContext);
     const [Pending] = usePending();
     const [Approve] = useApproved();
-    const [Review] = useReview();    //console.log(Pending);
+    const [Review] = useReview();  
+ //console.log(Pending);
     useEffect(() => {
         // Check if the user's email is in any of the JSON files
         if (Pending) {
             setProgress('Applied');
         }
-        else if (Review) {
+        if (Review) {
           setProgress('Reviewed');
         } 
-        else if (Approve) {
+        if (Approve) {
             setProgress('Approved');
-        } else {
-            setProgress('Not Applied');
-        }
+        } 
+     
     }, []);
 
 
@@ -50,15 +50,17 @@ const ProgressBar = ({ progress }) => {
         case 'Approved':
             progressBarWidth = '100%';
             break;
-        default:
-            progressBarWidth = '0%';
+        default :
+            progressBarWidth = '100%';
     }
 
     return (
         <>
                <h1 className="text-center text-4xl font-bold mb-10">Check Your NID Correction Progress</h1>
             <div className="mb-6 h-8 w-full border shadow-md bg-white dark:bg-neutral-600">
-                <div className="px-2 py-1  shadow-md text-white font-bold bg-green-500"  style={{ width: progressBarWidth }}>{progress} </div>
+              { progress ==='Not Applied'? (  <div className="px-2 py-1  shadow-md font-bold bg-white"  style={{ width: progressBarWidth }}>{progress} </div>)
+             : (  <div className="px-2 py-1  shadow-md text-white font-bold bg-green-500"  style={{ width: progressBarWidth }}>{progress} </div>)
+    }
             </div>
             <div className="flex justify-between items-center ">
                  <p className="font-bold ">Applied </p>
