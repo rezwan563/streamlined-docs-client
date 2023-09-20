@@ -5,7 +5,6 @@ import Auth from "../pages/Auth/Auth";
 import AdminHome from "../pages/dashboard/admin/adminHomePage/adminHomePage/AdminHome";
 import DataTable from "../pages/dashboard/dataTable/DataTable";
 import Chatbox from "../pages/dashboard/chat/Chatbox";
-// import MyDetails from "../pages/dashboard/mydetails/MyDetails";
 import DocumentProgress from "../pages/dashboard/progress/DocumentProgress";
 import Settings from "../pages/dashboard/settings/Settings";
 import Header from "../shared/header/header/Header";
@@ -16,8 +15,9 @@ import EditProfile from "../pages/dashboard/editprofile/EditProfile";
 import UsersHome from "../pages/dashboard/UserHome.jsx/UserHome";
 import AboutUs from "../pages/aboutus/AboutUs";
 import FAQ from "../pages/faq/FAQ";
-// import PrivateRoute from "./PrivateRoute";
 import SeeDetails from "../pages/dashboard/UserHome.jsx/SeeDetails";
+import UsersEditeRoute from "../pages/dashboard/UserHome.jsx/UsersEditeRoute";
+import CorrectionProgress from "../pages/dashboard/progress/CorrectionProgress";
 
 
 const router = createBrowserRouter([
@@ -52,7 +52,7 @@ const router = createBrowserRouter([
     element: <DashboardLayout />,
     children: [
       {
-        path: "/dashboard",
+        path: "/dashboard/admin",
         element: <AdminHome />,
       },
       {
@@ -72,7 +72,7 @@ const router = createBrowserRouter([
         element: <DataTable />,
       },
       {
-        path: "/dashboard/rejected_application",
+        path: "/dashboard/reviewed_application",
         element: <DataTable />,
       },
       {
@@ -84,20 +84,25 @@ const router = createBrowserRouter([
         element: <UploadDocument />,
       },
       {
-        path: "/dashboard/progress",
-        element: <DocumentProgress />,
-      },
-      {
         path: "/dashboard/settings",
         element: <Settings />,
       },
       {
-        path: "/dashboard/admin_review",
+        path: "/dashboard/admin_review/:id",
         element: <AdminReview />,
+        loader: ({ params }) => fetch(`http://localhost:5000/pending_applications/${params.id}`)
       },
       {
         path: "/dashboard/seedetails",
         element:<SeeDetails></SeeDetails>
+      },
+      {
+        path: "/dashboard/progress_check",
+        element:<CorrectionProgress></CorrectionProgress>
+      }, 
+      {
+        path: "/dashboard/users_edit_profile",
+        element:<UsersEditeRoute></UsersEditeRoute>
       }
     ],
   },

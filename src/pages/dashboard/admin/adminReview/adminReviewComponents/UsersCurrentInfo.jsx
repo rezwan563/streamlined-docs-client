@@ -1,15 +1,28 @@
-import { useEffect, useState } from "react";
+import { useLoaderData } from "react-router-dom";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
+import usePending from "../../../../../hooks/usePending";
+import useProfile from "../../../../../hooks/useProfile";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 
-const UsersInfo = () => {
-    const [info, setInfo] = useState([null]);
-    
-    useEffect(() => {
-        fetch('https://streamlined-docs-server.vercel.app/api/profiles/muhammadraselbinsiddik@gmail.com')
-            .then(res => res.json())
-            .then(data => setInfo(data));
-    },[])
+const UsersCurrentInfo = () => {
+    const userdata = useLoaderData();
+
+    const [info, setInfo] = useState([true]);
+
+  
+   useEffect(() => {
+    axios.get('http://localhost:5000/profiles')
+    .then(response => {
+      const currentProfile = response.data.find(profile => profile.userEmail === userdata?.userEmail);
+      setInfo(currentProfile);
+    })
+    .catch(error => {
+      console.error('Error fetching profiles:', error);
+    });
+}, []);
+   
     return (
         <div data-testid="child" className="card card-compact w-full bg-base-100 shadow-xl mt-4">
             <Tabs>
@@ -22,6 +35,7 @@ const UsersInfo = () => {
                 <TabPanel>
                     <h2 className='text-3xl font-bold mt-5 text-center'>Current Personal Information</h2>
                     <div className='w-full mx-auto'>
+                    
                         {
                             info?.personal_data &&(
                                 <>
@@ -217,5 +231,5 @@ const UsersInfo = () => {
     );
 };
 
-export default UsersInfo;
+export default UsersCurrentInfo;
 

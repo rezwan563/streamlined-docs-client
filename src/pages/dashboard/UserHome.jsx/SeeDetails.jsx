@@ -1,19 +1,16 @@
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import { useEffect, useState } from "react";
-import { useContext } from "react";
-import { AuthContext } from "../../../providers/AuthProvider";
+import useProfile from "../../../hooks/useProfile";
 
 
 const SeeDetails = () => {
     const [info, setInfo] = useState([null]);
-    const {user} = useContext(AuthContext)
-    const url = `http://localhost:5000/api/profiles/${user?.email}`
-
-    useEffect(() => {
-        fetch(url)
-            .then(res => res.json())
-            .then(data => setInfo(data));
-    }, [url])
+    
+const [Profile] = useProfile();
+useEffect(() => {
+    setInfo(Profile);
+}, [Profile]);
+   
     return (
         <div data-testid="child" className="card card-compact w-full bg-base-100 shadow-xl mt-4">
             <Tabs>
@@ -138,7 +135,7 @@ const SeeDetails = () => {
                                     <div className="grid grid-cols-2 gap-2 mb-2">
                                         <div className="card card-compact w-full bg-base-100 shadow-xl mt-2">
                                             <div className="card-body border rounded-b-xl">
-                                                <p>Identification mark: {info.identification_data[0].mobile_number}</p>
+                                                <p>Identification mark: {info.identification_data[0].identification_mark_bn}</p>
                                             </div>
                                         </div>
                                     </div>

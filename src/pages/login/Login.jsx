@@ -1,18 +1,17 @@
 import { useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
-// import Swal from "sweetalert2";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import GoogleLogin from "../../shared/googlelogin/GoogleLogin";
-import useAdmin from "../../hooks/useAdmin";
+import Swal from "sweetalert2";
 
 const Login = () => {
   const [show, setShow] = useState(true);
   const [error, setError] = useState("");
   const { signIn } = useContext(AuthContext);
   const navigate = useNavigate();
-  const [isAdmin] = useAdmin()
-  const from = isAdmin ? "/dashboard" : "/dashboard/user";
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -24,14 +23,14 @@ const Login = () => {
 
     signIn(email, password)
       .then((result) => {
-        console.log(result.user);
-        // Swal.fire({
-        //   title: "Success!",
-        //   text: "You have successfully Login",
-        //   icon: "success",
-        //   confirmButtonText: "Ok",
-        // });
-        navigate(from);
+      
+        Swal.fire({
+          title: "Success!",
+          text: "You have successfully Login",
+          icon: "success",
+          confirmButtonText: "Ok",
+        });
+        navigate((from));
       })
       .catch((error) => {
         setError(error.message);

@@ -1,7 +1,4 @@
-import { BsQuestionCircle } from "react-icons/bs";
-import { FiMessageSquare } from "react-icons/fi";
-import { IoMdNotificationsOutline } from "react-icons/io";
-import { Link } from "react-router-dom";
+
 
 const DesktopNavbar = () => {
   return (

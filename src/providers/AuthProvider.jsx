@@ -53,6 +53,7 @@ const AuthProvider = ({ children }) => {
     return updateProfile(auth.currentUser, {
       displayName: fullName,
       photoURL: photo,
+      isAdmin:"false"
     });
   };
 

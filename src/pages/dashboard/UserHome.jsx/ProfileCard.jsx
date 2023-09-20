@@ -1,27 +1,26 @@
 
 import { animated, useSpring } from "react-spring";
-import { FaDownload, FaCheckCircle, FaTimesCircle } from "react-icons/fa";
+import { FaDownload } from "react-icons/fa";
 import { CgProfile } from "react-icons/cg";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
 import { useContext, useState, useEffect } from "react";
+import useProfile from "../../../hooks/useProfile";
 
 
 function ApplicationStatusWidget() {
   const { user } = useContext(AuthContext);
   const [profile, setProfile] = useState([true]);
 
-  const url = `http://localhost:5000/api/profiles/${user?.email}`
-
+  const [Profile] = useProfile();
+ 
   useEffect(() => {
-    fetch(url)
-      .then(res => res.json())
-      .then(data => setProfile(data));
-  }, [url]);
+    setProfile(Profile);
+  }, [Profile]);
+  
 
-
-  const appliedCount = 12;
-  const rejectedCount = 4;
+  // const appliedCount = 12;
+  // const rejectedCount = 4;
   const buttonProps = useSpring({
     from: { opacity: 0, transform: "translateY(20px)" },
     to: { opacity: 1, transform: "translateY(0)" },
@@ -33,7 +32,7 @@ function ApplicationStatusWidget() {
     to: { opacity: 1, transform: "translateY(0)" },
     config: { duration: 800 },
   });
-
+console.log(user)
   return (
     <div className="max-w-2xl mx-auto">
       <div className="bg-white p-6 rounded-lg shadow-md flex items-center">
@@ -47,7 +46,7 @@ function ApplicationStatusWidget() {
             className="text-xl font-semibold mb-1"
             style={welcomeProps}
           >
-            Welcome, {user?.displayName}!
+            Welcome, {user?.displayName} !
           </animated.h3>
           <animated.p className="text-gray-500 mb-2" style={welcomeProps}>
             We are glad to have you here!
@@ -80,7 +79,7 @@ function ApplicationStatusWidget() {
         </div>
       </div>
       <div className="mt-4 space-y-4">
-        <div className="flex space-x-4">
+        {/* <div className="flex space-x-4">
           <animated.button
             style={buttonProps}
             className="bg-blue-300 px-8 py-4 rounded-lg flex items-center justify-between w-1/2"
@@ -101,7 +100,7 @@ function ApplicationStatusWidget() {
               <span className="text-sm">Total: {rejectedCount}</span>
             </div>
           </animated.button>
-        </div>
+        </div> */}
         <animated.button
           style={buttonProps}
           className="bg-green-300 px-8 py-4 rounded-lg flex items-center justify-between w-full"
