@@ -101,7 +101,7 @@ console.log(user)
             </div>
           </animated.button>
         </div> */}
-        <animated.button
+        {/* <animated.button
           style={buttonProps}
           className="bg-green-300 px-8 py-4 rounded-lg flex items-center justify-between w-full"
         >
@@ -109,7 +109,7 @@ console.log(user)
             <FaDownload className="text-2xl" />
             <span className="text-2xl font-semibold block">Download</span>
           </div>
-        </animated.button>
+        </animated.button> */}
       </div>
       {/* ... Rest of your component */}
     </div>
