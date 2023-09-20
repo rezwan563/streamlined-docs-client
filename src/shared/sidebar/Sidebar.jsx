@@ -55,20 +55,17 @@ const photoURL = User?.photoURL;
           </Link> */}
           {user && isAdmin &&(
             <>
-              <Link to="/" className="block mb-4">
-                Homepage
-              </Link>
               <Link to="/dashboard/admin" className="block mb-4">
                 Dashboard
               </Link>
               <Link to="/dashboard/pending_application" className="block mb-4">
-                Pending Application
+                Pending Correction Applications
               </Link>
               <Link to="/dashboard/approved_application" className="block mb-4">
-                Approved Application
+                Approved Correction Applications
               </Link>
               <Link to="/dashboard/rejected_application" className="block mb-4">
-                Rejected Application
+                Rejected Correction Applications
               </Link>
             </>
           )} 
