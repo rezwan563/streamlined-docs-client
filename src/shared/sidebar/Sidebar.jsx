@@ -85,7 +85,7 @@ const photoURL = User?.photoURL;
                 Edit NID Profile
               </Link>
               <Link to="/dashboard/progress_check" className="block mb-4">
-               NID Correction Progress Check
+               Check NID Correction Progress 
               </Link>
             </>
           )}
