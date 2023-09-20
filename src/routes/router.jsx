@@ -17,6 +17,7 @@ import AboutUs from "../pages/aboutus/AboutUs";
 import FAQ from "../pages/faq/FAQ";
 import SeeDetails from "../pages/dashboard/UserHome.jsx/SeeDetails";
 import UsersEditeRoute from "../pages/dashboard/UserHome.jsx/UsersEditeRoute";
+import CorrectionProgress from "../pages/dashboard/progress/CorrectionProgress";
 
 
 const router = createBrowserRouter([
@@ -83,10 +84,6 @@ const router = createBrowserRouter([
         element: <UploadDocument />,
       },
       {
-        path: "/dashboard/progress",
-        element: <DocumentProgress />,
-      },
-      {
         path: "/dashboard/settings",
         element: <Settings />,
       },
@@ -101,7 +98,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/dashboard/progress_check",
-        element:<DocumentProgress></DocumentProgress>
+        element:<CorrectionProgress></CorrectionProgress>
       }, 
       {
         path: "/dashboard/users_edit_profile",
